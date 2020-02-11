@@ -8,7 +8,18 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
+
+" fuzzy search
 Plug 'nannery/neovim-fuzzy'
+
+" prettier integration
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+" vim-surround
+Plug 'tpope/vim-surround'
+
+" colorscheme
+Plug 'ajmwagar/vim-deus'
 
 call plug#end()
 
@@ -33,7 +44,18 @@ nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
 			
 " fuzzy open plugin
 nnoremap <leader>pp :FuzzyOpen<CR>
+nnoremap <leader>pg :FuzzyGrep<CR>
 
 " newrt settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
+
+" prettier setup
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
+nnoremap <leader>ff :PrettierAsync<CR>
+
+" colors
+colorscheme deus
+
+let g:deoplete#enable_at_startup=1
