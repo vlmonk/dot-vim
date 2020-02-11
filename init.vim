@@ -8,7 +8,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
-Plug 'cloudhead/neovim-fuzzy'
+Plug 'nannery/neovim-fuzzy'
 
 call plug#end()
 
