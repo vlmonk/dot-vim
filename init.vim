@@ -1,19 +1,20 @@
 call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
-Plug 'Chiel92/vim-autoformat'
+" Plug 'Chiel92/vim-autoformat'
 Plug 'tpope/vim-commentary'
 Plug 'leafgarland/typescript-vim'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
+Plug 'w0rp/ale'
 
 " fuzzy search
 Plug 'nannery/neovim-fuzzy'
 
 " prettier integration
-Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+" Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 
 " vim-surround
 Plug 'tpope/vim-surround'
@@ -51,11 +52,26 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " prettier setup
-let g:prettier#autoformat = 1
-let g:prettier#autoformat_require_pragma = 0
-nnoremap <leader>ff :PrettierAsync<CR>
+" let g:prettier#autoformat = 1
+" let g:prettier#autoformat_require_pragma = 0
+" nnoremap <leader>ff :PrettierAsync<CR>
 
 " colors
 colorscheme deus
 
 let g:deoplete#enable_at_startup=1
+
+
+let g:ale_fixers = { 
+\ 'javascript': ['eslint', 'prettier'],
+\ 'typescriptreact': ['eslint', 'prettier']
+\ }
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescriptreact': ['eslint'],
+\}
+
+let g:ale_sign_error = 'x'
+let g:ale_sign_warning = '!'
+let g:ale_fix_on_save = 0
