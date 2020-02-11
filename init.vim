@@ -33,3 +33,7 @@ nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
 			
 " fuzzy open plugin
 nnoremap <leader>pp :FuzzyOpen<CR>
+
+" newrt settings
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
