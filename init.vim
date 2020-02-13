@@ -19,6 +19,8 @@ set signcolumn=yes
 set tabstop=2
 set shiftwidth=2
 set expandtab
+set ignorecase
+set smartcase
 
 " enable deoplete
 let g:deoplete#enable_at_startup=1
