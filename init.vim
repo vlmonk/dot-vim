@@ -9,6 +9,8 @@ Plug 'w0rp/ale'
 Plug 'nannery/neovim-fuzzy'
 Plug 'tpope/vim-surround'
 Plug 'ajmwagar/vim-deus'
+Plug 'tpope/vim-fugitive'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
@@ -39,18 +41,22 @@ nnoremap <leader>pp :FuzzyOpen<CR>
 nnoremap <leader>pg :FuzzyGrep<CR>
 
 " ALE keybindings
-nnoremap <leader>ii :ALEHover<CR>
-nnoremap <leader>id :ALEGoToDefinition<CR>
+nmap <leader>ii :ALEHover<CR>
+nmap <leader>id :ALEGoToDefinition<CR>
+nmap <leader>ip <Plug>(ale_detail)
+imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " goto next error
-nnoremap <leader>ee :lnext<CR>
+nmap <leader>ek <Plug>(ale_previous_wrap)
+nmap <silent><leader>ej <Plug>(ale_next_wrap)
+
 
 " newrt settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " colors
-colorscheme deus
+colorscheme solarized8
 
 " ALE settings
 let g:ale_fixers = { 
@@ -65,6 +71,13 @@ let g:ale_linters = {
 \   'typescriptreact': ['eslint', 'tsserver'],
 \}
 
-let g:ale_sign_error = '⁉'
-let g:ale_sign_warning = 'ѻ'
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '??'
 let g:ale_fix_on_save = 1
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+
+" fold config
+set foldcolumn=1
+set foldmethod=syntax
+set foldlevel=3
