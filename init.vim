@@ -71,6 +71,7 @@ let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
 \   'typescriptreact': ['eslint', 'tsserver'],
+\   'c': [],
 \}
 
 let g:ale_sign_error = '>>'
