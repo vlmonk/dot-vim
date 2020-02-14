@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'ajmwagar/vim-deus'
 Plug 'tpope/vim-fugitive'
 Plug 'lifepillar/vim-solarized8'
+Plug 'airblade/vim-gitgutter'
 
 call plug#end()
 
