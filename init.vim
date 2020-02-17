@@ -11,8 +11,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
-Plug 'sainnhe/edge'
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'sainnhe/edge'
 
 call plug#end()
 
@@ -36,6 +37,9 @@ let g:formatters_rust = ['rustfmt']
 " keybindings
 let mapleader = "\<Space>"
 inoremap jj <Esc>
+
+" exit terminal mode by ESC
+tnoremap <Esc> <C-\><C-n>
 
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
@@ -70,8 +74,10 @@ let g:netrw_liststyle = 3
 set background=dark
 let g:edge_style = 'neon'
 let g:edge_disable_italic_comment = 1
-let g:airline_theme = 'edge'
 colorscheme edge
+
+" airline theme
+let g:airline_theme = 'bubblegum'
 
 " ALE settings
 let g:ale_fixers = { 
