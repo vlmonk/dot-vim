@@ -9,9 +9,9 @@ Plug 'w0rp/ale'
 Plug 'nannery/neovim-fuzzy'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'lifepillar/vim-solarized8'
 Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
+Plug 'sainnhe/edge'
 
 call plug#end()
 
@@ -22,6 +22,7 @@ set shiftwidth=2
 set expandtab
 set ignorecase
 set smartcase
+set termguicolors
 
 " enable deoplete
 let g:deoplete#enable_at_startup=1
@@ -65,7 +66,10 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " colors
-colorscheme solarized8
+set background=dark
+let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 1
+colorscheme edge
 
 " ALE settings
 let g:ale_fixers = { 
@@ -88,7 +92,7 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 
 " fold config
-set foldcolumn=1
+set foldcolumn=0
 set foldmethod=syntax
 set foldlevel=3
 
