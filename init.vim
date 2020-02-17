@@ -11,6 +11,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'lifepillar/vim-solarized8'
 Plug 'airblade/vim-gitgutter'
+Plug 'takac/vim-hardtime'
 
 call plug#end()
 
@@ -84,3 +85,6 @@ let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 set foldcolumn=1
 set foldmethod=syntax
 set foldlevel=3
+
+" hardtime config
+let g:hardtime_default_on = 1
