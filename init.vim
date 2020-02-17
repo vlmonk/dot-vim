@@ -38,6 +38,9 @@ inoremap jj <Esc>
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
 nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
+
+" Install plugins
+nnoremap <leader>ci :PlugInstall<CR>
 			
 " fuzzy open plugin
 nnoremap <leader>pp :FuzzyOpen<CR>
@@ -52,6 +55,9 @@ imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 " goto next error
 nmap <leader>ek <Plug>(ale_previous_wrap)
 nmap <silent><leader>ej <Plug>(ale_next_wrap)
+
+" clear search hightlight
+nmap <silent><Leader>m :noh<CR>
 
 
 " newrt settings
