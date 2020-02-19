@@ -83,13 +83,17 @@ let g:airline_theme = 'bubblegum'
 let g:ale_fixers = { 
 \ 'javascript': ['prettier'],
 \ 'typescript': ['prettier'],
-\ 'typescriptreact': ['prettier']
+\ 'typescriptreact': ['prettier'],
+\ 'scss': ['prettier'],
+\ 'svg': ['xmllint'],
+\ 'xml': ['xmllint']
 \ }
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['eslint', 'tsserver'],
 \   'typescriptreact': ['eslint', 'tsserver'],
+\   'scss': [],
 \   'c': [],
 \}
 
