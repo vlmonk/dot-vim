@@ -25,7 +25,7 @@ set expandtab
 set ignorecase
 set smartcase
 set termguicolors
-
+set scrolloff=5
 " enable deoplete
 let g:deoplete#enable_at_startup=1
 
@@ -64,6 +64,9 @@ nmap <silent><leader>ej <Plug>(ale_next_wrap)
 
 " clear search hightlight
 nmap <silent><Leader>m :noh<CR>
+
+" open git status
+nmap <silent><Leader>gs :Gstatus<CR>
 
 
 " newrt settings
