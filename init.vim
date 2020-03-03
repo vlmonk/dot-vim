@@ -90,7 +90,8 @@ let g:ale_fixers = {
 \ 'typescriptreact': ['prettier'],
 \ 'scss': ['prettier'],
 \ 'svg': ['xmllint'],
-\ 'xml': ['xmllint']
+\ 'xml': ['xmllint'],
+\ 'html': ['prettier']
 \ }
 
 let g:ale_linters = {
