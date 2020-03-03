@@ -115,3 +115,10 @@ set foldlevel=3
 
 " hardtime config
 let g:hardtime_default_on = 1
+
+" git guitter
+let g:gitgutter_sign_added = '●'
+let g:gitgutter_sign_modified = '●'
+let g:gitgutter_sign_removed = '●'
+let g:gitgutter_sign_removed_first_line = '●'
+let g:gitgutter_sign_modified_removed = '●'
