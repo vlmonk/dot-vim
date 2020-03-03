@@ -107,12 +107,6 @@ let g:ale_sign_warning = '??'
 let g:ale_fix_on_save = 1
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
-
-" fold config
-set foldcolumn=0
-set foldmethod=syntax
-set foldlevel=3
-
 " hardtime config
 let g:hardtime_default_on = 1
 
