@@ -59,8 +59,8 @@ nmap <leader>ip <Plug>(ale_detail)
 imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " goto next error
-nmap <leader>ek <Plug>(ale_previous_wrap)
-nmap <silent><leader>ej <Plug>(ale_next_wrap)
+nmap <silent><leader>ek <Plug>(ale_previous_error)
+nmap <silent><leader>ej <Plug>(ale_next_error)
 
 " clear search hightlight
 nmap <silent><Leader>m :noh<CR>
