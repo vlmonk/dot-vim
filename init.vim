@@ -68,6 +68,7 @@ nmap <silent><Leader>m :noh<CR>
 " open git status
 nmap <silent><Leader>gs :Gstatus<CR>
 
+nmap gl $%
 
 " newrt settings
 let g:netrw_banner = 0
