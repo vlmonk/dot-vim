@@ -127,3 +127,6 @@ let g:gitgutter_sign_modified_removed = '●'
 hi GitGutterAdd guibg=transparent
 hi GitGutterChange guibg=transparent
 hi GitGutterDelete guibg=transparent
+
+" write to swap file often (and get gitguitter updates faster)
+set updatetime=100
