@@ -122,3 +122,8 @@ let g:gitgutter_sign_modified = '●'
 let g:gitgutter_sign_removed = '●'
 let g:gitgutter_sign_removed_first_line = '●'
 let g:gitgutter_sign_modified_removed = '●'
+
+" remove background from git guitter signs
+hi GitGutterAdd guibg=transparent
+hi GitGutterChange guibg=transparent
+hi GitGutterDelete guibg=transparent
