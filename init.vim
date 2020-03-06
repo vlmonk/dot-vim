@@ -92,7 +92,8 @@ let g:ale_fixers = {
 \ 'scss': ['prettier'],
 \ 'svg': ['xmllint'],
 \ 'xml': ['xmllint'],
-\ 'html': ['prettier']
+\ 'html': ['prettier'],
+\ 'eruby': ['prettier']
 \ }
 
 let g:ale_linters = {
@@ -101,6 +102,7 @@ let g:ale_linters = {
 \   'typescriptreact': ['eslint', 'tsserver'],
 \   'scss': [],
 \   'c': [],
+\   'eruby': []
 \}
 
 let g:ale_sign_error = '>>'
@@ -125,3 +127,6 @@ hi GitGutterDelete guibg=transparent
 
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
+
+" prettier for .html.erb files
+autocmd FileType eruby let b:ale_javascript_prettier_options="--parser html"
