@@ -69,6 +69,7 @@ nmap <silent><Leader>m :noh<CR>
 nmap <silent><Leader>gs :Gstatus<CR>
 
 nmap gl $%
+vmap gl $%
 
 " newrt settings
 let g:netrw_banner = 0
