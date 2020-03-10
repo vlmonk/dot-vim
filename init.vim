@@ -47,6 +47,7 @@ nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
 
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
+nnoremap <leader>cu :PlugUpdate<CR>
 			
 " fuzzy open plugin
 nnoremap <leader>pp :FuzzyOpen<CR>
