@@ -3,7 +3,7 @@ call plug#begin(stdpath('data') . '/plugged')
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
 Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'Shougo/deoplete.nvim', { 'commit': '6e01000280edc9c9c56ef7b1d59977fc93e3bf4c' }
+Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
 Plug 'w0rp/ale'
 Plug 'nannery/neovim-fuzzy'
