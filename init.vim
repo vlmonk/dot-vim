@@ -64,7 +64,7 @@ nmap <silent><leader>ek <Plug>(ale_previous_error)
 nmap <silent><leader>ej <Plug>(ale_next_error)
 
 " clear search hightlight
-nmap <silent><Leader>m :noh<CR>
+nmap <silent><Leader>n :noh<CR>
 
 " open git status
 nmap <silent><Leader>gs :Gstatus<CR>
