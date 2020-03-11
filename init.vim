@@ -56,6 +56,10 @@ nmap <leader>id :ALEGoToDefinition<CR>
 nmap <leader>ip <Plug>(ale_detail)
 imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
+" Language client
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+
 " goto next error
 nmap <silent><leader>ek <Plug>(ale_previous_error)
 nmap <silent><leader>ej <Plug>(ale_next_error)
