@@ -1,4 +1,4 @@
-### setup insruction
+### setup instruction
 
 install deps:
 
