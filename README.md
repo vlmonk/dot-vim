@@ -22,5 +22,5 @@ pip3 install --user pynvim
 
 link config:
 ```
-mkdir -p ~/.config/nvim/ && ln -sf $(pwd)/init.vim ~/.config/nvim/init.vim
+make install
 ```
