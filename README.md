@@ -5,7 +5,6 @@ install deps:
 ```
 brew install nvim
 brew install the_silver_searcher
-brew install fzy
 ```
 
 install vim-plug:
