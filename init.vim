@@ -103,7 +103,7 @@ let g:ale_linters = {
 \   'typescriptreact': ['eslint', 'tsserver'],
 \   'scss': [],
 \   'c': [],
-\   'eruby': []
+\   'eruby': ['htmlhint']
 \}
 
 let g:ale_sign_error = '>>'
