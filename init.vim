@@ -140,6 +140,6 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nmap <LEADER>pp :Denite -start-filter file/rec<CR>
-nmap <LEADER>pb :Denite buffer<CR>
-nnoremap pg :Denite grep<CR>
+nmap <leader>pp :Denite -start-filter file/rec<CR>
+nmap <leader>pb :Denite buffer<CR>
+nmap <leader>pg :Denite grep<CR>
