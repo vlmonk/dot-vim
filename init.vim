@@ -26,8 +26,10 @@ set ignorecase
 set smartcase
 set termguicolors
 set scrolloff=5
-" enable deoplete
-let g:deoplete#enable_at_startup=1
+
+" config deoplete
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('auto_complete', 'False')
 
 " rust config
 let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
