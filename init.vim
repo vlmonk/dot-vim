@@ -50,7 +50,7 @@ nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
 nnoremap <leader>cu :PlugUpdate<CR>
-			
+
 " ALE keybindings
 nmap <leader>ii :ALEHover<CR>
 nmap <leader>id :ALEGoToDefinition<CR>
@@ -88,7 +88,7 @@ colorscheme edge
 let g:airline_theme = 'bubblegum'
 
 " ALE settings
-let g:ale_fixers = { 
+let g:ale_fixers = {
 \ 'javascript': ['prettier'],
 \ 'typescript': ['prettier'],
 \ 'typescriptreact': ['prettier'],
@@ -96,7 +96,8 @@ let g:ale_fixers = {
 \ 'svg': ['xmllint'],
 \ 'xml': ['xmllint'],
 \ 'html': ['prettier'],
-\ 'eruby': ['prettier']
+\ 'eruby': ['prettier'],
+\ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
 
 let g:ale_linters = {
