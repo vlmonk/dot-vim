@@ -89,14 +89,14 @@ let g:airline_theme = 'bubblegum'
 
 " ALE settings
 let g:ale_fixers = {
-\ 'javascript': ['prettier'],
-\ 'typescript': ['prettier'],
-\ 'typescriptreact': ['prettier'],
-\ 'scss': ['prettier'],
-\ 'svg': ['xmllint'],
-\ 'xml': ['xmllint'],
-\ 'html': ['prettier'],
-\ 'eruby': ['prettier'],
+\ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'typescriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'scss': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'svg': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'xml': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'html': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'eruby': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \ '*': ['remove_trailing_lines', 'trim_whitespace'],
 \ }
 
