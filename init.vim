@@ -10,8 +10,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
 
 call plug#end()
@@ -149,3 +148,37 @@ call denite#custom#var('grep', 'final_opts', [])
 nmap <leader>pp :Denite -start-filter file/rec<CR>
 nmap <leader>pb :Denite buffer<CR>
 nmap <leader>pg :Denite grep<CR>
+
+function! init#ale_errors()
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_errors = l:counts.error + l:counts.style_error
+
+  if l:all_errors > 0
+    return printf("𐌴 %d", l:all_errors)
+  else
+    return ""
+  end
+endfunction
+
+function! init#ale_warnings()
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:all_warn = l:counts.warning + l:counts.style_warning
+
+  if l:all_warn > 0
+    return printf("𐍈 %d", l:all_warn)
+  else
+    return ""
+  end
+endfunction
+
+
+let g:lightline = {
+\  'active': {
+\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['aleerrors', 'alewarns']],
+\    'right': [['lineinfo'], ['percent']]
+\  },
+\  'component_function': {
+\    'aleerrors': 'init#ale_errors',
+\    'alewarns': 'init#ale_warnings'
+\   },
+\ }
