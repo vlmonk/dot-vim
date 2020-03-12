@@ -25,6 +25,7 @@ set ignorecase
 set smartcase
 set termguicolors
 set scrolloff=5
+set noshowmode
 
 " config deoplete
 let g:deoplete#enable_at_startup = 1
