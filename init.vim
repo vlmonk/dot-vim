@@ -90,6 +90,7 @@ let g:airline_theme = 'bubblegum'
 let g:ale_fixers = {
 \ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
+\ 'javascriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \ 'typescriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \ 'scss': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
 \ 'svg': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
