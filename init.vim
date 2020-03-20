@@ -12,6 +12,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
