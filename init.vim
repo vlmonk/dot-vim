@@ -81,7 +81,6 @@ let g:netrw_liststyle = 3
 " colors
 set background=dark
 let g:edge_style = 'neon'
-let g:edge_disable_italic_comment = 1
 colorscheme edge
 
 " airline theme
