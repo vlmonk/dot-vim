@@ -184,3 +184,16 @@ let g:lightline = {
 \    'alewarns': 'init#ale_warnings'
 \   },
 \ }
+
+
+function init#toggle_ale_fix()
+  if exists("b:ale_fix_on_save")
+    echo "Enable fix on save"
+    unlet b:ale_fix_on_save
+  else
+    echo "Disable fix on save"
+    let b:ale_fix_on_save = 0
+  end
+endfunction
+
+nmap <silent><leader>ef :call init#toggle_ale_fix()<CR>
