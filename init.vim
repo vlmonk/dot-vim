@@ -1,11 +1,9 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
 Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
-Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -13,6 +11,13 @@ Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
+
+" ale plugins
+" Psainnhe/edgelug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
+" Plug 'w0rp/ale'
+
+" COC plugins
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -151,49 +156,13 @@ nmap <leader>pp :Denite -start-filter file/rec<CR>
 nmap <leader>pb :Denite buffer<CR>
 nmap <leader>pg :Denite grep<CR>
 
-function! init#ale_errors()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
-
-  if l:all_errors > 0
-    return printf("𐌴 %d", l:all_errors)
-  else
-    return ""
-  end
-endfunction
-
-function! init#ale_warnings()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_warn = l:counts.warning + l:counts.style_warning
-
-  if l:all_warn > 0
-    return printf("𐍈 %d", l:all_warn)
-  else
-    return ""
-  end
-endfunction
-
-
 let g:lightline = {
 \  'active': {
-\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['aleerrors', 'alewarns']],
+\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified']],
 \    'right': [['lineinfo'], ['percent']]
 \  },
 \  'component_function': {
-\    'aleerrors': 'init#ale_errors',
-\    'alewarns': 'init#ale_warnings'
 \   },
 \ }
 
 
-function init#toggle_ale_fix()
-  if exists("b:ale_fix_on_save")
-    echo "Enable fix on save"
-    unlet b:ale_fix_on_save
-  else
-    echo "Disable fix on save"
-    let b:ale_fix_on_save = 0
-  end
-endfunction
-
-nmap <silent><leader>ef :call init#toggle_ale_fix()<CR>
