@@ -51,6 +51,7 @@ tnoremap <Esc> <C-\><C-n>
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
 nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>cc :CocConfig<CR>
 
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
@@ -156,13 +157,35 @@ nmap <leader>pp :Denite -start-filter file/rec<CR>
 nmap <leader>pb :Denite buffer<CR>
 nmap <leader>pg :Denite grep<CR>
 
+" used for statusline
+function! init#coc_status()
+  let info = get(b:, 'coc_diagnostic_info', {})
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, '𐌴 ' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, '𐍈 ' . info['warning'])
+  endif
+  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+endfunction
+
+
 let g:lightline = {
 \  'active': {
-\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified']],
+\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['coc_status']],
 \    'right': [['lineinfo'], ['percent']]
 \  },
 \  'component_function': {
+\    'coc_status': 'init#coc_status'
 \   },
 \ }
 
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
+let g:coc_global_extensions = [
+  \'coc-prettier',
+  \'coc-eslint',
+  \'coc-tsserver',
+  \'coc-json'
+  \]
