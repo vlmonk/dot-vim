@@ -161,12 +161,18 @@ nmap <leader>pg :Denite grep<CR>
 function! init#coc_status()
   let info = get(b:, 'coc_diagnostic_info', {})
   let msgs = []
-  if get(info, 'error', 0)
-    call add(msgs, '𐌴 ' . info['error'])
+
+  let errors = get(info, 'error', 0)
+  let warnings = get(info, 'warning', 0) + get(info, 'information', 0) + get(info, 'hint', 0)
+
+  if errors
+    call add(msgs, '𐌴 ' . errors)
   endif
-  if get(info, 'warning', 0)
-    call add(msgs, '𐍈 ' . info['warning'])
+
+  if warnings
+    call add(msgs, 'ᚼ ' . warnings)
   endif
+
   return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 endfunction
 
