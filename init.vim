@@ -67,8 +67,8 @@ nmap <leader>ip <Plug>(ale_detail)
 imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Language client
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> gd :call CocAction('jumpTypeDefinition')<CR>
 
 " goto next error
 nmap <silent><leader>ek <Plug>(ale_previous_error)
@@ -94,34 +94,6 @@ colorscheme edge
 
 " airline theme
 let g:airline_theme = 'bubblegum'
-
-" ALE settings
-let g:ale_fixers = {
-\ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'javascriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'typescriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'scss': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'svg': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'xml': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'html': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'eruby': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ }
-
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint', 'tsserver'],
-\   'typescriptreact': ['eslint', 'tsserver'],
-\   'scss': [],
-\   'c': [],
-\   'eruby': ['htmlhint']
-\}
-
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '??'
-let g:ale_fix_on_save = 1
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 " hardtime config
 let g:hardtime_default_on = 1
