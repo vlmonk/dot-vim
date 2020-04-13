@@ -178,3 +178,6 @@ let g:coc_global_extensions = [
 " 'in line' (entire line sans white-space; cursor at beginning--ie, ^)
 xnoremap <silent> il :<c-u>normal! g_v^<cr>
 onoremap <silent> il :<c-u>normal! g_v^<cr>
+
+" update "word" definition for css / scss files
+autocmd FileType css,scss setlocal iskeyword+=-
