@@ -78,7 +78,7 @@ nmap <silent><leader>ej <Plug>(ale_next_error)
 nmap <silent><Leader>n :noh<CR>
 
 " open git status
-nmap <silent><Leader>gs :Gstatus<CR>
+nmap <silent><Leader>gs :Gtabedit :<CR>
 
 nmap gl $%
 vmap gl $%
