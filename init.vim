@@ -57,6 +57,9 @@ nnoremap <leader>cc :CocConfig<CR>
 nnoremap <leader>ci :PlugInstall<CR>
 nnoremap <leader>cu :PlugUpdate<CR>
 
+" Move current window to new tab
+nnoremap <C-W><C-T> <C-W>T
+
 " ALE keybindings
 nmap <leader>ii :ALEHover<CR>
 nmap <leader>id :ALEGoToDefinition<CR>
