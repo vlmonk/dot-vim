@@ -172,3 +172,9 @@ let g:coc_global_extensions = [
   \'coc-tsserver',
   \'coc-json'
   \]
+
+" custom text objects
+" https://vimways.org/2018/transactions-pending/
+" 'in line' (entire line sans white-space; cursor at beginning--ie, ^)
+xnoremap <silent> il :<c-u>normal! g_v^<cr>
+onoremap <silent> il :<c-u>normal! g_v^<cr>
