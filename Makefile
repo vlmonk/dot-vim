@@ -3,5 +3,6 @@ TARGET=${HOME}/.config/nvim
 
 install:
 	mkdir -p ${TARGET}
-	ln -sf ${CURRENT}/init.vim ${TARGET}/init.vim
-	ln -sf ${CURRENT}/ftplugin ${TARGET}/ftplugin
+	ln -sfn ${CURRENT}/init.vim ${TARGET}/init.vim
+	ln -sfn ${CURRENT}/ftplugin ${TARGET}/ftplugin
+	ln -sfn ${CURRENT}/coc-settings.json ${TARGET}/coc-settings.json

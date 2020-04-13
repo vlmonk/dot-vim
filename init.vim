@@ -1,11 +1,9 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
 Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
-Plug 'w0rp/ale'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -13,6 +11,13 @@ Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
+
+" ale plugins
+" Psainnhe/edgelug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
+" Plug 'w0rp/ale'
+
+" COC plugins
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -46,10 +51,14 @@ tnoremap <Esc> <C-\><C-n>
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
 nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
+nnoremap <leader>cc :CocConfig<CR>
 
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
 nnoremap <leader>cu :PlugUpdate<CR>
+
+" Move current window to new tab
+nnoremap <C-W><C-T> <C-W>T
 
 " ALE keybindings
 nmap <leader>ii :ALEHover<CR>
@@ -58,8 +67,8 @@ nmap <leader>ip <Plug>(ale_detail)
 imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 " Language client
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> gd :call CocAction('jumpTypeDefinition')<CR>
 
 " goto next error
 nmap <silent><leader>ek <Plug>(ale_previous_error)
@@ -69,7 +78,7 @@ nmap <silent><leader>ej <Plug>(ale_next_error)
 nmap <silent><Leader>n :noh<CR>
 
 " open git status
-nmap <silent><Leader>gs :Gstatus<CR>
+nmap <silent><Leader>gs :Gtabedit :<CR>
 
 nmap gl $%
 vmap gl $%
@@ -85,34 +94,6 @@ colorscheme edge
 
 " airline theme
 let g:airline_theme = 'bubblegum'
-
-" ALE settings
-let g:ale_fixers = {
-\ 'javascript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'typescript': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'javascriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'typescriptreact': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'scss': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'svg': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'xml': ['xmllint', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'html': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ 'eruby': ['prettier', 'remove_trailing_lines', 'trim_whitespace'],
-\ '*': ['remove_trailing_lines', 'trim_whitespace'],
-\ }
-
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint', 'tsserver'],
-\   'typescriptreact': ['eslint', 'tsserver'],
-\   'scss': [],
-\   'c': [],
-\   'eruby': ['htmlhint']
-\}
-
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '??'
-let g:ale_fix_on_save = 1
-let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
 " hardtime config
 let g:hardtime_default_on = 1
@@ -150,50 +131,53 @@ call denite#custom#var('grep', 'final_opts', [])
 nmap <leader>pp :Denite -start-filter file/rec<CR>
 nmap <leader>pb :Denite buffer<CR>
 nmap <leader>pg :Denite grep<CR>
+nnoremap <leader>pw :Denite -input=<c-r><c-w> grep<CR>
+nnoremap <leader>pW :Denite -input=<c-r><c-a> grep<CR>
 
-function! init#ale_errors()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_errors = l:counts.error + l:counts.style_error
+" used for statusline
+function! init#coc_status()
+  let info = get(b:, 'coc_diagnostic_info', {})
+  let msgs = []
 
-  if l:all_errors > 0
-    return printf("𐌴 %d", l:all_errors)
-  else
-    return ""
-  end
-endfunction
+  let errors = get(info, 'error', 0)
+  let warnings = get(info, 'warning', 0) + get(info, 'information', 0) + get(info, 'hint', 0)
 
-function! init#ale_warnings()
-  let l:counts = ale#statusline#Count(bufnr(''))
-  let l:all_warn = l:counts.warning + l:counts.style_warning
+  if errors
+    call add(msgs, '𐌴 ' . errors)
+  endif
 
-  if l:all_warn > 0
-    return printf("𐍈 %d", l:all_warn)
-  else
-    return ""
-  end
+  if warnings
+    call add(msgs, 'ᚼ ' . warnings)
+  endif
+
+  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 endfunction
 
 
 let g:lightline = {
 \  'active': {
-\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['aleerrors', 'alewarns']],
+\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['coc_status']],
 \    'right': [['lineinfo'], ['percent']]
 \  },
 \  'component_function': {
-\    'aleerrors': 'init#ale_errors',
-\    'alewarns': 'init#ale_warnings'
+\    'coc_status': 'init#coc_status'
 \   },
 \ }
 
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-function init#toggle_ale_fix()
-  if exists("b:ale_fix_on_save")
-    echo "Enable fix on save"
-    unlet b:ale_fix_on_save
-  else
-    echo "Disable fix on save"
-    let b:ale_fix_on_save = 0
-  end
-endfunction
+let g:coc_global_extensions = [
+  \'coc-prettier',
+  \'coc-eslint',
+  \'coc-tsserver',
+  \'coc-json'
+  \]
 
-nmap <silent><leader>ef :call init#toggle_ale_fix()<CR>
+" custom text objects
+" https://vimways.org/2018/transactions-pending/
+" 'in line' (entire line sans white-space; cursor at beginning--ie, ^)
+xnoremap <silent> il :<c-u>normal! g_v^<cr>
+onoremap <silent> il :<c-u>normal! g_v^<cr>
+
+" update "word" definition for css / scss files
+autocmd FileType css,scss setlocal iskeyword+=-
