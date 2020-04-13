@@ -131,6 +131,8 @@ call denite#custom#var('grep', 'final_opts', [])
 nmap <leader>pp :Denite -start-filter file/rec<CR>
 nmap <leader>pb :Denite buffer<CR>
 nmap <leader>pg :Denite grep<CR>
+nnoremap <leader>pw :Denite -input=<c-r><c-w> grep<CR>
+nnoremap <leader>pW :Denite -input=<c-r><c-a> grep<CR>
 
 " used for statusline
 function! init#coc_status()
