@@ -11,6 +11,7 @@ Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
+Plug 'cespare/vim-toml'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
