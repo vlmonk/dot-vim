@@ -11,12 +11,6 @@ Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
-
-" ale plugins
-" Psainnhe/edgelug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh'  }
-" Plug 'w0rp/ale'
-
-" COC plugins
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
@@ -35,11 +29,6 @@ set noshowmode
 " config deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete', 'False')
-
-" rust config
-let g:LanguageClient_serverCommands = { 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'] }
-let g:formatdef_rustfmt = '"rustfmt"'
-let g:formatters_rust = ['rustfmt']
 
 " keybindings
 let mapleader = "\<Space>"
@@ -60,19 +49,9 @@ nnoremap <leader>cu :PlugUpdate<CR>
 " Move current window to new tab
 nnoremap <C-W><C-T> <C-W>T
 
-" ALE keybindings
-nmap <leader>ii :ALEHover<CR>
-nmap <leader>id :ALEGoToDefinition<CR>
-nmap <leader>ip <Plug>(ale_detail)
-imap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> gd :call CocAction('jumpTypeDefinition')<CR>
-
-" goto next error
-nmap <silent><leader>ek <Plug>(ale_previous_error)
-nmap <silent><leader>ej <Plug>(ale_next_error)
 
 " clear search hightlight
 nmap <silent><Leader>n :noh<CR>
@@ -114,9 +93,6 @@ hi GitGutterDelete guibg=transparent
 
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
-
-" prettier for .html.erb files
-autocmd FileType eruby let b:ale_javascript_prettier_options="--parser html"
 
 " denite config
 call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
@@ -170,7 +146,8 @@ let g:coc_global_extensions = [
   \'coc-prettier',
   \'coc-eslint',
   \'coc-tsserver',
-  \'coc-json'
+  \'coc-json',
+  \'coc-rls',
   \]
 
 " custom text objects
