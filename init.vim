@@ -13,6 +13,7 @@ Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
 Plug 'cespare/vim-toml'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'slim-template/vim-slim.git'
 
 call plug#end()
 
@@ -52,7 +53,8 @@ nnoremap <C-W><C-T> <C-W>T
 
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
-nnoremap <silent> gd :call CocAction('jumpTypeDefinition')<CR>
+nnoremap <silent> <leader>gt :call CocAction('jumpTypeDefinition')<CR>
+nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
 
 " clear search hightlight
 nmap <silent><Leader>n :noh<CR>
@@ -63,6 +65,9 @@ nmap <silent><Leader>gs :Gtabedit :<CR>
 nmap gl $%
 vmap gl $%
 
+" Open command-line
+nmap q; q:
+
 " newrt settings
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -71,6 +76,7 @@ let g:netrw_liststyle = 3
 set background=dark
 let g:edge_style = 'neon'
 colorscheme edge
+hi Search guibg=tranparent guifg=red
 
 " airline theme
 let g:airline_theme = 'bubblegum'
