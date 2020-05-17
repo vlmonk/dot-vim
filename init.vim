@@ -13,7 +13,6 @@ Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
 Plug 'cespare/vim-toml'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'slim-template/vim-slim.git'
 
 call plug#end()
 
