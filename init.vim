@@ -53,6 +53,10 @@ nnoremap <C-W><C-T> <C-W>T
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nnoremap <silent> gd :call CocAction('jumpTypeDefinition')<CR>
+nnoremap <silent> <leader>hh :<C-U>:CocCommand actions.open<CR>
+nnoremap <silent> <leader>hd <Plug>(coc-diagnostic-info)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
 
 " clear search hightlight
 nmap <silent><Leader>n :noh<CR>
@@ -149,6 +153,7 @@ let g:coc_global_extensions = [
   \'coc-tsserver',
   \'coc-json',
   \'coc-rls',
+  \'coc-actions',
   \]
 
 " custom text objects
