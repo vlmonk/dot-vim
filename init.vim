@@ -33,7 +33,7 @@ call deoplete#custom#option('auto_complete', 'False')
 
 " keybindings
 let mapleader = "\<Space>"
-inoremap jj <Esc>
+" inoremap jj <Esc>
 
 " exit terminal mode by ESC
 tnoremap <Esc> <C-\><C-n>
@@ -65,7 +65,7 @@ nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
 nmap <silent><Leader>n :noh<CR>
 
 " open git status
-nmap <silent><Leader>gs :Gtabedit :<CR>
+nmap <silent><Leader>s :Gtabedit :<CR>
 
 nmap gl $%
 vmap gl $%
@@ -116,11 +116,11 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nmap <leader>pp :Denite -start-filter file/rec<CR>
-nmap <leader>pb :Denite buffer<CR>
-nmap <leader>pg :Denite grep<CR>
-nnoremap <leader>pw :Denite -input=<c-r><c-w> grep<CR>
-nnoremap <leader>pW :Denite -input=<c-r><c-a> grep<CR>
+nmap <leader>p :Denite -start-filter file/rec<CR>
+nmap <leader>b :Denite buffer<CR>
+nmap <leader>g :Denite grep<CR>
+nnoremap <leader>w :Denite -input=<c-r><c-w> grep<CR>
+nnoremap <leader>W :Denite -input=<c-r><c-a> grep<CR>
 
 " used for statusline
 function! init#coc_status()
