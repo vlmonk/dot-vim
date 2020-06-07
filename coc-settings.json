@@ -1,3 +1,5 @@
 {
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "scss", "html", "rust", "toml"]
+  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "scss", "html", "rust", "toml", "json", "ruby"],
+  "eslint.run": "onSave",
+  "eslint.autoFix": false
 }
