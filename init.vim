@@ -52,14 +52,12 @@ nnoremap <C-W><C-T> <C-W>T
 
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
-nnoremap <silent> gd :call CocAction('jumpTypeDefinition')<CR>
+nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
+nnoremap <silent> <leader>gt :call CocAction('jumpTypeDefinition')<CR>
 nnoremap <silent> <leader>hh :<C-U>:CocCommand actions.open<CR>
 nnoremap <silent> <leader>hd <Plug>(coc-diagnostic-info)
 xmap ic <Plug>(coc-classobj-i)
 omap ic <Plug>(coc-classobj-i)
-
-nnoremap <silent> <leader>gt :call CocAction('jumpTypeDefinition')<CR>
-nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
 
 " clear search hightlight
 nmap <silent><Leader>n :noh<CR>
@@ -118,7 +116,7 @@ call denite#custom#var('grep', 'final_opts', [])
 
 nmap <leader>p :Denite -start-filter file/rec<CR>
 nmap <leader>b :Denite buffer<CR>
-nmap <leader>g :Denite grep<CR>
+nmap <leader>G :Denite grep<CR>
 nnoremap <leader>w :Denite -input=<c-r><c-w> grep<CR>
 nnoremap <leader>W :Denite -input=<c-r><c-a> grep<CR>
 
