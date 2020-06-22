@@ -53,12 +53,11 @@ nnoremap <C-W><C-T> <C-W>T
 
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
+nnoremap <silent> <leader>gr <Plug>(coc-rename)
 nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <leader>gt :call CocAction('jumpTypeDefinition')<CR>
 nnoremap <silent> <leader>hh :<C-U>:CocCommand actions.open<CR>
 nnoremap <silent> <leader>hd <Plug>(coc-diagnostic-info)
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
 
 " clear search hightlight
 nmap <silent><Leader>n :noh<CR>
@@ -115,11 +114,22 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
+nmap <leader>y <Plug>(coc-diagnostic-prev-error)
+nmap <leader>y <Plug>(coc-diagnostic-prev-error)
+nmap <leader>Y <Plug>(coc-diagnostic-next-error)
 nmap <leader>p :Denite -start-filter file/rec<CR>
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
 nnoremap <leader>w :Denite -input=<c-r><c-w> grep<CR>
 nnoremap <leader>W :Denite -input=<c-r><c-a> grep<CR>
+
+" select inside function
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+
+" select inside class
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
 
 " used for statusline
 function! init#coc_status()
