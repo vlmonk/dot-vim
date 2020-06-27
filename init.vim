@@ -114,9 +114,10 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nmap <leader>y <Plug>(coc-diagnostic-prev-error)
-nmap <leader>y <Plug>(coc-diagnostic-prev-error)
-nmap <leader>Y <Plug>(coc-diagnostic-next-error)
+nmap <leader>y <Plug>(coc-diagnostic-next-error)
+nmap <leader>Y <Plug>(coc-diagnostic-prev-error)
+nmap <leader>u <Plug>(coc-diagnostic-next)
+nmap <leader>U <Plug>(coc-diagnostic-prev)
 nmap <leader>p :Denite -start-filter file/rec<CR>
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
