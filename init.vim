@@ -181,3 +181,15 @@ onoremap <silent> il :<c-u>normal! g_v^<cr>
 
 " update "word" definition for css / scss files
 autocmd FileType css,scss setlocal iskeyword+=-
+
+" cleanup tralling space before save
+" https://unix.stackexchange.com/questions/75430/how-to-automatically-strip-trailing-spaces-on-save-in-vi-and-vim
+
+function! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * if &ft =~ 'vim\|ruby\|python' | :call <SID>StripTrailingWhitespaces() | endif
