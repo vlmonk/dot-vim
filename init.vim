@@ -141,7 +141,7 @@ function! init#coc_status()
   let warnings = get(info, 'warning', 0) + get(info, 'information', 0) + get(info, 'hint', 0)
 
   if errors
-    call add(msgs, '𐌴 ' . errors)
+    call add(msgs, 'ᛓ ' . errors)
   endif
 
   if warnings
