@@ -53,11 +53,11 @@ nnoremap <C-W><C-T> <C-W>T
 
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
-nnoremap <silent> <leader>gr <Plug>(coc-rename)
-nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
-nnoremap <silent> <leader>gt :call CocAction('jumpTypeDefinition')<CR>
-nnoremap <silent> <leader>hh :<C-U>:CocCommand actions.open<CR>
-nnoremap <silent> <leader>hd <Plug>(coc-diagnostic-info)
+nmap <silent> <leader>gR <Plug>(coc-rename)
+nmap <silent> <leader>gr <Plug>(coc-references)
+nmap <silent> <leader>gd <Plug>(coc-definition)
+nmap <silent> <leader>gt <Plug>(coc-type-definition)
+nmap <silent> <leader>gz <Plug>(coc-refactor)
 
 " clear search hightlight
 nmap <silent><Leader>n :noh<CR>
