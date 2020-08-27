@@ -23,3 +23,11 @@ link config:
 ```
 make install
 ```
+
+### install ubuntu
+
+```
+sudo add-apt-repository ppa:neovim-ppa/stable
+sudo apt-get update
+sudo apt-get install -y neovim
+```
