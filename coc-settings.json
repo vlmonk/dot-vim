@@ -1,5 +1,9 @@
 {
   "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "typescriptreact", "scss", "html", "rust", "toml", "json", "ruby"],
   "eslint.run": "onSave",
-  "eslint.autoFix": false
+  "eslint.autoFix": false,
+  "suggest.floatEnable": false,
+  "diagnostic.messageTarget": "echo",
+  "signature.target": "echo",
+  "coc.preferences.hoverTarget": "echo"
 }
