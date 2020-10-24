@@ -64,6 +64,7 @@ nmap <silent><Leader>n :noh<CR>
 
 " open git status
 nmap <silent><Leader>s :Gtabedit :<CR>
+nmap <silent><Leader>fs :Gvsplit :%<CR>
 
 nmap gl $%
 vmap gl $%
