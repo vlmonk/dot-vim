@@ -123,9 +123,8 @@ nmap <leader>U <Plug>(coc-diagnostic-prev)
 nmap <leader>p :Denite -start-filter file/rec<CR>
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
-nnoremap <leader>w :Denite -input=<c-r><c-w> grep<CR>
-nnoremap <leader>W :Denite -input=<c-r><c-a> grep<CR>
-
+nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
+nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
