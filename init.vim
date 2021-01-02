@@ -14,6 +14,7 @@ Plug 'tpope/vim-repeat'
 Plug 'cespare/vim-toml'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'equalsraf/neovim-gui-shim'
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
