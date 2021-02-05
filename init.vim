@@ -33,6 +33,8 @@ set termguicolors
 set scrolloff=5
 set noshowmode
 
+let g:coc_enable_locationlist=1
+
 " config deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete', 'False')
