@@ -16,6 +16,10 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 
+" Enhanced jump + common library
+Plug 'inkarkat/vim-ingo-library'
+Plug 'inkarkat/vim-EnhancedJumps'
+
 call plug#end()
 
 " common setting
@@ -32,6 +36,9 @@ set noshowmode
 " config deoplete
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('auto_complete', 'False')
+
+" disable mappings for Enhanced Jubs
+:let g:EnhancedJumps_no_mappings = 1
 
 " keybindings
 let mapleader = "\<Space>"
@@ -72,6 +79,9 @@ vmap gl $%
 
 " Open command-line
 nmap q; q:
+
+" Custom bindings for Enhanced Jumps
+nmap <silent><Leader>o <Plug>EnhancedJumpsRemoteOlder
 
 " newrt settings
 let g:netrw_banner = 0
