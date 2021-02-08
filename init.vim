@@ -13,6 +13,7 @@ Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
 Plug 'cespare/vim-toml'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-denite'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 
