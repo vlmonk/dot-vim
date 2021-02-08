@@ -137,6 +137,9 @@ nmap <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
 nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
 nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
+nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
+nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
+
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
