@@ -139,6 +139,7 @@ nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
 nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
 nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
 nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
+nnoremap <leader>gv :Denite -resume<CR>
 
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
