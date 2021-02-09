@@ -4,6 +4,7 @@ Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'Shougo/denite.nvim'
+Plug 'chemzqm/denite-extra'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -35,6 +36,7 @@ set scrolloff=5
 set noshowmode
 
 let g:coc_enable_locationlist=1
+let g:coc_quickfix_open_command="Denite quickfix"
 
 " config deoplete
 let g:deoplete#enable_at_startup = 1
