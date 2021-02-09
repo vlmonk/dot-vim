@@ -144,6 +144,8 @@ nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
 nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
 nnoremap <leader>gv :Denite -resume<CR>
 
+noremap <leader>Y :Denite coc-diagnostic<CR>
+
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
 omap if <Plug>(coc-funcobj-i)
