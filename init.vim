@@ -103,7 +103,7 @@ let g:netrw_liststyle = 3
 
 let ayucolor="mirage"
 colorscheme ayu
-hi Search guibg=transparent guifg=red
+hi Search guibg=transparent guifg=#fa7dfa
 hi SignColumn guibg=transparent
 
 " airline theme
