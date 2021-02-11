@@ -202,6 +202,7 @@ let g:coc_global_extensions = [
   \'coc-json',
   \'coc-rls',
   \'coc-actions',
+  \'coc-solargraph',
   \]
 
 " custom text objects
