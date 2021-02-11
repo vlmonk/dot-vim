@@ -73,7 +73,7 @@ nmap <silent> <leader>gt <Plug>(coc-type-definition)
 nmap <silent> <leader>gz <Plug>(coc-refactor)
 
 " clear search hightlight
-nmap <silent><Leader>n :noh<CR>
+nmap <silent><ESC> :noh<CR>
 
 " open git status
 nmap <silent><Leader>s :Gtabedit :<CR>
