@@ -22,6 +22,9 @@ Plug 'hashivim/vim-terraform'
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-EnhancedJumps'
 
+" Colorschemes
+Plug 'ayu-theme/ayu-vim'
+
 call plug#end()
 
 " common setting
@@ -93,10 +96,15 @@ let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
 " colors
-set background=dark
-let g:edge_style = 'neon'
-colorscheme edge
-hi Search guibg=tranparent guifg=red
+
+" set background=dark
+" let g:edge_style = 'neon'
+" colorscheme edge
+
+let ayucolor="mirage"
+colorscheme ayu
+hi Search guibg=transparent guifg=red
+hi SignColumn guibg=transparent
 
 " airline theme
 let g:airline_theme = 'bubblegum'
@@ -107,6 +115,7 @@ let g:hardtime_ignore_buffer_patterns = [ "denite*" ]
 let g:hardtime_ignore_quickfix = 1
 
 " git guitter
+"
 let g:gitgutter_sign_added = '●'
 let g:gitgutter_sign_modified = '●'
 let g:gitgutter_sign_removed = '●'
