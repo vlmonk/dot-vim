@@ -18,5 +18,8 @@
   "signature.target": "echo",
   "coc.preferences.hoverTarget": "echo",
   "coc.preferences.useQuickfixForLocations": true,
-  "solargraph.diagnostics": true
+  "solargraph.diagnostics": true,
+  "diagnostic.errorSign": "→",
+  "diagnostic.warningSign": "→",
+  "diagnostic.infoSign": "→"
 }
