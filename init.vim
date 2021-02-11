@@ -123,9 +123,9 @@ let g:gitgutter_sign_removed_first_line = '●'
 let g:gitgutter_sign_modified_removed = '●'
 
 " remove background from git guitter signs
-hi GitGutterAdd guibg=transparent
-hi GitGutterChange guibg=transparent
-hi GitGutterDelete guibg=transparent
+hi GitGutterAdd guibg=transparent guifg=#584c85
+hi GitGutterChange guibg=transparent guifg=#584c85
+hi GitGutterDelete guibg=transparent guifg=#584c85
 
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
