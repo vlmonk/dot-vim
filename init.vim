@@ -144,7 +144,7 @@ nmap <leader>y <Plug>(coc-diagnostic-next-error)
 nmap <leader>Y <Plug>(coc-diagnostic-prev-error)
 nmap <leader>u <Plug>(coc-diagnostic-next)
 nmap <leader>U <Plug>(coc-diagnostic-prev)
-nmap <leader>p :Denite -start-filter file/rec<CR>
+nmap <leader>p :Denite -start-filter -split=vertical -winwidth=85 file/rec<CR>
 nmap <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
 nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
