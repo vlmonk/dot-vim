@@ -229,3 +229,7 @@ autocmd BufWritePre * if &ft =~ 'vim\|ruby\|python' | :call <SID>StripTrailingWh
 " vertical splitbar style
 set fillchars+=vert:│
 hi VertSplit guifg=#9e9d9d
+
+" custom style for error messages
+hi clear ErrorMsg
+hi ErrorMsg guifg=#ffa6b3 guibg=transparent
