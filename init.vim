@@ -106,6 +106,9 @@ colorscheme ayu
 hi Search guibg=transparent guifg=#fa7dfa
 hi SignColumn guibg=transparent
 
+" itaclic comments
+hi Comment gui=italic
+
 " airline theme
 let g:airline_theme = 'bubblegum'
 
