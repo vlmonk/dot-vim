@@ -225,3 +225,7 @@ function! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd BufWritePre * if &ft =~ 'vim\|ruby\|python' | :call <SID>StripTrailingWhitespaces() | endif
+
+" vertical splitbar style
+set fillchars+=vert:│
+hi VertSplit guifg=#9e9d9d
