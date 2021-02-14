@@ -69,6 +69,16 @@ nnoremap <leader>cu :PlugUpdate<CR>
 " Move current window to new tab
 nnoremap <C-W><C-T> <C-W>T
 
+" cycle buffers
+nmap <silent> <Tab> :bnext<CR>
+
+" close current buffer
+nmap <silent> <leader>q :bd<CR>
+
+" window split
+nmap <silent> <leader>vv :vsplit<CR>
+nmap <silent> <leader>vs :split<CR>
+
 " Language client
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> <leader>gR <Plug>(coc-rename)
@@ -151,6 +161,7 @@ nmap <leader>Y <Plug>(coc-diagnostic-prev-error)
 nmap <leader>u <Plug>(coc-diagnostic-next)
 nmap <leader>U <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>p :Denite -start-filter -split=vertical -winwidth=85 file/rec<CR>
+nmap <silent> <leader>P :exec("Denite -start-filter -split=vertical -winwidth=85 file/rec:" . expand('%:p:h'))<CR>
 nmap <silent> <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
 nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
