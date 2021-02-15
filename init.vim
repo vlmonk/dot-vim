@@ -50,7 +50,9 @@ call deoplete#custom#option('auto_complete', 'False')
 
 " keybindings
 let mapleader = "\<Space>"
-" inoremap jj <Esc>
+
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <leader>q :bd<CR>
 
 " exit terminal mode by ESC
 tnoremap <Esc> <C-\><C-n>
