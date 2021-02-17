@@ -21,5 +21,6 @@
   "solargraph.diagnostics": true,
   "diagnostic.errorSign": "→",
   "diagnostic.warningSign": "→",
-  "diagnostic.infoSign": "→"
+  "diagnostic.infoSign": "→",
+  "solargraph.promptDownload": false
 }
