@@ -287,5 +287,5 @@ function RemoveQMapping ()
   endif
 endfunction
 
-rutocmd BufEnter * nnoremap <buffer>q; q:
+autocmd BufEnter * nnoremap <buffer>q; q:
 autocmd FileType * call RemoveQMapping()
