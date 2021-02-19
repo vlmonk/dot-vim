@@ -175,6 +175,7 @@ nnoremap <leader>Y :Denite coc-diagnostic<CR>
 " undotree
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
 nnoremap <leader>I :UndotreeHide<CR>
+let g:undotree_HighlightChangedWithSign = 1
 
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
