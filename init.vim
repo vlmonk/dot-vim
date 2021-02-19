@@ -18,6 +18,7 @@ Plug 'neoclide/coc-denite'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 Plug 'mbbill/undotree'
+Plug 'preservim/nerdtree'
 
 " Enhanced jump + common library
 Plug 'inkarkat/vim-ingo-library'
@@ -98,9 +99,6 @@ nmap <silent><Leader>fs :Gvsplit :%<CR>
 nmap gl $%
 vmap gl $%
 
-" Open command-line
-nmap q; q:
-
 " Custom bindings for Enhanced Jumps
 nmap <silent><Leader>o <Plug>EnhancedJumpsRemoteOlder
 
@@ -127,7 +125,7 @@ let g:airline_theme = 'bubblegum'
 
 " hardtime config
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "denite*", "undotree*" ]
+let g:hardtime_ignore_buffer_patterns = [ "denite*", "undotree*", "NERD*" ]
 let g:hardtime_ignore_quickfix = 1
 
 " git guitter
@@ -172,10 +170,14 @@ nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
 nnoremap <leader>gv :Denite -resume<CR>
 nnoremap <leader>Y :Denite coc-diagnostic<CR>
 
-" undotree
+" undotree config
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
 nnoremap <leader>I :UndotreeHide<CR>
 let g:undotree_HighlightChangedWithSign = 1
+
+" nerdtree config
+nnoremap <silent> <leader>t :NERDTreeFind<CR>
+let g:NERDTreeWinSize=60
 
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
@@ -273,3 +275,17 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
+
+" Open command line on q;
+" Tricky setup because I want to disable this keymapping in NERD buffers
+
+function RemoveQMapping ()
+  let l:ft = &ft
+
+  if l:ft ==? 'nerdtree'
+    nunmap <buffer>q;
+  endif
+endfunction
+
+rutocmd BufEnter * nnoremap <buffer>q; q:
+autocmd FileType * call RemoveQMapping()
