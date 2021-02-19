@@ -17,6 +17,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-denite'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
+Plug 'mbbill/undotree'
 
 " Enhanced jump + common library
 Plug 'inkarkat/vim-ingo-library'
@@ -126,7 +127,7 @@ let g:airline_theme = 'bubblegum'
 
 " hardtime config
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "denite*" ]
+let g:hardtime_ignore_buffer_patterns = [ "denite*", "undotree*" ]
 let g:hardtime_ignore_quickfix = 1
 
 " git guitter
@@ -169,8 +170,11 @@ nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
 nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
 nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
 nnoremap <leader>gv :Denite -resume<CR>
+nnoremap <leader>Y :Denite coc-diagnostic<CR>
 
-noremap <leader>Y :Denite coc-diagnostic<CR>
+" undotree
+nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
+nnoremap <leader>I :UndotreeHide<CR>
 
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
@@ -250,3 +254,21 @@ hi VertSplit guifg=#9e9d9d
 " custom style for error messages
 hi clear ErrorMsg
 hi ErrorMsg guifg=#ffa6b3 guibg=transparent
+
+" undo setup
+let vimDir = '$HOME/.vim'
+
+if stridx(&runtimepath, expand(vimDir)) == -1
+  " vimDir is not on runtimepath, add it
+  let &runtimepath.=','.vimDir
+endif
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
