@@ -19,6 +19,7 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
+Plug 'rbgrouleff/bclose.vim'
 
 " Enhanced jump + common library
 Plug 'inkarkat/vim-ingo-library'
@@ -54,7 +55,6 @@ call deoplete#custom#option('auto_complete', 'False')
 let mapleader = "\<Space>"
 
 nnoremap <silent> <Tab> :bnext<CR>
-nnoremap <leader>q :bd<CR>
 
 " exit terminal mode by ESC
 tnoremap <Esc> <C-\><C-n>
@@ -289,3 +289,7 @@ endfunction
 
 autocmd BufEnter * nnoremap <buffer>q; q:
 autocmd FileType * call RemoveQMapping()
+
+" bclose plugin
+let g:bclose_no_plugin_maps = 1
+nnoremap <leader>q :Bclose<CR>
