@@ -40,6 +40,7 @@ set smartcase
 set termguicolors
 set scrolloff=5
 set noshowmode
+set hidden
 
 let g:coc_enable_locationlist=1
 let g:coc_quickfix_open_command="Denite quickfix"
