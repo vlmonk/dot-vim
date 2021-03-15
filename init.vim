@@ -131,17 +131,17 @@ let g:hardtime_ignore_quickfix = 1
 
 " git guitter
 "
-let g:gitgutter_sign_added = '●'
-let g:gitgutter_sign_modified = '●'
-let g:gitgutter_sign_removed = '●'
-let g:gitgutter_sign_removed_first_line = '●'
-let g:gitgutter_sign_modified_removed = '●'
+let g:gitgutter_sign_added = '│'
+let g:gitgutter_sign_modified = '│'
+let g:gitgutter_sign_removed = '│'
+let g:gitgutter_sign_removed_first_line = '│'
+let g:gitgutter_sign_modified_removed = '│'
 
 " remove background from git guitter signs
-hi GitGutterAdd guibg=transparent guifg=#584c85
-hi GitGutterChange guibg=transparent guifg=#584c85
-hi GitGutterDelete guibg=transparent guifg=#584c85
-hi GitGutterChangeDelete guibg=transparent guifg=#584c85
+hi GitGutterAdd guibg=transparent guifg=#a887f5
+hi GitGutterChange guibg=transparent guifg=#a887f5
+hi GitGutterDelete guibg=transparent guifg=#a887f5
+hi GitGutterChangeDelete guibg=transparent guifg=#a887f5
 
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
