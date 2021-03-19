@@ -94,7 +94,7 @@ nmap <silent> <leader>gz <Plug>(coc-refactor)
 nmap <silent><ESC> :noh<CR>
 
 " open git status
-nmap <silent><Leader>s :Gtabedit :<CR>
+nmap <silent><Leader>s :Gedit :<CR>
 nmap <silent><Leader>fs :Gvsplit :%<CR>
 
 nmap gl $%
