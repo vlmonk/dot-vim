@@ -41,7 +41,7 @@ set expandtab
 set ignorecase
 set smartcase
 set termguicolors
-set scrolloff=5
+set scrolloff=2
 set noshowmode
 set hidden
 
