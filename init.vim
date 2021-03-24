@@ -28,6 +28,9 @@ Plug 'inkarkat/vim-EnhancedJumps'
 " Colorschemes
 Plug 'ayu-theme/ayu-vim'
 
+" vim-indent-object
+Plug 'michaeljsmith/vim-indent-object'
+
 call plug#end()
 
 " common setting
