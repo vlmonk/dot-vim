@@ -182,6 +182,7 @@ let g:undotree_HighlightChangedWithSign = 1
 " nerdtree config
 nnoremap <silent> <leader>t :NERDTreeFind<CR>
 let g:NERDTreeWinSize=60
+let g:NERDTreeQuitOnOpen=1
 
 " select inside function
 xmap if <Plug>(coc-funcobj-i)
