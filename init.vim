@@ -180,7 +180,15 @@ nnoremap <leader>I :UndotreeHide<CR>
 let g:undotree_HighlightChangedWithSign = 1
 
 " nerdtree config
-nnoremap <silent> <leader>t :NERDTreeFind<CR>
+function! SmartNERDTree()
+  if @% == ""
+    NERDTreeToggle
+  else
+    NERDTreeFind
+  endif
+endfun
+
+nnoremap <silent> <leader>t :call SmartNERDTree()<CR>
 let g:NERDTreeWinSize=60
 let g:NERDTreeQuitOnOpen=1
 
