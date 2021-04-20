@@ -306,3 +306,12 @@ autocmd FileType * call RemoveQMapping()
 " bclose plugin
 let g:bclose_no_plugin_maps = 1
 nnoremap <leader>q :Bclose<CR>
+
+" format current buffer as json
+function FormatAsJson ()
+  set filetype=json
+  execute 'CocCommand prettier.formatFile'
+endfunction
+
+
+nnoremap <silent> <leader>ff :call FormatAsJson()<CR>
