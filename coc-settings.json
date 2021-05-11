@@ -17,9 +17,12 @@
   "diagnostic.messageTarget": "echo",
   "signature.target": "echo",
   "coc.preferences.useQuickfixForLocations": true,
-  "solargraph.diagnostics": true,
   "diagnostic.errorSign": "→",
   "diagnostic.warningSign": "→",
   "diagnostic.infoSign": "→",
-  "solargraph.promptDownload": false
+  "solargraph.promptDownload": false,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": false,
+  "solargraph.formatting": true,
+  "solargraph.hover": true
 }
