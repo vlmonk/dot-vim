@@ -13,11 +13,9 @@
     "svg"
   ],
   "eslint.run": "onSave",
-  "eslint.autoFix": false,
   "suggest.floatEnable": false,
   "diagnostic.messageTarget": "echo",
   "signature.target": "echo",
-  "coc.preferences.hoverTarget": "echo",
   "coc.preferences.useQuickfixForLocations": true,
   "solargraph.diagnostics": true,
   "diagnostic.errorSign": "→",
