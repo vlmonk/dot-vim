@@ -96,9 +96,10 @@ nmap <silent> <leader>gz <Plug>(coc-refactor)
 " clear search hightlight
 nmap <silent><ESC> :noh<CR>
 
-" open git status
+" fugitive mapping
 nmap <silent><Leader>s :Gedit :<CR>
 nmap <silent><Leader>fs :Gvsplit :%<CR>
+nmap <silent><Leader>fb :Git blame<CR>
 
 nmap gl $%
 vmap gl $%
