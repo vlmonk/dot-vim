@@ -308,9 +308,18 @@ endfunction
 autocmd BufEnter * nnoremap <buffer>q; q:
 autocmd FileType * call RemoveQMapping()
 
+function CustomBClose ()
+  let l:filename = expand('%')
+  if match(l:filename, '^fugitive:/') == 0 || match(l:filename, 'fugitiveblame$') > -1 || l:filename == '.git/index'
+    bdelete
+  else
+    Bclose(bufnr('%'))
+  endif
+endfunction
+
 " bclose plugin
 let g:bclose_no_plugin_maps = 1
-nnoremap <leader>q :Bclose<CR>
+nnoremap <silent> <leader>q :call CustomBClose()<CR>
 
 " format current buffer as json
 function FormatAsJson ()
