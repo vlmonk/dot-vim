@@ -20,6 +20,8 @@ Plug 'hashivim/vim-terraform'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'tpope/vim-haml'
+Plug 'slim-template/vim-slim'
 
 " Enhanced jump + common library
 Plug 'inkarkat/vim-ingo-library'
