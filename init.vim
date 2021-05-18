@@ -88,6 +88,7 @@ nmap <silent> <leader>vv :vsplit<CR>
 nmap <silent> <leader>vs :split<CR>
 
 " Language client
+nmap <silent> <leader>a  <Plug>(coc-codeaction-cursor)
 nnoremap <silent> K :call CocAction('doHover')<CR>
 nmap <silent> <leader>gR <Plug>(coc-rename)
 nmap <silent> <leader>gr <Plug>(coc-references)
@@ -241,7 +242,7 @@ let g:coc_global_extensions = [
   \'coc-eslint',
   \'coc-tsserver',
   \'coc-json',
-  \'coc-rls',
+  \'coc-rust-analyzer',
   \'coc-actions',
   \'coc-solargraph',
   \]
