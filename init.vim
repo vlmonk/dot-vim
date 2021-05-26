@@ -23,6 +23,11 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 
+" telescope
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
 " Enhanced jump + common library
 Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-EnhancedJumps'
