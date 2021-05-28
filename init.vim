@@ -1,5 +1,6 @@
 call plug#begin(stdpath('data') . '/plugged')
 
+Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'Shougo/deoplete.nvim'
@@ -328,3 +329,6 @@ nnoremap <silent> <leader>ff :call FormatAsJson()<CR>
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 autocmd FileChangedShellPost *  echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+lua << EOF
+require'lspconfig'.rust_analyzer.setup{}
+EOF
