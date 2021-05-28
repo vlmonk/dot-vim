@@ -50,8 +50,8 @@ set scrolloff=2
 set noshowmode
 set hidden
 
-# let g:coc_enable_locationlist=1
-# let g:coc_quickfix_open_command="Denite quickfix"
+" let g:coc_enable_locationlist=1
+" let g:coc_quickfix_open_command="Denite quickfix"
 
 " config deoplete
 let g:deoplete#enable_at_startup = 1
@@ -71,7 +71,7 @@ tnoremap <Esc> <C-\><C-n>
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
 nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
-# nnoremap <leader>cc :CocConfig<CR>
+" nnoremap <leader>cc :CocConfig<CR>
 
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
