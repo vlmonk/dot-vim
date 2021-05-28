@@ -13,8 +13,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'sainnhe/edge'
 Plug 'tpope/vim-repeat'
 Plug 'cespare/vim-toml'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'neoclide/coc-denite'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 Plug 'mbbill/undotree'
@@ -52,8 +50,8 @@ set scrolloff=2
 set noshowmode
 set hidden
 
-let g:coc_enable_locationlist=1
-let g:coc_quickfix_open_command="Denite quickfix"
+# let g:coc_enable_locationlist=1
+# let g:coc_quickfix_open_command="Denite quickfix"
 
 " config deoplete
 let g:deoplete#enable_at_startup = 1
@@ -73,7 +71,7 @@ tnoremap <Esc> <C-\><C-n>
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
 nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
-nnoremap <leader>cc :CocConfig<CR>
+# nnoremap <leader>cc :CocConfig<CR>
 
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
@@ -93,13 +91,13 @@ nmap <silent> <leader>vv :vsplit<CR>
 nmap <silent> <leader>vs :split<CR>
 
 " Language client
-nmap <silent> <leader>a  <Plug>(coc-codeaction-cursor)
-nnoremap <silent> K :call CocAction('doHover')<CR>
-nmap <silent> <leader>gR <Plug>(coc-rename)
-nmap <silent> <leader>gr <Plug>(coc-references)
-nmap <silent> <leader>gd <Plug>(coc-definition)
-nmap <silent> <leader>gt <Plug>(coc-type-definition)
-nmap <silent> <leader>gz <Plug>(coc-refactor)
+" nmap <silent> <leader>a  <Plug>(coc-codeaction-cursor)
+" nnoremap <silent> K :call CocAction('doHover')<CR>
+" nmap <silent> <leader>gR <Plug>(coc-rename)
+" nmap <silent> <leader>gr <Plug>(coc-references)
+" nmap <silent> <leader>gd <Plug>(coc-definition)
+" nmap <silent> <leader>gt <Plug>(coc-type-definition)
+" nmap <silent> <leader>gz <Plug>(coc-refactor)
 
 " clear search hightlight
 nmap <silent><ESC> :noh<CR>
@@ -168,10 +166,10 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-nmap <leader>y <Plug>(coc-diagnostic-next-error)
-nmap <leader>Y <Plug>(coc-diagnostic-prev-error)
-nmap <leader>u <Plug>(coc-diagnostic-next)
-nmap <leader>U <Plug>(coc-diagnostic-prev)
+" nmap <leader>y <Plug>(coc-diagnostic-next-error)
+" nmap <leader>Y <Plug>(coc-diagnostic-prev-error)
+" nmap <leader>u <Plug>(coc-diagnostic-next)
+" nmap <leader>U <Plug>(coc-diagnostic-prev)
 nmap <silent> <leader>p :Denite -start-filter -split=vertical -winwidth=60 file/rec<CR>
 nmap <silent> <leader>P :exec("Denite -start-filter -split=vertical -winwidth=60 file/rec:" . expand('%:p:h'))<CR>
 nmap <silent> <leader>b :Denite buffer<CR>
@@ -181,7 +179,7 @@ nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
 nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
 nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
 nnoremap <leader>gv :Denite -resume<CR>
-nnoremap <leader>Y :Denite coc-diagnostic<CR>
+" nnoremap <leader>Y :Denite coc-diagnostic<CR>
 
 " undotree config
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
@@ -203,12 +201,12 @@ let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeWinPos = "right"
 
 " select inside function
-xmap if <Plug>(coc-funcobj-i)
-omap if <Plug>(coc-funcobj-i)
+" xmap if <Plug>(coc-funcobj-i)
+" omap if <Plug>(coc-funcobj-i)
 
 " select inside class
-xmap ic <Plug>(coc-classobj-i)
-omap ic <Plug>(coc-classobj-i)
+" xmap ic <Plug>(coc-classobj-i)
+" omap ic <Plug>(coc-classobj-i)
 
 " used for statusline
 function! init#coc_status()
@@ -241,16 +239,6 @@ let g:lightline = {
 \ }
 
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-
-let g:coc_global_extensions = [
-  \'coc-prettier',
-  \'coc-eslint',
-  \'coc-tsserver',
-  \'coc-json',
-  \'coc-rust-analyzer',
-  \'coc-actions',
-  \'coc-solargraph',
-  \]
 
 " custom text objects
 " https://vimways.org/2018/transactions-pending/
@@ -329,7 +317,7 @@ nnoremap <silent> <leader>q :call CustomBClose()<CR>
 " format current buffer as json
 function FormatAsJson ()
   set filetype=json
-  execute 'CocCommand prettier.formatFile'
+  " execute 'CocCommand prettier.formatFile'
 endfunction
 
 
@@ -339,3 +327,4 @@ nnoremap <silent> <leader>ff :call FormatAsJson()<CR>
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 autocmd FileChangedShellPost *  echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
