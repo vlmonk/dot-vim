@@ -332,4 +332,8 @@ autocmd FileChangedShellPost *  echohl WarningMsg | echo "File changed on disk. 
 
 lua << EOF
 require'lspconfig'.rust_analyzer.setup{}
+require'lspconfig'.tsserver.setup{}
+require'lspconfig'.solargraph.setup{}
+
+require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
 EOF
