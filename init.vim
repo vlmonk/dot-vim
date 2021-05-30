@@ -52,8 +52,6 @@ set scrolloff=2
 set noshowmode
 set hidden
 
-set completeopt=menuone,noselect
-
 " let g:coc_enable_locationlist=1
 " let g:coc_quickfix_open_command="Denite quickfix"
 
@@ -134,6 +132,7 @@ hi SignColumn guibg=transparent
 
 " itaclic comments
 hi Comment gui=italic
+
 
 " airline theme
 let g:airline_theme = 'bubblegum'
@@ -339,30 +338,6 @@ require'lspconfig'.tsserver.setup{}
 require'lspconfig'.solargraph.setup{}
 
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
-
-
-require'compe'.setup {
-  enabled = true;
-  autocomplete = true;
-  debug = false;
-  min_length = 1;
-  preselect = 'enable';
-  throttle_time = 80;
-  source_timeout = 200;
-  incomplete_delay = 400;
-  max_abbr_width = 100;
-  max_kind_width = 100;
-  max_menu_width = 100;
-  documentation = true;
-
-  source = {
-    path = true;
-    buffer = true;
-    calc = true;
-    nvim_lsp = true;
-    nvim_lua = true;
-    vsnip = true;
-    ultisnips = true;
-  };
-}
 EOF
+
+lua require('nvim-compe')
