@@ -284,7 +284,7 @@ endif
 
 " Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
-    let myUndoDir = expand(vimDir . '/undodir')
+    let myUndoDir = expand(vimDir . '/undodir-v5')
     " Create dirs
     call system('mkdir ' . vimDir)
     call system('mkdir ' . myUndoDir)
