@@ -337,7 +337,7 @@ require'lspconfig'.rust_analyzer.setup{}
 require'lspconfig'.tsserver.setup{}
 require'lspconfig'.solargraph.setup{}
 
-require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules"} } }
+require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", "tmp"}, prompt_position = "top", sorting_strategy = "ascending" } }
 EOF
 
 lua require('nvim-compe')
