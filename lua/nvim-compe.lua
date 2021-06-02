@@ -4,7 +4,7 @@ require'compe'.setup {
   enabled = true;
   autocomplete = false;
   min_length = 1;
-  preselect = 'enable';
+  preselect = 'always';
   documentation = true;
 
   source = {
@@ -16,5 +16,22 @@ require'compe'.setup {
   };
 }
 
-vim.api.nvim_set_keymap('i', '<C-Space>', 'compe#complete()', { silent = true, expr = true })
-vim.api.nvim_set_keymap('i', '<CR>', "compe#confirm('<CR>')", { silent = true, expr = true })
+function smart_tab()
+    if vim.fn.pumvisible() ~= 0 then
+        vim.api.nvim_eval([[feedkeys("\<c-n>", "n")]])
+        return
+    end
+
+    local col = vim.fn.col(".") - 1
+
+    if col == 0 or vim.fn.getline("."):sub(col, col):match("%s") then
+        vim.api.nvim_eval([[feedkeys("\<tab>", "n")]])
+        return
+    end
+
+    vim.fn["compe#complete"]();
+end
+
+vim.api.nvim_set_keymap('i', '<TAB>', "<cmd>lua smart_tab()<CR>", { silent = true })
+vim.api.nvim_set_keymap('i', '<C-n>', 'compe#complete()', { silent = true, expr = true })
+vim.api.nvim_set_keymap('i', '<Space>', "compe#confirm('<Space>')", { silent = true, expr = true })
