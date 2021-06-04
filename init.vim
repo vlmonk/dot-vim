@@ -173,10 +173,11 @@ call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
-" nmap <leader>y <Plug>(coc-diagnostic-next-error)
-" nmap <leader>Y <Plug>(coc-diagnostic-prev-error)
-" nmap <leader>u <Plug>(coc-diagnostic-next)
-" nmap <leader>U <Plug>(coc-diagnostic-prev)
+nmap <leader>y :Telescope lsp_document_diagnostics<CR>
+nmap <leader>Y :Telescope lsp_workspace_diagnostic<CR>
+nmap <leader>. :lua vim.lsp.diagnostic.goto_next()<CR>
+nmap <leader>, :lua vim.lsp.diagnostic.goto_prev()<CR>
+
 nmap <silent> <leader>p :Telescope find_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
 
