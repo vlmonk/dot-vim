@@ -22,6 +22,7 @@ Plug 'preservim/nerdtree'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
+Plug 'nvim-lua/lsp-status.nvim'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
@@ -218,6 +219,15 @@ let g:NERDTreeWinPos = "right"
 " omap ic <Plug>(coc-classobj-i)
 
 " used for statusline
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
+endfunction
+
+" used for statusline
 function! init#coc_status()
   let info = get(b:, 'coc_diagnostic_info', {})
   let msgs = []
@@ -239,11 +249,12 @@ endfunction
 
 let g:lightline = {
 \  'active': {
-\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['coc_status']],
+\    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['LspStatus']],
 \    'right': [['lineinfo'], ['percent']]
 \  },
 \  'component_function': {
-\    'coc_status': 'init#coc_status'
+\    'coc_status': 'init#coc_status',
+\    'LspStatus': 'LspStatus'
 \   },
 \ }
 
@@ -338,11 +349,33 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t
 autocmd FileChangedShellPost *  echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 lua << EOF
-require'lspconfig'.rust_analyzer.setup{}
-require'lspconfig'.tsserver.setup{}
-require'lspconfig'.solargraph.setup{}
+local lsp_status = require('lsp-status')
 
-require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", "tmp"}, prompt_position = "top", sorting_strategy = "ascending" } }
+lsp_status.config({
+  indicator_errors = 'E',
+  indicator_warnings = 'W',
+  indicator_info = 'i',
+  indicator_hint = '?',
+  indicator_ok = 'Ok',
+})
+
+lsp_status.register_progress()
+
+local lspconfig = require('lspconfig')
+
+lspconfig.rust_analyzer.setup{}
+lspconfig.tsserver.setup({
+  handlers = lsp_status.extensions.clangd.setup(),
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilities
+})
+lspconfig.solargraph.setup({
+  handlers = lsp_status.extensions.clangd.setup(),
+  on_attach = lsp_status.on_attach,
+  capabilities = lsp_status.capabilities
+})
+
+require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", "tmp", "target"}, prompt_position = "top", sorting_strategy = "ascending" } }
 EOF
 
 lua require('nvim-compe')
