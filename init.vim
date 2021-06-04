@@ -345,3 +345,13 @@ require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules",
 EOF
 
 lua require('nvim-compe')
+
+sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
+sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
+sign define LspDiagnosticsSignInformation text=→ texthl=LspDiagnosticsSignInformation linehl= numhl=
+sign define LspDiagnosticsSignHint text=→ texthl=LspDiagnosticsSignHint linehl= numhl=
+
+hi LspDiagnosticsSignError guifg=#DE0000 ctermfg=White
+hi LspDiagnosticsSignWarning guifg=#FFAE57 ctermfg=White
+hi LspDiagnosticsSignHint guifg=#B3B3B3 ctermfg=White
+hi LspDiagnosticsSignInformation guifg=#B3B3B3 ctermfg=White
