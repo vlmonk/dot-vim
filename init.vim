@@ -346,12 +346,29 @@ EOF
 
 lua require('nvim-compe')
 
+lua << EOF
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+      signs = true,
+      severity_sort = true,
+      virtual_text = { prefix = "→" }
+    }
+  )
+EOF
+
 sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
 sign define LspDiagnosticsSignInformation text=→ texthl=LspDiagnosticsSignInformation linehl= numhl=
 sign define LspDiagnosticsSignHint text=→ texthl=LspDiagnosticsSignHint linehl= numhl=
 
 hi LspDiagnosticsSignError guifg=#DE0000 ctermfg=White
+hi LspDiagnosticsVirtualTextErro guifg=#DE0000 ctermfg=White
+
 hi LspDiagnosticsSignWarning guifg=#FFAE57 ctermfg=White
+hi LspDiagnosticsVirtualTextWarning guifg=#FFAE57 ctermfg=White
+
 hi LspDiagnosticsSignHint guifg=#B3B3B3 ctermfg=White
+hi LspDiagnosticsVirtualTextHint guifg=#B3B3B3 ctermfg=White
+
 hi LspDiagnosticsSignInformation guifg=#B3B3B3 ctermfg=White
+hi LspDiagnosticsVirtualTextInformation guifg=#B3B3B3 ctermfg=White
