@@ -52,6 +52,7 @@ set termguicolors
 set scrolloff=2
 set noshowmode
 set hidden
+set nohls
 
 " let g:coc_enable_locationlist=1
 " let g:coc_quickfix_open_command="Denite quickfix"
