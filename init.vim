@@ -227,33 +227,12 @@ function! LspStatus() abort
   return ''
 endfunction
 
-" used for statusline
-function! init#coc_status()
-  let info = get(b:, 'coc_diagnostic_info', {})
-  let msgs = []
-
-  let errors = get(info, 'error', 0)
-  let warnings = get(info, 'warning', 0) + get(info, 'information', 0) + get(info, 'hint', 0)
-
-  if errors
-    call add(msgs, 'ᛓ ' . errors)
-  endif
-
-  if warnings
-    call add(msgs, 'ᚼ ' . warnings)
-  endif
-
-  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
-endfunction
-
-
 let g:lightline = {
 \  'active': {
 \    'left': [[ 'mode', 'paste' ], ['readonly', 'filename', 'modified'], ['LspStatus']],
 \    'right': [['lineinfo'], ['percent']]
 \  },
 \  'component_function': {
-\    'coc_status': 'init#coc_status',
 \    'LspStatus': 'LspStatus'
 \   },
 \ }
@@ -352,11 +331,13 @@ lua << EOF
 local lsp_status = require('lsp-status')
 
 lsp_status.config({
-  indicator_errors = 'E',
-  indicator_warnings = 'W',
-  indicator_info = 'i',
-  indicator_hint = '?',
-  indicator_ok = 'Ok',
+  status_symbol = '',
+  indicator_errors = 'ᛓ',
+  indicator_warnings = 'ᚼ',
+  indicator_info = 'ᛊ',
+  indicator_hint = 'ᛘ',
+  indicator_ok = '',
+  indicator_separator = '',
 })
 
 lsp_status.register_progress()
