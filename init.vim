@@ -178,6 +178,7 @@ nmap <leader>y :Telescope lsp_document_diagnostics<CR>
 nmap <leader>Y :Telescope lsp_workspace_diagnostic<CR>
 nmap <leader>. :lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <leader>, :lua vim.lsp.diagnostic.goto_prev()<CR>
+nmap <leader>z :Telescope lsp_document_symbols<CR>
 
 nmap <silent> <leader>p :Telescope find_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
