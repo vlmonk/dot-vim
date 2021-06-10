@@ -355,7 +355,15 @@ lspconfig.tsserver.setup({
 lspconfig.solargraph.setup({
   handlers = lsp_status.extensions.clangd.setup(),
   on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilities
+  capabilities = lsp_status.capabilities,
+  cmd = { "bundle", "exec", "solargraph", "stdio" },
+  settings = {
+    solargraph = {
+      logLevel = "debug",
+      diagnostics = true,
+      useBundler = true
+    }
+  }
 })
 
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", "tmp", "target"}, prompt_position = "top", sorting_strategy = "ascending" } }
