@@ -49,7 +49,7 @@ set expandtab
 set ignorecase
 set smartcase
 set termguicolors
-set scrolloff=2
+set scrolloff=1
 set noshowmode
 set hidden
 set nohls
@@ -397,3 +397,7 @@ hi LspDiagnosticsVirtualTextHint guifg=#B3B3B3 ctermfg=White
 
 hi LspDiagnosticsSignInformation guifg=#B3B3B3 ctermfg=White
 hi LspDiagnosticsVirtualTextInformation guifg=#B3B3B3 ctermfg=White
+
+" vertical line
+set colorcolumn=80,120
+highlight ColorColumn ctermbg=lightgrey guibg=#212a33
