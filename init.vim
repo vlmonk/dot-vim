@@ -35,6 +35,7 @@ Plug 'inkarkat/vim-EnhancedJumps'
 
 " Colorschemes
 Plug 'ayu-theme/ayu-vim'
+Plug 'morhetz/gruvbox'
 
 " vim-indent-object
 Plug 'michaeljsmith/vim-indent-object'
@@ -131,8 +132,11 @@ let g:netrw_liststyle = 3
 " let g:edge_style = 'neon'
 " colorscheme edge
 
-let ayucolor="mirage"
-colorscheme ayu
+" let ayucolor="mirage"
+" colorscheme ayu
+
+colorscheme gruvbox
+
 hi Search guibg=transparent guifg=#fa7dfa
 hi SignColumn guibg=transparent
 
@@ -180,6 +184,8 @@ nmap <leader>Y :Telescope lsp_workspace_diagnostic<CR>
 nmap <leader>. :lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <leader>, :lua vim.lsp.diagnostic.goto_prev()<CR>
 nmap <leader>z :Telescope lsp_document_symbols<CR>
+nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
+
 
 nmap <silent> <leader>p :Telescope find_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
@@ -400,4 +406,4 @@ hi LspDiagnosticsVirtualTextInformation guifg=#B3B3B3 ctermfg=White
 
 " vertical line
 set colorcolumn=80,120
-highlight ColorColumn ctermbg=lightgrey guibg=#212a33
+highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
