@@ -189,8 +189,8 @@ nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
 
 nmap <silent> <leader>p :Telescope find_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
+nmap <silent> <leader>b <Cmd>Telescope buffers<CR>
 
-nmap <silent> <leader>b :Denite buffer<CR>
 nmap <leader>G :Denite grep<CR>
 nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
 nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
