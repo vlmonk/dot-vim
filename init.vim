@@ -128,14 +128,14 @@ let g:netrw_liststyle = 3
 
 " colors
 
-" set background=dark
-" let g:edge_style = 'neon'
-" colorscheme edge
+set background=dark
+let g:edge_style = 'neon'
+colorscheme edge
 
 " let ayucolor="mirage"
 " colorscheme ayu
 
-colorscheme gruvbox
+" colorscheme gruvbox
 
 hi Search guibg=transparent guifg=#fa7dfa
 hi SignColumn guibg=transparent
