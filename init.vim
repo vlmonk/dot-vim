@@ -28,6 +28,7 @@ Plug 'nvim-lua/lsp-status.nvim'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Enhanced jump + common library
 Plug 'inkarkat/vim-ingo-library'
@@ -375,7 +376,11 @@ lspconfig.solargraph.setup({
 })
 
 require('telescope').setup{ defaults = { file_ignore_patterns = {"node_modules", "tmp", "target"}, layout_config = { prompt_position = "top"  }, sorting_strategy = "ascending" } }
+require('telescope').load_extension('fzf')
 EOF
+
+" custom colors for telescope
+hi clear TelescopeMatching
 
 lua require('nvim-compe')
 
