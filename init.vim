@@ -374,22 +374,10 @@ lspconfig.solargraph.setup({
     }
   }
 })
-
-require('telescope').setup {
-  defaults = {
-    file_ignore_patterns = {"node_modules", "tmp", "target"},
-    layout_config = { prompt_position = "top" },
-    sorting_strategy = "ascending"
-  }
-}
-
-require('telescope').load_extension('fzf')
 EOF
 
-" custom colors for telescope
-hi clear TelescopeMatching
-
 lua require('nvim-compe')
+lua require('telescope-config')
 
 lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
