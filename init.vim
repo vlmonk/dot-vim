@@ -27,7 +27,7 @@ Plug 'nvim-lua/lsp-status.nvim'
 " telescope
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'vlmonk/telescope.nvim', { 'branch': 'feature/picker-refactor' }
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
 " Enhanced jump + common library
