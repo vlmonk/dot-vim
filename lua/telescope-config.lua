@@ -1,20 +1,28 @@
-require('telescope').setup {
+local actions = require "telescope.actions"
+
+require("telescope").setup {
   defaults = {
     file_ignore_patterns = {"node_modules", "tmp", "target"},
     sorting_strategy = "ascending",
     mappings = {
       i = {
-        ["<enter>"] = function () vim.cmd('stopinsert') end
+        ["<enter>"] = function () vim.cmd("stopinsert") end
+      },
+      n = {
+        ["/"] = function () vim.cmd("startinsert") end,
+        ["s"] = actions.select_horizontal,
+        ["v"] = actions.select_vertical,
+        ["t"] = actions.select_tab,
       }
     },
   },
   pickers = {
     find_files = {
       previewer = false,
-      theme = "ivy"
+      theme = "ivy",
     },
     buffers = {
-      initial_mode = 'normal',
+      initial_mode = "normal",
       show_all_buffers = true,
       sort_lastused = true,
       theme = "dropdown",
@@ -31,7 +39,7 @@ require('telescope').setup {
   }
 }
 
-require('telescope').load_extension('fzf')
+require("telescope").load_extension("fzf")
 
 -- custom colors for telescope
-vim.api.nvim_command('hi clear TelescopeMatching')
+vim.api.nvim_command("hi clear TelescopeMatching")
