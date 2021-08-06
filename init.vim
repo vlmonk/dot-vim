@@ -115,9 +115,10 @@ nmap <silent> <leader>vs :split<CR>
 nmap <silent><ESC> :noh<CR>
 
 " fugitive mapping
-nmap <silent><Leader>s :Gedit :<CR>
-nmap <silent><Leader>fs :Gvsplit :%<CR>
-nmap <silent><Leader>fb :Git blame<CR>
+nmap <silent><Leader>s <cmd>Gedit :<CR>
+nmap <silent><Leader>fs <cmd>Gvsplit :%<CR>
+nmap <silent><Leader>fb <cmd>Git blame<CR>
+nmap <silent><Leader>fp <cmd>Git push<CR>
 
 nmap gl $%
 vmap gl $%
