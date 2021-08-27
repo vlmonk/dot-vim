@@ -414,4 +414,4 @@ set colorcolumn=80,120
 highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 
 " auto-format on save
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)
+autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
