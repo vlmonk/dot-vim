@@ -193,7 +193,7 @@ nnoremap <silent> <leader>d <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>R <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>r <cmd>Telescope lsp_references<CR>
 
-nmap <silent> <leader>p :Telescope find_files<CR>
+nmap <silent> <leader>p :Telescope git_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
 nmap <silent> <leader>b <Cmd>Telescope buffers<CR>
 

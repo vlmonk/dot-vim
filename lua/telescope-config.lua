@@ -21,6 +21,10 @@ require("telescope").setup {
       previewer = false,
       theme = "ivy",
     },
+    git_files = {
+      previewer = false,
+      theme = "ivy",
+    },
     buffers = {
       initial_mode = "normal",
       show_all_buffers = true,
