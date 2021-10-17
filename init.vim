@@ -119,6 +119,7 @@ nmap <silent><Leader>s <cmd>Gedit :<CR>
 nmap <silent><Leader>fs <cmd>Gvsplit :%<CR>
 nmap <silent><Leader>fb <cmd>Git blame<CR>
 nmap <silent><Leader>fp <cmd>Git push<CR>
+nmap <silent><Leader>fP <cmd>Git push -fu origin HEAD<CR>
 
 nmap gl $%
 vmap gl $%
