@@ -23,6 +23,7 @@ Plug 'rbgrouleff/bclose.vim'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 Plug 'nvim-lua/lsp-status.nvim'
+Plug 'mhartington/formatter.nvim'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
@@ -195,6 +196,9 @@ nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>d <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> <leader>R <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>r <cmd>Telescope lsp_references<CR>
+
+" format current file
+nnoremap <silent> <leader>F <cmd>Format<CR>
 
 nmap <silent> <leader>p :Telescope git_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
@@ -382,6 +386,7 @@ lspconfig.solargraph.setup({
 })
 EOF
 
+lua require('formatters')
 lua require('nvim-compe')
 lua require('telescope-config')
 
@@ -418,3 +423,8 @@ highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 
 " auto-format on save
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePost *.ts FormatWrite
+autocmd BufWritePost *.json FormatWrite
+
+
+let g:NERDTreeMapHelp = '∞'
