@@ -59,8 +59,6 @@ set nohls
 
 set fileencodings=utf-8
 
-" let g:coc_enable_locationlist=1
-" let g:coc_quickfix_open_command="Denite quickfix"
 
 " config deoplete
 let g:deoplete#enable_at_startup = 1
@@ -80,7 +78,6 @@ tnoremap <Esc> <C-\><C-n>
 " fast edit / reload config
 nnoremap <leader>ce :new ~/.config/nvim/init.vim<CR>
 nnoremap <leader>cr :source ~/.config/nvim/init.vim<CR>
-" nnoremap <leader>cc :CocConfig<CR>
 
 " Install plugins
 nnoremap <leader>ci :PlugInstall<CR>
@@ -102,15 +99,6 @@ nmap <silent> <leader>q :bd<CR>
 " window split
 nmap <silent> <leader>vv :vsplit<CR>
 nmap <silent> <leader>vs :split<CR>
-
-" Language client
-" nmap <silent> <leader>a  <Plug>(coc-codeaction-cursor)
-" nnoremap <silent> K :call CocAction('doHover')<CR>
-" nmap <silent> <leader>gR <Plug>(coc-rename)
-" nmap <silent> <leader>gr <Plug>(coc-references)
-" nmap <silent> <leader>gd <Plug>(coc-definition)
-" nmap <silent> <leader>gt <Plug>(coc-type-definition)
-" nmap <silent> <leader>gz <Plug>(coc-refactor)
 
 " clear search hightlight
 nmap <silent><ESC> :noh<CR>
@@ -210,7 +198,6 @@ nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
 nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
 nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
 nnoremap <leader>gv :Denite -resume<CR>
-" nnoremap <leader>Y :Denite coc-diagnostic<CR>
 
 " undotree config
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
@@ -232,12 +219,8 @@ let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeWinPos = "right"
 
 " select inside function
-" xmap if <Plug>(coc-funcobj-i)
-" omap if <Plug>(coc-funcobj-i)
 
 " select inside class
-" xmap ic <Plug>(coc-classobj-i)
-" omap ic <Plug>(coc-classobj-i)
 
 " used for statusline
 function! LspStatus() abort
@@ -258,7 +241,6 @@ let g:lightline = {
 \   },
 \ }
 
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 " custom text objects
 " https://vimways.org/2018/transactions-pending/
@@ -337,7 +319,7 @@ nnoremap <silent> <leader>q :call CustomBClose()<CR>
 " format current buffer as json
 function FormatAsJson ()
   set filetype=json
-  " execute 'CocCommand prettier.formatFile'
+  Format
 endfunction
 
 
