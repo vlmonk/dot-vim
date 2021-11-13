@@ -174,14 +174,15 @@ call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
 
 nmap <leader>y <cmd>Telescope lsp_document_diagnostics<CR>
-nmap <leader>Y <cmd>Telescope lsp_workspace_diagnostic<CR>
+nmap <leader>Y <cmd>Telescope lsp_workspace_diagnostics<CR>
 nmap <leader>. <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 nmap <leader>, <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
 nmap <leader>z <cmd>Telescope lsp_document_symbols<CR>
 nmap <leader>D <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nmap <leader>a <cmd>Telescope lsp_code_actions<CR>
 nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> <leader>d <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> <leader>d <cmd>Telescope lsp_definitions<CR>
+nnoremap <silent> <leader>T <cmd>Telescope lsp_type_definitions<CR>
 nnoremap <silent> <leader>R <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>r <cmd>Telescope lsp_references<CR>
 
