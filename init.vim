@@ -408,6 +408,7 @@ highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePost *.ts FormatWrite
 autocmd BufWritePost *.json FormatWrite
+autocmd BufWritePost *.scss FormatWrite
 
 
 let g:NERDTreeMapHelp = '∞'

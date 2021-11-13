@@ -13,6 +13,14 @@ function prettier_json ()
   }
 end
 
+function prettier_scss () 
+  return {
+    exe = "prettier",
+    args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote", "--parser scss"},
+    stdin = true
+  }
+end
+
 function prettier () 
   local path = file_exists("./node_modules/.bin/prettier") and "./node_modules/.bin/prettier" or "prettier"
 
@@ -26,6 +34,7 @@ end
 require('formatter').setup({
   filetype = {
     typescript = { prettier },
-    json = { prettier_json }
+    json = { prettier_json },
+    scss = { prettier_scss }
   }
 })
