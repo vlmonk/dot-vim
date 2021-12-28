@@ -33,6 +33,7 @@ end
 
 require('formatter').setup({
   filetype = {
+    javascript = { prettier },
     typescript = { prettier },
     json = { prettier_json },
     scss = { prettier_scss }

@@ -408,6 +408,7 @@ highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 " auto-format on save
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
 autocmd BufWritePost *.ts FormatWrite
+autocmd BufWritePost *.js FormatWrite
 autocmd BufWritePost *.json FormatWrite
 autocmd BufWritePost *.scss FormatWrite
 
