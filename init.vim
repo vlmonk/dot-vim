@@ -176,8 +176,8 @@ call denite#custom#var('grep', 'final_opts', [])
 nmap <leader>y <cmd>Telescope lsp_document_diagnostics<CR>
 nmap <leader>y <cmd>Telescope diagnostics bufnr=0<CR>
 nmap <leader>Y <cmd>Telescope lsp_workspace_diagnostics<CR>
-nmap <leader>. <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
-nmap <leader>, <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nmap <leader>. <cmd>lua vim.diagnostic.goto_next()<CR>
+nmap <leader>, <cmd>lua vim.diagnostic.goto_prev()<CR>
 nmap <leader>z <cmd>Telescope lsp_document_symbols<CR>
 nmap <leader>D <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
 nmap <leader>a <cmd>Telescope lsp_code_actions<CR>
