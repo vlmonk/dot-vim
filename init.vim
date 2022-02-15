@@ -19,7 +19,7 @@ Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 Plug 'mbbill/undotree'
 Plug 'preservim/nerdtree'
-Plug 'rbgrouleff/bclose.vim'
+Plug 'famiu/bufdelete.nvim'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 Plug 'nvim-lua/lsp-status.nvim'
@@ -94,7 +94,7 @@ nnoremap <C-W><C-T> <C-W>T
 nmap <silent> <Tab> :bnext<CR>
 
 " close current buffer
-nmap <silent> <leader>q :bd<CR>
+nmap <silent> <leader>q :Bd<CR>
 
 " window split
 nmap <silent> <leader>vv :vsplit<CR>
@@ -300,19 +300,6 @@ endfunction
 
 autocmd BufEnter * nnoremap <buffer>q; q:
 autocmd FileType * call RemoveQMapping()
-
-function CustomBClose ()
-  let l:filename = expand('%')
-  if match(l:filename, '^fugitive:/') == 0 || match(l:filename, 'fugitiveblame$') > -1 || l:filename == '.git/index'
-    bdelete
-  else
-    Bclose(bufnr('%'))
-  endif
-endfunction
-
-" bclose plugin
-let g:bclose_no_plugin_maps = 1
-nnoremap <silent> <leader>q :call CustomBClose()<CR>
 
 " format current buffer as json
 function FormatAsJson ()
