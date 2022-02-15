@@ -137,10 +137,6 @@ hi SignColumn guibg=transparent
 " itaclic comments
 hi Comment gui=italic
 
-
-" airline theme
-let g:airline_theme = 'bubblegum'
-
 " hardtime config
 let g:hardtime_default_on = 1
 let g:hardtime_ignore_buffer_patterns = [ "denite*", "undotree*", "NERD*", "fugitiveblame", "fugitive:" ]
