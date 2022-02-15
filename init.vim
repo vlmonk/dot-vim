@@ -27,6 +27,7 @@ Plug 'mhartington/formatter.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
+Plug 'kchmck/vim-coffee-script'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
