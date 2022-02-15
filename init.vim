@@ -24,6 +24,9 @@ Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 Plug 'nvim-lua/lsp-status.nvim'
 Plug 'mhartington/formatter.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
@@ -356,6 +359,7 @@ EOF
 lua require('formatters')
 lua require('nvim-compe')
 lua require('telescope-config')
+lua require('ts')
 
 lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -394,6 +398,5 @@ autocmd BufWritePost *.ts FormatWrite
 autocmd BufWritePost *.js FormatWrite
 autocmd BufWritePost *.json FormatWrite
 autocmd BufWritePost *.scss FormatWrite
-
 
 let g:NERDTreeMapHelp = '∞'
