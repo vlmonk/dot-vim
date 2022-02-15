@@ -39,8 +39,7 @@ Plug 'inkarkat/vim-ingo-library'
 Plug 'inkarkat/vim-EnhancedJumps'
 
 " Colorschemes
-Plug 'ayu-theme/ayu-vim'
-Plug 'morhetz/gruvbox'
+Plug 'sainnhe/sonokai'
 
 " vim-indent-object
 Plug 'michaeljsmith/vim-indent-object'
@@ -126,13 +125,12 @@ let g:netrw_liststyle = 3
 " colors
 
 set background=dark
-let g:edge_style = 'neon'
-colorscheme edge
 
-" let ayucolor="mirage"
-" colorscheme ayu
-
-" colorscheme gruvbox
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+colorscheme sonokai
+" custom override for sonokai scheme
+highlight! link TSPunctBracket Blue
 
 hi Search guibg=transparent guifg=#fa7dfa
 hi SignColumn guibg=transparent
