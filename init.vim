@@ -23,12 +23,12 @@ Plug 'famiu/bufdelete.nvim'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
 Plug 'nvim-lua/lsp-status.nvim'
-Plug 'mhartington/formatter.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
 Plug 'kchmck/vim-coffee-script'
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'jose-elias-alvarez/null-ls.nvim'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
@@ -188,7 +188,7 @@ nnoremap <silent> <leader>R <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>r <cmd>Telescope lsp_references<CR>
 
 " format current file
-nnoremap <silent> <leader>F <cmd>Format<CR>
+nnoremap <silent> <leader>F <cmd>vim.lsp.buf.formatting()<CR>
 
 nmap <silent> <leader>p :Telescope git_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
@@ -357,10 +357,10 @@ lspconfig.solargraph.setup({
 })
 EOF
 
-lua require('formatters')
 lua require('nvim-compe')
 lua require('telescope-config')
 lua require('ts')
+lua require('null-ls-config')
 
 lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -395,9 +395,11 @@ highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 
 " auto-format on save
 autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
-autocmd BufWritePost *.ts FormatWrite
-autocmd BufWritePost *.js FormatWrite
-autocmd BufWritePost *.json FormatWrite
-autocmd BufWritePost *.scss FormatWrite
+autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 1000)
+autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
+autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
+autocmd BufWritePre *.js lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
+autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
+autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
 
 let g:NERDTreeMapHelp = '∞'
