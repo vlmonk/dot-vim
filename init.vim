@@ -4,9 +4,6 @@ Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
 Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/denite.nvim'
-Plug 'chemzqm/denite-extra'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
@@ -62,11 +59,6 @@ set hidden
 set nohls
 
 set fileencodings=utf-8
-
-
-" config deoplete
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('auto_complete', 'False')
 
 " disable mappings for Enhanced Jubs
 :let g:EnhancedJumps_no_mappings = 1
@@ -142,7 +134,7 @@ hi Comment gui=italic
 
 " hardtime config
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = [ "denite*", "undotree*", "NERD*", "fugitiveblame", "fugitive:" ]
+let g:hardtime_ignore_buffer_patterns = ["undotree*", "NERD*", "fugitiveblame", "fugitive:" ]
 let g:hardtime_ignore_quickfix = 1
 
 " git guitter
@@ -161,16 +153,6 @@ hi GitGutterChangeDelete guibg=transparent guifg=#a887f5
 
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
-
-" denite config
-call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#option('default', 'prompt', 'λ')
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
 
 nmap <leader>y <cmd>Telescope lsp_document_diagnostics<CR>
 nmap <leader>y <cmd>Telescope diagnostics bufnr=0<CR>
