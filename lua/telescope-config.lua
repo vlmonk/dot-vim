@@ -25,6 +25,9 @@ require("telescope").setup {
       previewer = false,
       theme = "ivy",
     },
+    resume = {
+      initial_mode = "normal"
+    },
     buffers = {
       initial_mode = "normal",
       show_all_buffers = true,

@@ -187,19 +187,18 @@ nnoremap <silent> <leader>T <cmd>Telescope lsp_type_definitions<CR>
 nnoremap <silent> <leader>R <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>r <cmd>Telescope lsp_references<CR>
 
-" format current file
-nnoremap <silent> <leader>F <cmd>vim.lsp.buf.formatting()<CR>
-
 nmap <silent> <leader>p :Telescope git_files<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
 nmap <silent> <leader>b <Cmd>Telescope buffers<CR>
 
-nmap <leader>G :Denite grep<CR>
-nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
-nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
-nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
-nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
-nnoremap <leader>gv :Denite -resume<CR>
+nmap <leader>G <cmd>Telescope live_grep<CR>
+nnoremap <leader>gv <cmd>Telescope resume<CR>
+
+" todo Port this to telescope
+" nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
+" nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
+" nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
+" nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
 
 " undotree config
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
