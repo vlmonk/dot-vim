@@ -321,11 +321,18 @@ lsp_status.register_progress()
 local lspconfig = require('lspconfig')
 
 lspconfig.rust_analyzer.setup{}
+
+local on_attach_tsserver = function(client)
+  client.resolved_capabilities.document_formatting = false
+  lsp_status.on_attach(client)
+end
+
 lspconfig.tsserver.setup({
   handlers = lsp_status.extensions.clangd.setup(),
-  on_attach = lsp_status.on_attach,
+  on_attach = on_attach_tsserver,
   capabilities = lsp_status.capabilities
 })
+
 lspconfig.solargraph.setup({
   handlers = lsp_status.extensions.clangd.setup(),
   on_attach = lsp_status.on_attach,
