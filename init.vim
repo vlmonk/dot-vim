@@ -2,7 +2,6 @@ call plug#begin(stdpath('data') . '/plugged')
 
 Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
-Plug 'tpope/vim-commentary'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -26,6 +25,10 @@ Plug 'RRethy/nvim-treesitter-textsubjects'
 Plug 'kchmck/vim-coffee-script'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+
+" comments
+Plug 'tpope/vim-commentary'
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 
 " telescope
 Plug 'nvim-lua/popup.nvim'
