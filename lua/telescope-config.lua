@@ -28,10 +28,13 @@ require("telescope").setup {
     resume = {
       initial_mode = "normal"
     },
+    live_grep = {
+      disable_coordinates = true
+    },
     buffers = {
       initial_mode = "normal",
       show_all_buffers = true,
-      sort_lastused = true,
+      sort_lastused = false,
       theme = "dropdown",
       previewer = false,
       layout_config = {

@@ -180,7 +180,8 @@ nmap <leader>G <cmd>Telescope live_grep<CR>
 nnoremap <leader>gv <cmd>Telescope resume<CR>
 
 " todo Port this to telescope
-" nnoremap <leader>w :Denite -input=<c-r><c-w> -sorters=sorter/path grep<CR>
+nnoremap <silent> <leader>w :lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<cr>
+nnoremap <silent> <leader>W :lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cWORD>'), initial_mode = 'normal' })<cr>
 " nnoremap <leader>W :Denite -input=<c-r><c-a> -sorters=sorter/path grep<CR>
 " nnoremap <leader>gn :Denite -resume -cursor-pos=+1 -immediately<CR>
 " nnoremap <leader>gp :Denite -resume -cursor-pos=-1 -immediately<CR>
