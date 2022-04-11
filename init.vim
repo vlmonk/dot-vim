@@ -157,9 +157,8 @@ hi GitGutterChangeDelete guibg=transparent guifg=#a887f5
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
 
-nmap <leader>y <cmd>Telescope lsp_document_diagnostics<CR>
 nmap <leader>y <cmd>Telescope diagnostics bufnr=0<CR>
-nmap <leader>Y <cmd>Telescope diagnostic<CR>
+nmap <leader>Y <cmd>Telescope diagnostics<CR>
 nmap <leader>. <cmd>lua vim.diagnostic.goto_next()<CR>
 nmap <leader>, <cmd>lua vim.diagnostic.goto_prev()<CR>
 nmap <leader>z <cmd>Telescope lsp_document_symbols<CR>
