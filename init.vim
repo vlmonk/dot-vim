@@ -391,6 +391,6 @@ autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-
 autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
 autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
-autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
+autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_seq_sync(null, 1000, { 'null-ts' })
 
 let g:NERDTreeMapHelp = '∞'
