@@ -60,16 +60,20 @@ require("telescope").setup {
       initial_mode = "normal",
       show_all_buffers = true,
       sort_lastused = false,
-      theme = "dropdown",
+      theme = "ivy",
       previewer = false,
       layout_config = {
-        width = 0.5
+        width = 0.9
       },
       mappings = {
         n = {
           ["dd"] = "delete_buffer",
         }
       }
+    },
+    lsp_definitions = {
+      theme = "ivy",
+      entry_maker = lsp_entry 
     },
     lsp_references = {
       theme = "ivy",

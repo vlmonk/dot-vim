@@ -1,7 +1,10 @@
 call plug#begin(stdpath('data') . '/plugged')
 
-Plug 'hrsh7th/nvim-compe'
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/vim-vsnip'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
@@ -68,8 +71,6 @@ set fileencodings=utf-8
 
 " keybindings
 let mapleader = "\<Space>"
-
-nnoremap <silent> <Tab> :bnext<CR>
 
 " exit terminal mode by ESC
 tnoremap <Esc> <C-\><C-n>
