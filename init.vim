@@ -248,7 +248,7 @@ function! <SID>StripTrailingWhitespaces()
     call cursor(l, c)
 endfun
 
-autocmd BufWritePre * if &ft =~ 'vim\|ruby\|python\|haml' | :call <SID>StripTrailingWhitespaces() | endif
+autocmd BufWritePre * if &ft =~ 'vim\|ruby\|python\|haml\|yaml' | :call <SID>StripTrailingWhitespaces() | endif
 
 " vertical splitbar style
 set fillchars+=vert:│
