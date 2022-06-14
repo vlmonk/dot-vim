@@ -321,7 +321,7 @@ local lspconfig = require('lspconfig')
 lspconfig.rust_analyzer.setup{}
 
 local on_attach_tsserver = function(client)
-  client.resolved_capabilities.document_formatting = false
+  client.server_capabilities.documentFormattingProvider= false
   lsp_status.on_attach(client)
 end
 
