@@ -165,7 +165,9 @@ nmap <leader>, <cmd>lua vim.diagnostic.goto_prev()<CR>
 nmap <leader>z <cmd>Telescope lsp_document_symbols<CR>
 nmap <leader>Z <cmd>Telescope lsp_dynamic_workspace_symbols<CR>
 nmap <leader>D <cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>
-nmap <leader>a <cmd>Telescope lsp_code_actions<CR>
+
+nnoremap <silent> <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
+vnoremap <silent> <leader>a <cmd>lua vim.lsp.buf.range_code_action()<CR>
 nnoremap <silent> K <Cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> <leader>d <cmd>Telescope lsp_definitions<CR>
 nnoremap <silent> <leader>T <cmd>Telescope lsp_type_definitions<CR>
@@ -383,12 +385,12 @@ set colorcolumn=80,120
 highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 
 " auto-format on save
-autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 1000)
-autocmd BufWritePre *.json lua vim.lsp.buf.formatting_sync(nil, 1000)
-autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
-autocmd BufWritePre *.tsx lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
-autocmd BufWritePre *.js lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
-autocmd BufWritePre *.jsx lua vim.lsp.buf.formatting_seq_sync(null, 500, { 'null-ts' })
-autocmd BufWritePre *.scss lua vim.lsp.buf.formatting_seq_sync(null, 1000, { 'null-ts' })
+autocmd BufWritePre *.rs lua vim.lsp.buf.format()
+autocmd BufWritePre *.json lua vim.lsp.buf.format()
+autocmd BufWritePre *.ts lua vim.lsp.buf.format()
+autocmd BufWritePre *.tsx lua vim.lsp.buf.format()
+autocmd BufWritePre *.js lua vim.lsp.buf.format()
+autocmd BufWritePre *.jsx lua vim.lsp.buf.format()
+autocmd BufWritePre *.scss lua vim.lsp.buf.format()
 
 let g:NERDTreeMapHelp = '∞'
