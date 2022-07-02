@@ -283,6 +283,7 @@ function RemoveQMapping ()
 
   if l:ft ==? 'nerdtree'
     nunmap <buffer>q;
+    nmap <buffer><Esc> q
   endif
 endfunction
 
