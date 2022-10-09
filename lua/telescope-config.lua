@@ -54,7 +54,8 @@ require("telescope").setup {
       initial_mode = "normal"
     },
     live_grep = {
-      disable_coordinates = true
+      disable_coordinates = true,
+      theme = "ivy",
     },
     buffers = {
       initial_mode = "normal",

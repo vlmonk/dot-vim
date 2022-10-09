@@ -63,8 +63,11 @@ set scrolloff=1
 set noshowmode
 set hidden
 set nohls
-
+set nowrap
 set fileencodings=utf-8
+
+" disable mouse
+set mouse=
 
 " disable mappings for Enhanced Jubs
 :let g:EnhancedJumps_no_mappings = 1
@@ -157,6 +160,10 @@ hi GitGutterChangeDelete guibg=transparent guifg=#a887f5
 
 " write to swap file often (and get gitguitter updates faster)
 set updatetime=100
+
+" yark to *
+vmap <leader>N "*y
+nmap <leader>N 0"*vy$
 
 nmap <leader>y <cmd>Telescope diagnostics bufnr=0<CR>
 nmap <leader>Y <cmd>Telescope diagnostics<CR>
@@ -394,4 +401,8 @@ autocmd BufWritePre *.js lua vim.lsp.buf.format()
 autocmd BufWritePre *.jsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.scss lua vim.lsp.buf.format()
 
+" nerdtree config
 let g:NERDTreeMapHelp = '∞'
+" menu hotfix
+" https://github.com/preservim/nerdtree/issues/1321
+let g:NERDTreeMinimalMenu=1
