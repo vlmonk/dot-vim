@@ -181,7 +181,7 @@ nnoremap <silent> <leader>T <cmd>Telescope lsp_type_definitions<CR>
 nnoremap <silent> <leader>R <cmd>lua vim.lsp.buf.rename()<CR>
 nnoremap <silent> <leader>r <cmd>Telescope lsp_references<CR>
 
-nmap <silent> <leader>p :Telescope git_files<CR>
+nmap <silent> <leader>p :Telescope git_files show_untracked=true<CR>
 nmap <silent> <leader>P :exec("Telescope find_files cwd=" . expand('%:p:h'))<CR>
 nmap <silent> <leader>b <Cmd>Telescope buffers<CR>
 
@@ -395,10 +395,8 @@ highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 " auto-format on save
 autocmd BufWritePre *.rs lua vim.lsp.buf.format()
 autocmd BufWritePre *.json lua vim.lsp.buf.format()
-autocmd BufWritePre *.ts lua vim.lsp.buf.format()
-autocmd BufWritePre *.tsx lua vim.lsp.buf.format()
-autocmd BufWritePre *.js lua vim.lsp.buf.format()
-autocmd BufWritePre *.jsx lua vim.lsp.buf.format()
+autocmd BufWritePre *.ts,*.tsx lua vim.lsp.buf.format()
+autocmd BufWritePre *.js,*.mjs,*.jsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.scss lua vim.lsp.buf.format()
 
 " nerdtree config
@@ -406,3 +404,21 @@ let g:NERDTreeMapHelp = '∞'
 " menu hotfix
 " https://github.com/preservim/nerdtree/issues/1321
 let g:NERDTreeMinimalMenu=1
+
+" global statusline
+set laststatus=3
+
+" vsplit to right
+set splitright
+
+" neovide
+" Allow copy paste in neovim
+let g:neovide_input_use_logo = 1
+map <D-v> "+p<CR>
+map! <D-v> <C-R>+
+tmap <D-v> <C-R>+
+vmap <D-c> "+y<CR
+" disable animation
+let g:neovide_cursor_animation_length=0
+
+set guifont=Victor\ Mono:h14

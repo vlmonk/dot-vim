@@ -62,13 +62,12 @@ require("telescope").setup {
       show_all_buffers = true,
       sort_lastused = false,
       theme = "ivy",
-      previewer = false,
       layout_config = {
         width = 0.9
       },
       mappings = {
         n = {
-          ["dd"] = "delete_buffer",
+          ["x"] = "delete_buffer",
         }
       }
     },
