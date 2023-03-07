@@ -2,7 +2,7 @@ local actions = require "telescope.actions"
 local utils = require "telescope.utils"
 local Path = require "plenary.path"
 
-local lsp_entry = function(entry) 
+local lsp_entry = function(entry)
   local filename = entry.filename or vim.api.nvim_buf_get_name(entry.bufnr)
   local cwd = vim.loop.cwd()
   local short_name = Path:new(filename):make_relative(cwd)
@@ -69,15 +69,16 @@ require("telescope").setup {
         n = {
           ["x"] = "delete_buffer",
         }
-      }
+      },
+      entry_maker = lsp_entry
     },
     lsp_definitions = {
       theme = "ivy",
-      entry_maker = lsp_entry 
+      entry_maker = lsp_entry
     },
     lsp_references = {
       theme = "ivy",
-      entry_maker = lsp_entry 
+      entry_maker = lsp_entry
     }
   }
 }
