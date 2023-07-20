@@ -362,6 +362,7 @@ lua require('nvim-compe')
 lua require('telescope-config')
 lua require('ts')
 lua require('null-ls-config')
+lua require('prettify-json')
 
 lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -422,5 +423,4 @@ tmap <D-v> <C-R>+
 vmap <D-c> "+y<CR
 " disable animation
 let g:neovide_cursor_animation_length=0
-
 set guifont=Victor\ Mono:h14
