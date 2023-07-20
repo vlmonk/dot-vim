@@ -19,7 +19,6 @@ Plug 'cespare/vim-toml'
 Plug 'equalsraf/neovim-gui-shim'
 Plug 'hashivim/vim-terraform'
 Plug 'mbbill/undotree'
-Plug 'preservim/nerdtree'
 Plug 'famiu/bufdelete.nvim'
 Plug 'tpope/vim-haml'
 Plug 'slim-template/vim-slim'
@@ -30,6 +29,7 @@ Plug 'RRethy/nvim-treesitter-textsubjects'
 Plug 'kchmck/vim-coffee-script'
 Plug 'p00f/nvim-ts-rainbow'
 Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
 
 " comments
 Plug 'tpope/vim-commentary'
@@ -143,7 +143,7 @@ hi Comment gui=italic
 
 " hardtime config
 let g:hardtime_default_on = 1
-let g:hardtime_ignore_buffer_patterns = ["undotree*", "NERD*", "fugitiveblame", "fugitive:" ]
+let g:hardtime_ignore_buffer_patterns = ["undotree*", "fugitiveblame", "fugitive:" ]
 let g:hardtime_ignore_quickfix = 1
 
 " git guitter
@@ -199,23 +199,6 @@ nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
 nnoremap <leader>I :UndotreeHide<CR>
 let g:undotree_HighlightChangedWithSign = 1
 
-" nerdtree config
-function! SmartNERDTree()
-  if @% == ""
-    NERDTreeToggle
-  else
-    NERDTreeFind
-  endif
-endfun
-
-nnoremap <silent> <leader>t :call SmartNERDTree()<CR>
-let g:NERDTreeWinSize=60
-let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeWinPos = "right"
-
-" select inside function
-
-" select inside class
 
 " used for statusline
 function! LspStatus() abort
@@ -285,19 +268,19 @@ if has('persistent_undo')
 endif
 
 " Open command line on q;
-" Tricky setup because I want to disable this keymapping in NERD buffers
+" Tricky setup because I want to disable this keymapping in NvimTree
 
 function RemoveQMapping ()
   let l:ft = &ft
 
-  if l:ft ==? 'nerdtree'
+  if l:ft ==? 'NvimTree'
     nunmap <buffer>q;
     nmap <buffer><Esc> q
   endif
 endfunction
 
 autocmd BufEnter * nnoremap <buffer>q; q:
-autocmd FileType * call RemoveQMapping()
+autocmd BufEnter * call RemoveQMapping()
 
 " format current buffer as json
 function FormatAsJson ()
@@ -363,6 +346,7 @@ lua require('telescope-config')
 lua require('ts')
 lua require('null-ls-config')
 lua require('prettify-json')
+lua require('nvim-tree-setup')
 
 lua << EOF
   vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -402,12 +386,6 @@ autocmd BufWritePre *.ts,*.tsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.js,*.mjs,*.jsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.scss lua vim.lsp.buf.format()
 
-" nerdtree config
-let g:NERDTreeMapHelp = '∞'
-" menu hotfix
-" https://github.com/preservim/nerdtree/issues/1321
-let g:NERDTreeMinimalMenu=1
-
 " global statusline
 set laststatus=3
 
@@ -424,3 +402,6 @@ vmap <D-c> "+y<CR
 " disable animation
 let g:neovide_cursor_animation_length=0
 set guifont=Victor\ Mono:h14
+
+
+nnoremap <silent> <leader>t <Cmd>NvimTreeOpen<CR>
