@@ -20,8 +20,6 @@ local function vsplit_and_keep()
   local mx = require("nvim-tree.actions.node.open-file")
   local saved_quit_on_open = mx.quit_on_open
 
-  print("bar")
-
   mx.quit_on_open = false
   api.node.open.vertical()
   mx.quit_on_open = saved_quit_on_open
