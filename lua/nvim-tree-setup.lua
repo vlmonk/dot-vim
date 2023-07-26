@@ -1,14 +1,12 @@
 local api = require "nvim-tree.api"
 
-local function opts(desc)
+local function opts(bufnr, desc)
   return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
 end
 
 local function open_and_keep()
   local open_file = require("nvim-tree.actions.node.open-file")
   local saved_quit_on_open = open_file.quit_on_open
-
-  print("foo")
 
   open_file.quit_on_open = false
   api.node.open.edit()
@@ -30,11 +28,11 @@ local function on_attach(bufnr)
   -- default mappings
   api.config.mappings.default_on_attach(bufnr)
 
-  vim.keymap.set('n', 'v', api.node.open.vertical, opts("Vertical split"))
-  vim.keymap.set('n', 'V', vsplit_and_keep, opts("Vertical split and keep"))
+  vim.keymap.set('n', 'v', api.node.open.vertical, opts(bufnr, "Vertical split"))
+  vim.keymap.set('n', 'V', vsplit_and_keep, opts(bufnr, "Vertical split and keep"))
 
   vim.keymap.del('n', 'O', { buffer = bufnr })
-  vim.keymap.set('n', 'O', open_and_keep, opts("Open and keep"))
+  vim.keymap.set('n', 'O', open_and_keep, opts(bufnr,"Open and keep"))
 end
 
   require("nvim-tree").setup {
