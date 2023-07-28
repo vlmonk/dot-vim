@@ -47,8 +47,11 @@ end
           file = false,
           folder = false,
           folder_arrow = false,
+        },
+        glyphs = {
+          symlink = "",
         }
-      }
+      },
     },
     actions = {
       open_file = {
