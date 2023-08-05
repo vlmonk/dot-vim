@@ -404,4 +404,4 @@ let g:neovide_cursor_animation_length=0
 set guifont=Victor\ Mono:h14
 
 
-nnoremap <silent> <leader>t <Cmd>NvimTreeOpen<CR>
+nnoremap <silent> <leader>t <Cmd>NvimTreeFindFile<CR>
