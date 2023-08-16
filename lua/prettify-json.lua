@@ -1,9 +1,15 @@
 -- many thansk to ChatGTP
 
-function prettify_json()
-  -- Get the start and end line of the visual selection
-  local start_line, end_line = unpack(vim.fn.getpos("'<"), 2, 3), unpack(vim.fn.getpos("'>"), 2, 3)
+function prettify_json(mode)
+  local start_line, end_line
 
+  if mode == 'visual' then
+    -- Get the start and end line of the visual selection
+    start_line, end_line = unpack(vim.fn.getpos("'<"), 2, 3), unpack(vim.fn.getpos("'>"), 2, 3)
+  else
+    -- For normal mode, select the entire file
+    start_line, end_line = 1, vim.fn.line('$')
+  end
   -- Save the current unnamed register and clipboard register before overwriting
   local unnamed_register = vim.fn.getreg('"')
   local unnamed_register_type = vim.fn.getregtype('"')
@@ -21,7 +27,7 @@ function prettify_json()
 
   -- Put the yanked lines in the new buffer and send to the shell command
   vim.api.nvim_command('normal! "0P')
-  vim.api.nvim_command('1,$!prettier --parser json')
+  vim.api.nvim_command('silent 1,$!prettier --parser json')
 
   -- Check for errors in the command
   if vim.v.shell_error ~= 0 then
@@ -33,7 +39,7 @@ function prettify_json()
     -- Yank the prettified lines and replace the original lines
     vim.api.nvim_command('normal! ggVGy')
     vim.api.nvim_command('q')
-    vim.api.nvim_command(start_line .. "," .. end_line .. "'_d")
+    vim.api.nvim_command('silent ' .. start_line .. "," .. end_line .. "delete")
     vim.api.nvim_command('normal! "0P')
   end
 
@@ -42,4 +48,5 @@ function prettify_json()
   vim.fn.setreg('+', clipboard_register, clipboard_register_type)
 end
 
-vim.api.nvim_set_keymap('v', '<leader>j', ':lua prettify_json()<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('v', '<leader>j', ':lua prettify_json("visual")<CR>', {noremap = true, silent = true})
+vim.api.nvim_set_keymap('n', '<leader>j', ':lua prettify_json("normal")<CR>', {noremap = true, silent = true})
