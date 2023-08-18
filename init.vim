@@ -405,3 +405,4 @@ set guifont=Victor\ Mono:h14
 
 
 nnoremap <silent> <leader>t <Cmd>NvimTreeFindFile<CR>
+nnoremap <silent> <leader>S <Cmd>let g:hardtime_showmsg = 1<CR><Cmd>HardTimeToggle<Cr><Cmd>let g:hardtime_showmsg = 0<CR>
