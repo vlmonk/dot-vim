@@ -297,6 +297,10 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t
 autocmd FileChangedShellPost *  echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
 lua << EOF
+require'lspconfig'.pyright.setup{}
+EOF
+
+lua << EOF
 local lsp_status = require('lsp-status')
 
 lsp_status.config({
