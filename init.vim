@@ -300,51 +300,7 @@ lua << EOF
 require'lspconfig'.pyright.setup{}
 EOF
 
-lua << EOF
-local lsp_status = require('lsp-status')
-
-lsp_status.config({
-  status_symbol = '',
-  indicator_errors = 'ᛓ',
-  indicator_warnings = 'ᚼ',
-  indicator_info = 'ᛊ',
-  indicator_hint = 'ᛘ',
-  indicator_ok = '',
-  indicator_separator = '',
-})
-
-lsp_status.register_progress()
-
-local lspconfig = require('lspconfig')
-
-lspconfig.rust_analyzer.setup{}
-
-local on_attach_tsserver = function(client)
-  client.server_capabilities.documentFormattingProvider= false
-  lsp_status.on_attach(client)
-end
-
-lspconfig.tsserver.setup({
-  handlers = lsp_status.extensions.clangd.setup(),
-  on_attach = on_attach_tsserver,
-  capabilities = lsp_status.capabilities
-})
-
-lspconfig.solargraph.setup({
-  handlers = lsp_status.extensions.clangd.setup(),
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilities,
-  cmd = { "bundle", "exec", "solargraph", "stdio" },
-  settings = {
-    solargraph = {
-      logLevel = "debug",
-      diagnostics = true,
-      useBundler = true
-    }
-  }
-})
-EOF
-
+lua require('lsp')
 lua require('nvim-compe')
 lua require('telescope-config')
 lua require('ts')
