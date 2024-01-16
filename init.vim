@@ -345,6 +345,7 @@ autocmd BufWritePre *.json lua vim.lsp.buf.format()
 autocmd BufWritePre *.ts,*.tsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.js,*.mjs,*.jsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.scss lua vim.lsp.buf.format()
+autocmd BufWritePre *.rb lua vim.lsp.buf.format()
 
 " global statusline
 set laststatus=3
