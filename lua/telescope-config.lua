@@ -63,14 +63,15 @@ require("telescope").setup {
       sort_lastused = false,
       theme = "ivy",
       layout_config = {
-        width = 0.9
+        width = 0.9,
+        height = 15,
       },
+      previewer = false,
       mappings = {
         n = {
           ["x"] = "delete_buffer",
         }
       },
-      entry_maker = lsp_entry
     },
     lsp_definitions = {
       theme = "ivy",
