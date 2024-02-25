@@ -1,5 +1,5 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { 'html', 'javascript', 'typescript', 'tsx', 'css', 'ruby', 'rust' },
+  ensure_installed = { 'html', 'javascript', 'typescript', 'tsx', 'css', 'ruby', 'rust', 'vimdoc' },
   highlight = { enable = true },
   incremental_selection = { enable = true },
   textobjects = {
