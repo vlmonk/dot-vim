@@ -67,9 +67,8 @@ set hidden
 set nohls
 set nowrap
 set fileencodings=utf-8
-
-" disable mouse
-set mouse=
+set laststatus=3 " global statusline
+set mouse= " disable mouse
 
 " disable mappings for Enhanced Jubs
 :let g:EnhancedJumps_no_mappings = 1
@@ -296,27 +295,14 @@ nnoremap <silent> <leader>ff :call FormatAsJson()<CR>
 autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 autocmd FileChangedShellPost *  echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-lua << EOF
-require'lspconfig'.pyright.setup{}
-EOF
-
 lua require('lsp')
+lua require('lsp-status-config')
 lua require('nvim-compe')
 lua require('telescope-config')
 lua require('ts')
 lua require('null-ls-config')
 lua require('prettify-json')
 lua require('nvim-tree-setup')
-
-lua << EOF
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-    vim.lsp.diagnostic.on_publish_diagnostics, {
-      signs = true,
-      severity_sort = true,
-      virtual_text = { prefix = "→" }
-    }
-  )
-EOF
 
 sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
@@ -347,23 +333,9 @@ autocmd BufWritePre *.js,*.mjs,*.jsx lua vim.lsp.buf.format()
 autocmd BufWritePre *.scss lua vim.lsp.buf.format()
 autocmd BufWritePre *.rb lua vim.lsp.buf.format()
 
-" global statusline
-set laststatus=3
 
 " vsplit to right
 set splitright
-
-" neovide
-" Allow copy paste in neovim
-let g:neovide_input_use_logo = 1
-map <D-v> "+p<CR>
-map! <D-v> <C-R>+
-tmap <D-v> <C-R>+
-vmap <D-c> "+y<CR
-" disable animation
-let g:neovide_cursor_animation_length=0
-set guifont=Victor\ Mono:h14
-
 
 nnoremap <silent> <leader>t <Cmd>NvimTreeFindFile<CR>
 nnoremap <silent> <leader>S <Cmd>let g:hardtime_showmsg = 1<CR><Cmd>HardTimeToggle<Cr><Cmd>let g:hardtime_showmsg = 0<CR>

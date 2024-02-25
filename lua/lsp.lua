@@ -1,3 +1,7 @@
+local lspconfig = require('lspconfig')
+local lsp_status = require('lsp-status')
+
+-- helper functions
 function expand_path(path)
     -- Check if the path starts with '~'
     if path:sub(1,1) == '~' then
@@ -14,26 +18,12 @@ end
 
 local bundle = expand_path("~/.rbenv/shims/bundle")
 
-local lsp_status = require('lsp-status')
-
-lsp_status.config({
-  status_symbol = '',
-  indicator_errors = 'ᛓ',
-  indicator_warnings = 'ᚼ',
-  indicator_info = 'ᛊ',
-  indicator_hint = 'ᛘ',
-  indicator_ok = '',
-  indicator_separator = '',
-})
-
-lsp_status.register_progress()
-
-local lspconfig = require('lspconfig')
-
+-- rust
 lspconfig.rust_analyzer.setup{}
 
+-- typescript 
 local on_attach_tsserver = function(client)
-  client.server_capabilities.documentFormattingProvider= false
+  client.server_capabilities.documentFormattingProvider = false
   lsp_status.on_attach(client)
 end
 
@@ -43,10 +33,10 @@ lspconfig.tsserver.setup({
   capabilities = lsp_status.capabilities
 })
 
+-- ruby. rubocop && solargraph
 lspconfig.rubocop.setup({
   cmd = { bundle, 'exec', 'rubocop', '--lsp' },
 })
-
 
 lspconfig.solargraph.setup({
   handlers = lsp_status.extensions.clangd.setup(),
@@ -63,3 +53,12 @@ lspconfig.solargraph.setup({
     }
   }
 })
+
+-- WTF?
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    signs = true,
+    severity_sort = true,
+    virtual_text = { prefix = "→" }
+  }
+)
