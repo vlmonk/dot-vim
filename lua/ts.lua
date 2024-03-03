@@ -8,7 +8,8 @@ require'nvim-treesitter.configs'.setup {
     'ruby',
     'rust',
     'vimdoc',
-    'lua'
+    'lua',
+    'markdown'
   },
   highlight = { enable = true },
   incremental_selection = { enable = true },
