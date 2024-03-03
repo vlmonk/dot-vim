@@ -108,8 +108,11 @@ nmap <silent> <leader>vs :split<CR>
 nmap <silent><ESC> :noh<CR>
 
 " fugitive mapping
+" show status
 nmap <silent><Leader>s <cmd>Gedit :<CR>
-nmap <silent><Leader>fs <cmd>Gvsplit :%<CR>
+nmap <silent><Leader>fs <cmd>Gvdiffsplit<CR>
+nmap <silent><Leader>fh <cmd>Gvdiffsplit @<CR>
+nmap <silent><Leader>fo <cmd>Gvsplit :%<CR>
 nmap <silent><Leader>fb <cmd>Git blame<CR>
 nmap <silent><Leader>fp <cmd>Git push<CR>
 nmap <silent><Leader>fP <cmd>Git push -fu origin HEAD<CR>
