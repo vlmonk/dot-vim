@@ -31,6 +31,9 @@ Plug 'p00f/nvim-ts-rainbow'
 Plug 'jose-elias-alvarez/null-ls.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 
+" test runner
+Plug 'vim-test/vim-test'
+
 " comments
 Plug 'tpope/vim-commentary'
 Plug 'JoosepAlviste/nvim-ts-context-commentstring'
@@ -195,6 +198,11 @@ nnoremap <leader>gv <cmd>Telescope resume<CR>
 " todo Port this to telescope
 nnoremap <silent> <leader>w :lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cword>'), initial_mode = 'normal' })<cr>
 nnoremap <silent> <leader>W :lua require('telescope.builtin').live_grep({ default_text = vim.fn.expand('<cWORD>'), initial_mode = 'normal' })<cr>
+
+" Test Runner
+let test#strategy = "neovim"
+nmap <silent> <leader>m <cmd>TestNearest<CR>
+nmap <silent> <leader>M <cmd>TestFile<CR>
 
 " undotree config
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
