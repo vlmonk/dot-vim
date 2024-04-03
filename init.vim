@@ -208,6 +208,7 @@ nmap <silent> <leader>M <cmd>TestFile<CR>
 nnoremap <leader>i :UndotreeShow<CR>:UndotreeFocus<CR>
 nnoremap <leader>I :UndotreeHide<CR>
 let g:undotree_HighlightChangedWithSign = 1
+let g:undotree_ShortIndicators=1
 
 
 " used for statusline
