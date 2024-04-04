@@ -19,7 +19,17 @@ end
 local bundle = expand_path("~/.rbenv/shims/bundle")
 
 -- rust
-lspconfig.rust_analyzer.setup{}
+lspconfig.rust_analyzer.setup{
+  settings = {
+    ['rust-analyzer'] = {
+      cargo = {
+        extraEnv = {
+          RUSTUP_TOOLCHAIN = "nightly"
+        }
+      }
+    }
+  }
+}
 
 -- typescript 
 local on_attach_tsserver = function(client)
