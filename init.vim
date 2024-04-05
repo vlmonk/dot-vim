@@ -335,6 +335,8 @@ hi LspDiagnosticsVirtualTextInformation guifg=#B3B3B3 ctermfg=White
 
 " vertical line
 set colorcolumn=80,120
+autocmd FileType rust setlocal colorcolumn=100
+autocmd FileType ruby setlocal colorcolumn=120
 highlight ColorColumn ctermbg=lightgrey guibg=#342F3E
 
 " auto-format on save
