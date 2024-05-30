@@ -22,11 +22,8 @@ local bundle = expand_path("~/.rbenv/shims/bundle")
 lspconfig.rust_analyzer.setup{
   settings = {
     ['rust-analyzer'] = {
-      cargo = {
-        extraEnv = {
-          RUSTUP_TOOLCHAIN = "nightly"
-        }
-      }
+      checkOnSave = { command = "clippy", },
+      -- cargo = { extraEnv = { RUSTUP_TOOLCHAIN = "nightly" } }
     }
   }
 }
