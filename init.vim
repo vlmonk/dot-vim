@@ -54,6 +54,12 @@ Plug 'sainnhe/sonokai'
 " vim-indent-object
 Plug 'michaeljsmith/vim-indent-object'
 
+" chatgpt
+Plug 'jackMort/ChatGPT.nvim'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'folke/trouble.nvim'
+
 call plug#end()
 
 " common setting
@@ -315,6 +321,7 @@ lua require('ts')
 lua require('null-ls-config')
 lua require('prettify-json')
 lua require('nvim-tree-setup')
+lua require('gpt')
 
 sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
@@ -353,3 +360,20 @@ set splitright
 
 nnoremap <silent> <leader>t <Cmd>NvimTreeFindFile<CR>
 nnoremap <silent> <leader>S <Cmd>let g:hardtime_showmsg = 1<CR><Cmd>HardTimeToggle<Cr><Cmd>let g:hardtime_showmsg = 0<CR>
+
+
+nnoremap <silent> <leader>me <Cmd>ChatGPTEditWithInstructions<CR>
+vnoremap <silent> <leader>me <Cmd>ChatGPTEditWithInstructions<CR>
+
+
+nnoremap <silent> <leader>mE <Cmd>ChatGPTRun explain_code<CR>
+vnoremap <silent> <leader>mE <Cmd>ChatGPTRun explain_code<CR>
+
+
+nnoremap <silent> <leader>mt <Cmd>ChatGPTRun add_tests<CR>
+vnoremap <silent> <leader>mt <Cmd>ChatGPTRun add_tests<CR>
+
+
+nnoremap <silent> <leader>md <Cmd>ChatGPTRun docstring<CR>
+vnoremap <silent> <leader>md <Cmd>ChatGPTRun docstring<CR>
+
