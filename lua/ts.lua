@@ -45,9 +45,5 @@ require'nvim-treesitter.configs'.setup {
       [';'] = 'textsubjects-container-outer',
       ['i;'] = 'textsubjects-container-inner',
     },
-  },
-  rainbow = {
-    enable = true,
-    extended_mode = true, 
   }
 }
