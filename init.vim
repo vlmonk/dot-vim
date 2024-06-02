@@ -28,7 +28,7 @@ Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
 Plug 'kchmck/vim-coffee-script'
 Plug 'p00f/nvim-ts-rainbow'
-Plug 'jose-elias-alvarez/null-ls.nvim'
+Plug 'nvimtools/none-ls.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 
 " test runner
