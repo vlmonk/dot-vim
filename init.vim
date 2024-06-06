@@ -348,3 +348,6 @@ set splitright
 
 nnoremap <silent> <leader>t <Cmd>NvimTreeFindFile<CR>
 nnoremap <silent> <leader>S <Cmd>let g:hardtime_showmsg = 1<CR><Cmd>HardTimeToggle<Cr><Cmd>let g:hardtime_showmsg = 0<CR>
+
+autocmd FileType markdown setlocal textwidth=90
+autocmd FileType markdown setlocal formatoptions+=t
