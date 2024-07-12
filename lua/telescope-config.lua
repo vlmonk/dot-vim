@@ -27,7 +27,7 @@ end
 
 require("telescope").setup {
   defaults = {
-    file_ignore_patterns = {"node_modules", "tmp", "target"},
+    file_ignore_patterns = {"^node_modules/", "tmp", "^target/"},
     sorting_strategy = "ascending",
     mappings = {
       i = {
