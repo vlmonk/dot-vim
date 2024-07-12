@@ -5,11 +5,6 @@ local cmp = require'cmp'
 cmp.setup({
   completion = { autocomplete = false },
   preselect = cmp.PreselectMode.Item,
-  snippet = {
-    expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-    end,
-  },
   window = {
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
