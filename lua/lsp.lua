@@ -34,7 +34,7 @@ local on_attach_tsserver = function(client)
   lsp_status.on_attach(client)
 end
 
-lspconfig.tsserver.setup({
+lspconfig.ts_ls.setup({
   handlers = lsp_status.extensions.clangd.setup(),
   on_attach = on_attach_tsserver,
   capabilities = lsp_status.capabilities
