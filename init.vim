@@ -24,6 +24,7 @@ Plug 'RRethy/nvim-treesitter-textsubjects'
 Plug 'kchmck/vim-coffee-script'
 Plug 'nvimtools/none-ls.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
+Plug 'sindrets/diffview.nvim'
 
 " test runner
 Plug 'vim-test/vim-test'
@@ -114,6 +115,9 @@ nmap <silent><Leader>fo <cmd>Gvsplit :%<CR>
 nmap <silent><Leader>fb <cmd>Git blame<CR>
 nmap <silent><Leader>fp <cmd>Git push<CR>
 nmap <silent><Leader>fP <cmd>Git push -fu origin HEAD<CR>
+
+nmap <silent><Leader>fd <cmd>DiffviewOpen<CR>
+nmap <silent><Leader>fc <cmd>DiffviewClose<CR>
 
 nmap gl $%
 vmap gl $%
