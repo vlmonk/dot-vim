@@ -108,7 +108,7 @@ nmap <silent><ESC> :noh<CR>
 
 " fugitive mapping
 " show status
-nmap <silent><Leader>s <cmd>Gedit :<CR>
+nmap <silent><Leader>s <cmd>Git<CR>
 nmap <silent><Leader>fs <cmd>Gvdiffsplit<CR>
 nmap <silent><Leader>fh <cmd>Gvdiffsplit @<CR>
 nmap <silent><Leader>fo <cmd>Gvsplit :%<CR>
