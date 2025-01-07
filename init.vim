@@ -8,7 +8,6 @@ Plug 'hrsh7th/cmp-cmdline'
 Plug 'hrsh7th/cmp-path'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
 Plug 'takac/vim-hardtime'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-repeat'
@@ -25,6 +24,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'nvimtools/none-ls.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'sindrets/diffview.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
 " test runner
 Plug 'vim-test/vim-test'
@@ -315,6 +315,7 @@ lua require('ts')
 lua require('null-ls-config')
 lua require('prettify-json')
 lua require('nvim-tree-setup')
+lua require('gitsigns-config')
 
 sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
