@@ -117,6 +117,7 @@ nmap <silent><Leader>fp <cmd>Git push<CR>
 nmap <silent><Leader>fP <cmd>Git push -fu origin HEAD<CR>
 
 nmap <silent><Leader>fd <cmd>DiffviewOpen<CR>
+nmap <Leader>fD :DiffviewOpen
 nmap <silent><Leader>fc <cmd>DiffviewClose<CR>
 
 nmap gl $%
