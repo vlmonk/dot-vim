@@ -50,6 +50,9 @@ Plug 'sainnhe/edge'
 " vim-indent-object
 Plug 'michaeljsmith/vim-indent-object'
 
+" Code Companion
+Plug 'olimorris/codecompanion.nvim'
+
 call plug#end()
 
 " common setting
@@ -210,6 +213,9 @@ nnoremap <leader>I :UndotreeHide<CR>
 let g:undotree_HighlightChangedWithSign = 1
 let g:undotree_ShortIndicators=1
 
+" Code Companion
+nnoremap <silent> <leader>ll <cmd>CodeCompanionActions<CR>
+vnoremap <silent> <leader>ll <cmd>CodeCompanionActions<CR>
 
 " used for statusline
 function! LspStatus() abort
@@ -316,6 +322,7 @@ lua require('null-ls-config')
 lua require('prettify-json')
 lua require('nvim-tree-setup')
 lua require('gitsigns-config')
+lua require('codecompanion-config')
 
 sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
