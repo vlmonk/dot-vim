@@ -1,6 +1,18 @@
 require("codecompanion").setup({
   strategies = {
-    chat = { adapter = "anthropic" },
+    chat = {
+      adapter = "anthropic",
+      slash_commands = {
+        ["file"] = {
+          callback = "strategies.chat.slash_commands.file",
+          description = "Select a file using Telescope",
+          opts = {
+            provider = "telescope",
+            contains_code = true,
+          },
+        },
+      },
+    },
     inline = { adapter = "anthropic" }
   },
   adapters = {
