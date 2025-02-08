@@ -51,3 +51,8 @@ pip install neovim
 
 and add `source ~/python3.9/bin/activate` to shell init files
 
+
+### TODO
+
+- [ ] Try [mini.vim](https://github.com/echasnovski/mini.nvim)
+
