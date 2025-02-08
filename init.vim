@@ -323,6 +323,8 @@ lua require('prettify-json')
 lua require('nvim-tree-setup')
 lua require('gitsigns-config')
 lua require('codecompanion-config')
+lua require('load-env')
+lua load_vim_env()
 
 sign define LspDiagnosticsSignError text=→ texthl=LspDiagnosticsSignError linehl= numhl=
 sign define LspDiagnosticsSignWarning text=→ texthl=LspDiagnosticsSignWarning linehl= numhl=
