@@ -35,10 +35,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>ce", ":new ~/.config/nvim/init.vim<CR>")
 vim.keymap.set("n", "<leader>cr", ":source ~/.config/nvim/init.vim<CR>")
 
--- (Plugin-related mappings – if you still use vim-plug)
-vim.keymap.set("n", "<leader>ci", ":PlugInstall<CR>")
-vim.keymap.set("n", "<leader>cu", ":PlugUpdate<CR>")
-
 -- Debug color group mapping
 vim.keymap.set("n", "<leader>cx", function()
   local line = vim.fn.line(".")
