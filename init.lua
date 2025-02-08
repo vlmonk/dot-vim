@@ -35,17 +35,6 @@ vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 vim.keymap.set("n", "<leader>ce", ":new ~/.config/nvim/init.vim<CR>")
 vim.keymap.set("n", "<leader>cr", ":source ~/.config/nvim/init.vim<CR>")
 
--- Debug color group mapping
-vim.keymap.set("n", "<leader>cx", function()
-  local line = vim.fn.line(".")
-  local col  = vim.fn.col(".")
-  local hi_name = vim.fn.synIDattr(vim.fn.synID(line, col, 1), "name")
-  local trans   = vim.fn.synIDattr(vim.fn.synID(line, col, 0), "name")
-  local lo      = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.synID(line, col, 1)), "name")
-  local fg      = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.synID(line, col, 1)), "fg#")
-  print("hi<" .. hi_name .. "> trans<" .. trans .. "> lo<" .. lo .. "> FG:" .. fg)
-end, { desc = "Debug color group" })
-
 -- Move current window to new tab
 vim.keymap.set("n", "<C-W><C-T>", "<C-W>T")
 
