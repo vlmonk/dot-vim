@@ -243,21 +243,6 @@ if vim.fn.has("persistent_undo") == 1 then
 end
 
 -------------------------------
--- Special Buffer Mappings (e.g. NvimTree)
--------------------------------
-vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  callback = function()
-    if vim.bo.filetype == "NvimTree" then
-      vim.api.nvim_buf_del_keymap(0, "n", "q;")
-      vim.keymap.set("n", "<Esc>", "q", { buffer = true })
-    else
-      vim.keymap.set("n", "q;", "q:", { buffer = true })
-    end
-  end,
-})
-
--------------------------------
 -- Format as JSON
 -------------------------------
 function _G.FormatAsJson()
