@@ -372,3 +372,6 @@ vim.cmd("highlight LspDiagnosticsSignHint guifg=#B3B3B3 ctermfg=White")
 vim.cmd("highlight LspDiagnosticsVirtualTextHint guifg=#B3B3B3 ctermfg=White")
 vim.cmd("highlight LspDiagnosticsSignInformation guifg=#B3B3B3 ctermfg=White")
 vim.cmd("highlight LspDiagnosticsVirtualTextInformation guifg=#B3B3B3 ctermfg=White")
+
+vim.keymap.set('n', ']q', '<cmd>cnext<CR>')
+vim.keymap.set('n', '[q', '<cmd>cprev<CR>')
