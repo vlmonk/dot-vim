@@ -49,9 +49,9 @@ return {
   "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Telescope and dependencies
-  "nvim-lua/popup.nvim",
-  "nvim-lua/plenary.nvim",
-  "nvim-telescope/telescope.nvim",
+  { "nvim-telescope/telescope.nvim",
+    dependencies = { 'nvim-lua/plenary.nvim' }
+  },
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make",  -- Runs "make" after cloning the repo
