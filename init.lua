@@ -94,21 +94,6 @@ vim.cmd("highlight SignColumn guibg=transparent")
 vim.cmd("highlight Comment gui=italic")
 
 -------------------------------
--- Plugin & Utility Configurations
--------------------------------
--- GitGutter
-vim.g.gitgutter_sign_added               = '│'
-vim.g.gitgutter_sign_modified            = '│'
-vim.g.gitgutter_sign_removed             = '│'
-vim.g.gitgutter_sign_removed_first_line  = '│'
-vim.g.gitgutter_sign_modified_removed    = '│'
-
-vim.cmd("highlight GitGutterAdd         guibg=transparent guifg=#a887f5")
-vim.cmd("highlight GitGutterChange      guibg=transparent guifg=#a887f5")
-vim.cmd("highlight GitGutterDelete      guibg=transparent guifg=#a887f5")
-vim.cmd("highlight GitGutterChangeDelete guibg=transparent guifg=#a887f5")
-
--------------------------------
 -- Update Time & Yank Mappings
 -------------------------------
 vim.opt.updatetime = 100
