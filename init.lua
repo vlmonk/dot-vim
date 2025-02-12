@@ -175,9 +175,7 @@ vim.keymap.set("o", "il", ":<C-u>normal! g_v^<CR>", { silent = true })
 -------------------------------
 -- Appearance: Split, Fillchars, and Error Styles
 -------------------------------
-vim.opt.fillchars:append({ vert = "│" })
 vim.cmd("highlight VertSplit guifg=#9e9d9d guibg=none")
-
 vim.cmd("highlight clear ErrorMsg")
 vim.cmd("highlight ErrorMsg guifg=#ffa6b3 guibg=transparent")
 
