@@ -253,7 +253,6 @@ vim.api.nvim_create_autocmd("FileChangedShellPost", {
 -------------------------------
 -- Vertical Color Column and Auto-format
 -------------------------------
-vim.opt.colorcolumn = "80,120"
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "rust",
   callback = function() vim.opt_local.colorcolumn = "100" end,
@@ -269,7 +268,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = function() vim.lsp.buf.format() end,
 })
 
-vim.opt.splitright = true
 
 -------------------------------
 -- NvimTree & HardTime Mappings
