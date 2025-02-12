@@ -1,7 +1,7 @@
 require("codecompanion").setup({
   strategies = {
     chat = {
-      adapter = "anthropic",
+      adapter = "deepseek",
       slash_commands = {
         ["file"] = { opts = { provider = "telescope" } },
         ["buffer"] = { opts = { provider = "telescope" } },
@@ -39,27 +39,24 @@ require("codecompanion").setup({
     ["Docusaurus"] = {
       strategy = "chat",
       description = "Write documentation for me",
-      -- references = {
-      --   {
-      --     type = "buffer",
-      --     path = #buffer,
-      --   },
-      -- },
+      opts = { adapter = "deepseek-reasoner", },
       prompts = {
         {
+          role = "system",
+          content = function(context)
+            return "I want you to act as an expert developer specialized in writing documentation for code. " ..
+                   "I will send you some code, and I expect you to generate clear and concise documentation for it. " ..
+                   "Please return only documentation. Do not include my original code in response\n\n" ..
+                   " - If the code is in Ruby, please format the documentation using YARD style. " ..
+                   " - If the code is in Rust, do not include an 'Example' section in the documentation."
+          end,
+        },
+        {
           role = "user",
-          content = [[
-            Please add good documentation for code I provided. For reference, there are whole file content.
-            Please output only documentation. Do not output my 
-
-            WHOLE FILE CONTENT:
-            ```
-            #buffer
-            ```
-
-            CODE BLOCK TO ADD DOCS:
-          ]]
-        }
+          content = function(context)
+            return "For context, please check buffer content #buffer\n\nPlease generate documentation for the following code:\n\n"
+          end,
+        },
       }
     }
   }
