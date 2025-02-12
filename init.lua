@@ -2,6 +2,7 @@ require("config.lazy")
 require("core.options")
 require("core.autocmds")
 
+require("config.telescope")
 
 -- Disable mappings for Enhanced Jumps
 vim.g.EnhancedJumps_no_mappings = 1
@@ -219,7 +220,6 @@ vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeT
 require("lsp")
 require("lsp-status-config")
 require("nvim-compe")
-require("telescope-config")
 require("ts")
 require("null-ls-config")
 require("prettify-json")
