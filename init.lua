@@ -1,5 +1,6 @@
 require("config.lazy")
 require("core.options")
+require("core.autocmds")
 
 
 -- Disable mappings for Enhanced Jumps
@@ -171,36 +172,6 @@ vim.keymap.set("x", "il", ":<C-u>normal! g_v^<CR>", { silent = true })
 vim.keymap.set("o", "il", ":<C-u>normal! g_v^<CR>", { silent = true })
 
 -------------------------------
--- FileType & Formatting Autocmds
--------------------------------
--- Append "-" to iskeyword for CSS/SCSS files
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "css", "scss" },
-  callback = function()
-    vim.opt_local.iskeyword:append("-")
-  end,
-})
-
--- Strip trailing whitespace before saving (for select filetypes)
-local function strip_trailing_whitespaces()
-  local l = vim.fn.line(".")
-  local c = vim.fn.col(".")
-  vim.cmd("%s/\\s\\+$//e")
-  vim.fn.cursor(l, c)
-end
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  callback = function()
-    local ft = vim.bo.filetype
-    if ft:match("vim") or ft:match("ruby") or ft:match("python")
-      or ft:match("haml") or ft:match("yaml") then
-      strip_trailing_whitespaces()
-    end
-  end,
-})
-
--------------------------------
 -- Appearance: Split, Fillchars, and Error Styles
 -------------------------------
 vim.opt.fillchars:append({ vert = "│" })
@@ -234,57 +205,13 @@ function _G.FormatAsJson()
 end
 vim.keymap.set("n", "<leader>ff", "<cmd>lua FormatAsJson()<CR>", { silent = true })
 
--------------------------------
--- Auto-reload on File Changes
--------------------------------
-vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  callback = function()
-    if not vim.fn.mode():match("[cr!t]") and vim.fn.getcmdwintype() == "" then
-      vim.cmd("checktime")
-    end
-  end,
-})
-vim.api.nvim_create_autocmd("FileChangedShellPost", {
-  callback = function()
-    vim.cmd("echohl WarningMsg | echo 'File changed on disk. Buffer reloaded.' | echohl None")
-  end,
-})
-
--------------------------------
--- Vertical Color Column and Auto-format
--------------------------------
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "rust",
-  callback = function() vim.opt_local.colorcolumn = "100" end,
-})
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "ruby",
-  callback = function() vim.opt_local.colorcolumn = "120" end,
-})
 vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#342F3E")
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.rs", "*.json", "*.ts", "*.tsx", "*.js", "*.mjs", "*.jsx", "*.scss", "*.rb" },
-  callback = function() vim.lsp.buf.format() end,
-})
-
 
 -------------------------------
 -- NvimTree & HardTime Mappings
 -------------------------------
 vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })
-
--------------------------------
--- Markdown FileType Settings
--------------------------------
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt_local.textwidth      = 90
-    vim.opt_local.formatoptions:append("t")
-  end,
-})
 
 -------------------------------
 -- Require Other Lua Modules
