@@ -96,3 +96,11 @@ vim.keymap.set("v", "<leader>ll", "<cmd>CodeCompanionActions<CR>", { silent = tr
 -- Navigate through quickfix list (next/previous entries)
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>')
 vim.keymap.set('n', '[q', '<cmd>cprev<CR>')
+
+-- Custom Text Objects
+vim.keymap.set("x", "il", ":<C-u>normal! g_v^<CR>", { silent = true })
+vim.keymap.set("o", "il", ":<C-u>normal! g_v^<CR>", { silent = true })
+
+-- NvimTree & HardTime Mappings
+vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
+vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })

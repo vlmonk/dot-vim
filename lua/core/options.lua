@@ -16,6 +16,7 @@ vim.opt.mouse = ""  -- disable mouse
 vim.opt.colorcolumn = {"80", "120"}
 vim.opt.splitright = true
 vim.opt.completeopt = {"menuone", "noselect"}
+vim.opt.updatetime = 100
 
 -- netrw config
 vim.g.netrw_banner = 0
