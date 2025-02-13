@@ -1,7 +1,7 @@
 require("codecompanion").setup({
   strategies = {
     chat = {
-      adapter = "deepseek",
+      adapter = "anthropic",
       slash_commands = {
         ["file"] = { opts = { provider = "telescope" } },
         ["buffer"] = { opts = { provider = "telescope" } },

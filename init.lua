@@ -1,8 +1,11 @@
 require("config.lazy")
+
 require("core.options")
 require("core.autocmds")
 
+require("config.codecompanion")
 require("config.telescope")
+require("config.lsp")
 
 -- Disable mappings for Enhanced Jumps
 vim.g.EnhancedJumps_no_mappings = 1
@@ -212,10 +215,6 @@ vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#342F3E")
 vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })
 
--------------------------------
--- Require Other Lua Modules
--------------------------------
-require("lsp")
 require("lsp-status-config")
 require("nvim-compe")
 require("ts")
@@ -223,7 +222,6 @@ require("null-ls-config")
 require("prettify-json")
 require("nvim-tree-setup")
 require("gitsigns-config")
-require("codecompanion-config")
 require("load-env")
 load_vim_env()  -- assuming this is defined globally
                         
