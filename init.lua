@@ -13,6 +13,7 @@ require("config.cmp")
 require("config.nvim-tree")
 require("config.nvim-treesitter")
 require("config.lightline")
+require("config.undotree")
 
 require("utils.prettify-json")
 require("utils.load-env")
@@ -22,12 +23,6 @@ require("keymaps")
 
 -- Disable mappings for Enhanced Jumps
 vim.g.EnhancedJumps_no_mappings = 1
-
--- Leader key
-vim.g.mapleader = " "
-
--- Other Mappings
--------------------------------
 
 -------------------------------
 -- Netrw & Colors
@@ -58,11 +53,6 @@ vim.opt.updatetime = 100
 vim.g["test#strategy"] = "neovim"
 vim.keymap.set("n", "<leader>m", "<cmd>TestNearest<CR>", { silent = true })
 vim.keymap.set("n", "<leader>M", "<cmd>TestFile<CR>",    { silent = true })
-
-vim.keymap.set("n", "<leader>i", ":UndotreeShow<CR>:UndotreeFocus<CR>", { silent = true })
-vim.keymap.set("n", "<leader>I", ":UndotreeHide<CR>",                 { silent = true })
-vim.g.undotree_HighlightChangedWithSign = 1
-vim.g.undotree_ShortIndicators          = 1
 
 -------------------------------
 -- Custom Text Objects

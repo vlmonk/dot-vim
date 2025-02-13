@@ -1,3 +1,6 @@
+-- Leader key
+vim.g.mapleader = " "
+
 -- Exit terminal mode by ESC
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>")
 --
