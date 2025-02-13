@@ -10,6 +10,7 @@ require("config.gitsigns")
 require("config.lsp-status")
 require("config.null-ls")
 require("config.cmp")
+require("config.nvim-tree")
 
 require("utils.load-env")
 load_vim_env()  -- assuming this is defined globally
@@ -224,7 +225,6 @@ vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeT
 
 require("ts")
 require("prettify-json")
-require("nvim-tree-setup")
                         
 -------------------------------
 -- Diagnostic Signs
