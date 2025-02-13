@@ -2,7 +2,7 @@ local lspconfig = require('lspconfig')
 local lsp_status = require('lsp-status')
 
 -- helper functions
-function expand_path(path)
+local function expand_path(path)
     -- Check if the path starts with '~'
     if path:sub(1,1) == '~' then
         -- Replace '~' with the content of the HOME environment variable
