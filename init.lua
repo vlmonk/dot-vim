@@ -12,6 +12,7 @@ require("config.null-ls")
 require("config.cmp")
 require("config.nvim-tree")
 require("config.nvim-treesitter")
+require("config.lightline")
 
 require("utils.prettify-json")
 require("utils.load-env")
@@ -62,27 +63,6 @@ vim.keymap.set("n", "<leader>i", ":UndotreeShow<CR>:UndotreeFocus<CR>", { silent
 vim.keymap.set("n", "<leader>I", ":UndotreeHide<CR>",                 { silent = true })
 vim.g.undotree_HighlightChangedWithSign = 1
 vim.g.undotree_ShortIndicators          = 1
-
--------------------------------
--- Lightline & LSP Status
--------------------------------
--- Define a global function (available as LspStatus) for use in lightline
-_G.LspStatus = function()
-  if #vim.lsp.buf_get_clients() > 0 then
-    return require("lsp-status").status()
-  end
-  return ""
-end
-
-vim.g.lightline = {
-  active = {
-    left  = { { "mode", "paste" }, { "readonly", "filename", "modified" }, { "LspStatus" } },
-    right = { { "lineinfo" }, { "percent" } },
-  },
-  component_function = {
-    LspStatus = "LspStatus",
-  },
-}
 
 -------------------------------
 -- Custom Text Objects
