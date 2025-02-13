@@ -35,10 +35,10 @@ require("codecompanion").setup({
     action_palette = {
       width = 50,
       height = 10,
-      prompt = "Prompt ", -- Prompt used for interactive LLM calls
-      provider = "telescope", -- default|telescope|mini_pick
+      prompt = "Prompt ",                 -- Prompt used for interactive LLM calls
+      provider = "telescope",               -- default|telescope|mini_pick
       opts = {
-        show_default_actions = true, -- Show the default actions in the action palette?
+        show_default_actions = true,        -- Show the default actions in the action palette?
         show_default_prompt_library = true, -- Show the default prompt library in the action palette?
       },
     },
@@ -51,19 +51,23 @@ require("codecompanion").setup({
       prompts = {
         {
           role = "system",
-          content = function(context)
-            return "I want you to act as an expert developer specialized in writing documentation for code. " ..
-                   "I will send you some code, and I expect you to generate clear and concise documentation for it. " ..
-                   "Please return only documentation. Do not include my original code in response\n\n" ..
-                   " - If the code is in Ruby, please format the documentation using YARD style. " ..
-                   " - If the code is in Rust, do not include an 'Example' section in the documentation."
-          end,
+          content = [[
+I want you to act as an expert developer specialized in writing documentation for code.
+I will send you some code, and I expect you to generate clear and concise documentation for it.
+Please return only documentation. Do not include my original code in response
+
+- If the code is in Ruby, please format the documentation using YARD style.
+- If the code is in Rust, do not include an 'Example' section in the documentation.
+]]
         },
         {
           role = "user",
-          content = function(context)
-            return "For context, please check buffer content #buffer\n\nPlease generate documentation for the following code:\n\n"
-          end,
+          content = [[
+For context, please check buffer content #buffer
+
+Please generate documentation for the following code:
+
+]]
         },
       }
     }
