@@ -11,6 +11,7 @@ require("config.lsp-status")
 require("config.null-ls")
 require("config.cmp")
 require("config.nvim-tree")
+require("config.nvim-treesitter")
 
 require("utils.prettify-json")
 require("utils.load-env")
@@ -224,7 +225,6 @@ vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#342F3E")
 vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })
 
-require("ts")
                         
 -------------------------------
 -- Diagnostic Signs
