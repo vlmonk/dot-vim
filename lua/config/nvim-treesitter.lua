@@ -1,15 +1,19 @@
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = {
+    'bash',
+    'css',
+    'diff',
+    'git_rebase',
+    'gitcommit',
     'html',
     'javascript',
-    'typescript',
-    'tsx',
-    'css',
+    'lua',
+    'markdown',
     'ruby',
     'rust',
+    'tsx',
+    'typescript',
     'vimdoc',
-    'lua',
-    'markdown'
   },
   highlight = { enable = true },
   incremental_selection = { enable = true },
