@@ -14,20 +14,12 @@ require("config.nvim-tree")
 require("config.nvim-treesitter")
 require("config.lightline")
 require("config.undotree")
+require("config.enhanced-jumps")
 
 require("utils.prettify-json")
 require("utils.load-env")
 
 require("keymaps")
-
--- Disable mappings for Enhanced Jumps
-vim.g.EnhancedJumps_no_mappings = 1
-
--------------------------------
--- Netrw & Colors
--------------------------------
-vim.g.netrw_banner   = 0
-vim.g.netrw_liststyle  = 3
 
 vim.opt.background = "dark"
 
