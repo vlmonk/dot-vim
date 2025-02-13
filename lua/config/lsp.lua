@@ -61,6 +61,35 @@ lspconfig.solargraph.setup({
   }
 })
 
+-- lua
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT', -- or the Lua version you use
+      },
+      diagnostics = {
+        globals = { 'vim' }, -- Recognize the `vim` global
+      },
+      workspace = {
+        library = vim.api.nvim_get_runtime_file("", true),
+        checkThirdParty = false, -- Optional: Disable automatic third-party library checks
+      },
+      -- Enable the built-in formatter
+      format = {
+        enable = true,
+        defaultConfig = {
+          indent_style = "space",
+          indent_size = "2",
+        },
+      },
+      telemetry = {
+        enable = false,
+      },
+    },
+  },
+}
+
 -- WTF?
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
