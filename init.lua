@@ -6,6 +6,7 @@ require("core.autocmds")
 require("config.codecompanion")
 require("config.telescope")
 require("config.lsp")
+require("config.gitsigns")
 
 -- Disable mappings for Enhanced Jumps
 vim.g.EnhancedJumps_no_mappings = 1
@@ -221,7 +222,6 @@ require("ts")
 require("null-ls-config")
 require("prettify-json")
 require("nvim-tree-setup")
-require("gitsigns-config")
 require("load-env")
 load_vim_env()  -- assuming this is defined globally
                         
