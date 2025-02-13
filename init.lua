@@ -12,6 +12,7 @@ require("config.null-ls")
 require("config.cmp")
 require("config.nvim-tree")
 
+require("utils.prettify-json")
 require("utils.load-env")
 load_vim_env()  -- assuming this is defined globally
 
@@ -224,7 +225,6 @@ vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })
 
 require("ts")
-require("prettify-json")
                         
 -------------------------------
 -- Diagnostic Signs
