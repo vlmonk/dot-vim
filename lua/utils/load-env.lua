@@ -1,4 +1,4 @@
-function load_vim_env()
+local function load_vim_env()
     -- Expand the path to the .vim.env file
     local env_file_path = vim.fn.expand('~/.vim.env')
     
@@ -26,3 +26,5 @@ function load_vim_env()
         print('No .vim.env file found at ' .. env_file_path)
     end
 end
+
+load_vim_env()  

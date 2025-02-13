@@ -17,7 +17,6 @@ require("config.undotree")
 
 require("utils.prettify-json")
 require("utils.load-env")
-load_vim_env()  -- assuming this is defined globally
 
 require("keymaps")
 
