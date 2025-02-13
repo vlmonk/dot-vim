@@ -8,6 +8,9 @@ require("config.telescope")
 require("config.lsp")
 require("config.gitsigns")
 
+require("utils.load-env")
+load_vim_env()  -- assuming this is defined globally
+
 -- Disable mappings for Enhanced Jumps
 vim.g.EnhancedJumps_no_mappings = 1
 
@@ -222,8 +225,6 @@ require("ts")
 require("null-ls-config")
 require("prettify-json")
 require("nvim-tree-setup")
-require("load-env")
-load_vim_env()  -- assuming this is defined globally
                         
 -------------------------------
 -- Diagnostic Signs
