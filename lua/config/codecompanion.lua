@@ -1,6 +1,14 @@
 require("codecompanion").setup({
   strategies = {
     chat = {
+      keymaps = {
+        options = {
+          modes = { n = 'g?' },
+          callback = "keymaps.options",
+          description = "Options",
+          hide = true,
+        }
+      },
       adapter = "anthropic",
       slash_commands = {
         ["file"] = { opts = { provider = "telescope" } },
