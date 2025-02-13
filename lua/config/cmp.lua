@@ -1,6 +1,4 @@
-vim.o.completeopt = "menuone,noselect"
-
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   completion = { autocomplete = false },
