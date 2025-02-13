@@ -13,5 +13,6 @@ vim.opt.wrap = false
 vim.opt.fileencodings = { "utf-8" }
 vim.opt.laststatus = 3 -- global statusline
 vim.opt.mouse = ""  -- disable mouse
-vim.opt.colorcolumn = "80,120"
+vim.opt.colorcolumn = {"80", "120"}
 vim.opt.splitright = true
+vim.opt.completeopt = {"menuone", "noselect"}

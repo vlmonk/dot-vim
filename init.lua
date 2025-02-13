@@ -7,6 +7,9 @@ require("config.codecompanion")
 require("config.telescope")
 require("config.lsp")
 require("config.gitsigns")
+require("config.lsp-status")
+require("config.null-ls")
+require("config.cmp")
 
 require("utils.load-env")
 load_vim_env()  -- assuming this is defined globally
@@ -219,10 +222,7 @@ vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#342F3E")
 vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })
 
-require("lsp-status-config")
-require("nvim-compe")
 require("ts")
-require("null-ls-config")
 require("prettify-json")
 require("nvim-tree-setup")
                         
