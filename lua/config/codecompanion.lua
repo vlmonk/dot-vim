@@ -9,15 +9,33 @@ require("codecompanion").setup({
           hide = true,
         }
       },
-      adapter = "anthropic",
+      adapter = "nebius",
       slash_commands = {
         ["file"] = { opts = { provider = "telescope" } },
         ["buffer"] = { opts = { provider = "telescope" } },
+        ["symbols"] = { opts = { provider = "telescope" } },
       },
     },
     inline = { adapter = "anthropic" }
   },
   adapters = {
+    nebius = function()
+      return require("codecompanion.adapters").extend("openai_compatible", {
+        env = {
+          url = "https://api.studio.nebius.ai/v1/",
+          api_key = "NEBIUS_API_KEY",
+          chat_url = "chat/completions",
+        },
+        schema = {
+          model = {
+            choices = {
+              "deepseek-ai/DeepSeek-R1",
+            },
+            default = "deepseek-ai/DeepSeek-R1",
+          },
+        },
+      })
+    end,
     anthropic = function()
       return require("codecompanion.adapters").extend("anthropic", {
         schema = {
