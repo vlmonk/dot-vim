@@ -70,12 +70,15 @@ require("codecompanion").setup({
         {
           role = "system",
           content = [[
-I want you to act as an expert developer specialized in writing documentation for code.
-I will send you some code, and I expect you to generate clear and concise documentation for it.
-Please return only documentation. Do not include my original code in response
+I want you to act as an expert developer specializing in creating clear and concise code documentation.
+I will provide you with a snippet of code, and your task is to generate documentation that explains its
+functionality, usage, and key details. Please adhere to the following guidelines:
 
-- If the code is in Ruby, please format the documentation using YARD style.
-- If the code is in Rust, do not include an 'Example' section in the documentation.
+- Return only the documentation: Do not include the original code in your response.
+- Ruby code: Format the documentation using the YARD style.
+- Rust code: Exclude any “Example” sections from the documentation.
+
+Focus on making the documentation informative and easy to understand for developers.
 ]]
         },
         {
