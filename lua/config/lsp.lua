@@ -1,25 +1,24 @@
 local lspconfig = require('lspconfig')
-local lsp_status = require('lsp-status')
 
 -- helper functions
 local function expand_path(path)
-    -- Check if the path starts with '~'
-    if path:sub(1,1) == '~' then
-        -- Replace '~' with the content of the HOME environment variable
-        local home = os.getenv("HOME")
-        if home then
-            path = home .. path:sub(2)
-        else
-            error("HOME environment variable not set")
-        end
+  -- Check if the path starts with '~'
+  if path:sub(1, 1) == '~' then
+    -- Replace '~' with the content of the HOME environment variable
+    local home = os.getenv("HOME")
+    if home then
+      path = home .. path:sub(2)
+    else
+      error("HOME environment variable not set")
     end
-    return path
+  end
+  return path
 end
 
 local bundle = expand_path("~/.rbenv/shims/bundle")
 
 -- rust
-lspconfig.rust_analyzer.setup{
+lspconfig.rust_analyzer.setup {
   settings = {
     ['rust-analyzer'] = {
       checkOnSave = { command = "clippy", },
@@ -28,16 +27,13 @@ lspconfig.rust_analyzer.setup{
   }
 }
 
--- typescript 
+-- typescript
 local on_attach_tsserver = function(client)
   client.server_capabilities.documentFormattingProvider = false
-  lsp_status.on_attach(client)
 end
 
 lspconfig.ts_ls.setup({
-  handlers = lsp_status.extensions.clangd.setup(),
   on_attach = on_attach_tsserver,
-  capabilities = lsp_status.capabilities
 })
 
 -- ruby. rubocop && solargraph
@@ -46,10 +42,6 @@ lspconfig.rubocop.setup({
 })
 
 lspconfig.solargraph.setup({
-  handlers = lsp_status.extensions.clangd.setup(),
-  on_attach = lsp_status.on_attach,
-  capabilities = lsp_status.capabilities,
-
   cmd = { bundle, "exec", "solargraph", "stdio" },
 
   settings = {
@@ -100,26 +92,26 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 )
 
 vim.fn.sign_define("LspDiagnosticsSignError", {
-  text    = "→",
-  texthl  = "LspDiagnosticsSignError",
-  linehl  = "",
-  numhl   = "",
+  text   = "→",
+  texthl = "LspDiagnosticsSignError",
+  linehl = "",
+  numhl  = "",
 })
 vim.fn.sign_define("LspDiagnosticsSignWarning", {
-  text    = "→",
-  texthl  = "LspDiagnosticsSignWarning",
-  linehl  = "",
-  numhl   = "",
+  text   = "→",
+  texthl = "LspDiagnosticsSignWarning",
+  linehl = "",
+  numhl  = "",
 })
 vim.fn.sign_define("LspDiagnosticsSignInformation", {
-  text    = "→",
-  texthl  = "LspDiagnosticsSignInformation",
-  linehl  = "",
-  numhl   = "",
+  text   = "→",
+  texthl = "LspDiagnosticsSignInformation",
+  linehl = "",
+  numhl  = "",
 })
 vim.fn.sign_define("LspDiagnosticsSignHint", {
-  text    = "→",
-  texthl  = "LspDiagnosticsSignHint",
-  linehl  = "",
-  numhl   = "",
+  text   = "→",
+  texthl = "LspDiagnosticsSignHint",
+  linehl = "",
+  numhl  = "",
 })

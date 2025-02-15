@@ -25,7 +25,6 @@ return {
   "famiu/bufdelete.nvim",
   "tpope/vim-haml",
   "slim-template/vim-slim",
-  "nvim-lua/lsp-status.nvim",
   {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim" },
