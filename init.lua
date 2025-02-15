@@ -15,6 +15,7 @@ require("config.undotree")
 require("config.enhanced-jumps")
 require("config.undo-history")
 require("config.lualine")
+require("config.vim-test")
 
 require("utils.prettify-json")
 require("utils.load-env")
