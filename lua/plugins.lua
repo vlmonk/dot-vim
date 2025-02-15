@@ -9,10 +9,16 @@ return {
   "hrsh7th/cmp-cmdline",
   "hrsh7th/cmp-path",
 
+  -- Status line
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { "arkav/lualine-lsp-progress" },
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  },
+
   -- Vim utilities
   "tpope/vim-surround",
   "tpope/vim-fugitive",
-  "itchyny/lightline.vim",
   "tpope/vim-repeat",
   "cespare/vim-toml",
   "mbbill/undotree",
