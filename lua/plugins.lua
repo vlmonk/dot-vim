@@ -2,13 +2,6 @@ return {
   -- LSP configuration
   "neovim/nvim-lspconfig",
 
-   -- Autocompletion plugins
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-cmdline",
-  "hrsh7th/cmp-path",
-
   -- Status line
   {
     'nvim-lualine/lualine.nvim',
@@ -73,4 +66,11 @@ return {
   -- Miscellaneous
   "michaeljsmith/vim-indent-object",
   "olimorris/codecompanion.nvim",
+
+  -- 
+  {
+    'saghen/blink.cmp',
+    version = '*',
+    opts = require('config.blink'),
+  }
 }
