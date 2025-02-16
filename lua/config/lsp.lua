@@ -53,6 +53,13 @@ lspconfig.solargraph.setup({
   }
 })
 
+lspconfig.ruby_lsp.setup({
+  init_options = {
+    formatter = 'standard',
+    linters = { 'standard' },
+  },
+})
+
 -- lua
 lspconfig.lua_ls.setup {
   settings = {
