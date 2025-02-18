@@ -29,9 +29,9 @@ require("codecompanion").setup({
         schema = {
           model = {
             choices = {
-              "deepseek-ai/DeepSeek-R1",
+              "deepseek-ai/DeepSeek-R1-fast",
             },
-            default = "deepseek-ai/DeepSeek-R1",
+            default = "deepseek-ai/DeepSeek-R1-fast",
           },
         },
       })
