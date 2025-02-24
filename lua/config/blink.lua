@@ -38,6 +38,14 @@ local M = {
   sources = {
     default = { 'lsp', 'path', 'buffer' },
   },
+  cmdline = {
+    enabled = true,
+    sources = { 'cmdline' },
+    keymap = {
+      ['<Tab>'] = { 'show', 'select_next' },
+      ['<Space>'] = { 'select_and_accept', 'fallback' },
+    }
+  },
 }
 
 return M
