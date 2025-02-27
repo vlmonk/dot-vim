@@ -104,3 +104,7 @@ vim.keymap.set("o", "il", ":<C-u>normal! g_v^<CR>", { silent = true })
 -- NvimTree & HardTime Mappings
 vim.keymap.set("n", "<leader>t", "<Cmd>NvimTreeFindFile<CR>", { silent = true })
 vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeToggle(); vim.g.hardtime_showmsg = 0<CR>", { silent = true })
+
+-- test.vim keymaps
+vim.keymap.set("n", "<leader>m", "<cmd>TestNearest<CR>", { silent = true })
+vim.keymap.set("n", "<leader>M", "<cmd>TestFile<CR>",    { silent = true })
