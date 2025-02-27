@@ -30,21 +30,14 @@ brew install nvim
 brew install the_silver_searcher
 ```
 
-2. Install vim-plug:
-
-```bash
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-
-3. Install required packages:
+2. Install required packages:
 
 ```bash
 npm install -g neovim
 pip3 install --user pynvim
 ```
 
-4. Link configuration files:
+3. Link configuration files:
 
 ```bash
 make install
