@@ -40,7 +40,7 @@ local M = {
   },
   cmdline = {
     enabled = true,
-    sources = { 'cmdline' },
+    sources = { 'cmdline', 'path' },
     keymap = {
       ['<Tab>'] = { 'show', 'select_next' },
       ['<Space>'] = { 'select_and_accept', 'fallback' },
