@@ -9,7 +9,7 @@ require("codecompanion").setup({
           hide = true,
         }
       },
-      adapter = "nebius",
+      adapter = "anthropic",
       slash_commands = {
         ["file"] = { opts = { provider = "telescope" } },
         ["buffer"] = { opts = { provider = "telescope" } },
@@ -32,15 +32,6 @@ require("codecompanion").setup({
               "deepseek-ai/DeepSeek-R1-fast",
             },
             default = "deepseek-ai/DeepSeek-R1-fast",
-          },
-        },
-      })
-    end,
-    anthropic = function()
-      return require("codecompanion.adapters").extend("anthropic", {
-        schema = {
-          model = {
-            default = "claude-3-5-haiku-20241022",
           },
         },
       })
