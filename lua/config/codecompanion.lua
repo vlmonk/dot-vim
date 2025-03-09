@@ -9,16 +9,25 @@ require("codecompanion").setup({
           hide = true,
         }
       },
-      adapter = "anthropic",
+      adapter = "openai",
       slash_commands = {
         ["file"] = { opts = { provider = "telescope" } },
         ["buffer"] = { opts = { provider = "telescope" } },
         ["symbols"] = { opts = { provider = "telescope" } },
       },
     },
-    inline = { adapter = "anthropic" }
+    inline = { adapter = "openai" }
   },
   adapters = {
+    openai = function()
+      return require("codecompanion.adapters").extend("openai", {
+        schema = {
+          model = {
+            default = "o3-mini-2025-01-31"
+          }
+        }
+      })
+    end,
     nebius = function()
       return require("codecompanion.adapters").extend("openai_compatible", {
         env = {
@@ -44,7 +53,7 @@ require("codecompanion").setup({
     action_palette = {
       width = 50,
       height = 10,
-      prompt = "Prompt ",                 -- Prompt used for interactive LLM calls
+      prompt = "Prompt ",                   -- Prompt used for interactive LLM calls
       provider = "telescope",               -- default|telescope|mini_pick
       opts = {
         show_default_actions = true,        -- Show the default actions in the action palette?
