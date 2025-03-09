@@ -89,6 +89,16 @@ lspconfig.lua_ls.setup {
   },
 }
 
+require('lspconfig').yamlls.setup({
+  settings = {
+    yaml = {
+      format = {
+        enabled = true
+      },
+    },
+  },
+})
+
 vim.fn.sign_define("LspDiagnosticsSignError", {
   text   = "→",
   texthl = "LspDiagnosticsSignError",

@@ -57,6 +57,7 @@ vim.keymap.set("n", "<leader>,", "<cmd>lua vim.diagnostic.goto_prev()<CR>",    {
 vim.keymap.set("n", "<leader>z", "<cmd>Telescope lsp_document_symbols<CR>",    { silent = true })
 vim.keymap.set("n", "<leader>Z", "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>", { silent = true })
 vim.keymap.set("n", "<leader>D", "<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>F", "<cmd>lua vim.lsp.buf.format()<CR>", { silent = true })
 
 vim.keymap.set("n", "<leader>a", "<cmd>lua vim.lsp.buf.code_action()<CR>",  { silent = true })
 vim.keymap.set("v", "<leader>a", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", { silent = true })
