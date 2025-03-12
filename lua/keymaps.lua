@@ -31,7 +31,7 @@ vim.keymap.set("n", "<leader>fh", "<cmd>Gvdiffsplit @<CR>",          { silent = 
 vim.keymap.set("n", "<leader>fo", "<cmd>Gvsplit :%<CR>",             { silent = true })
 vim.keymap.set("n", "<leader>fb", "<cmd>Git blame<CR>",              { silent = true })
 vim.keymap.set("n", "<leader>fp", "<cmd>Git push<CR>",               { silent = true })
-vim.keymap.set("n", "<leader>fP", "<cmd>Git push -fu origin HEAD<CR>", { silent = true })
+vim.keymap.set("n", "<leader>fP", "<cmd>Git push -f<CR>", { silent = true })
 
 -- Diffview Mappings
 vim.keymap.set("n", "<leader>fd", "<cmd>DiffviewOpen<CR>",           { silent = true })
