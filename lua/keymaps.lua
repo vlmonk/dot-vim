@@ -109,3 +109,6 @@ vim.keymap.set("n", "<leader>S", "<Cmd>lua vim.g.hardtime_showmsg = 1; HardTimeT
 -- test.vim keymaps
 vim.keymap.set("n", "<leader>m", "<cmd>TestNearest<CR>", { silent = true })
 vim.keymap.set("n", "<leader>M", "<cmd>TestFile<CR>",    { silent = true })
+
+-- Edit ex-command-line
+vim.keymap.set("n", "q;", "q:")
