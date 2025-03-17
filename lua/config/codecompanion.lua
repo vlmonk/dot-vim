@@ -1,3 +1,11 @@
+local fmt = string.format
+
+local constants = {
+  LLM_ROLE = "llm",
+  USER_ROLE = "user",
+  SYSTEM_ROLE = "system",
+}
+
 local function system_prompt(_opts)
   return [[
 You are an AI programming assistant named "CodeCompanion". You are currently plugged in to the Neovim text editor on a user's machine.
@@ -134,6 +142,38 @@ Please generate documentation for the following code:
 ]]
         },
       }
-    }
+    },
+    ["Generate a Commit Message"] = {
+      strategy = "chat",
+      description = "Generate a commit message",
+      opts = {
+        index = 2,
+        is_default = false,
+        is_slash_cmd = true,
+        short_name = "commit",
+        auto_submit = false,
+      },
+      prompts = {
+        {
+          role = constants.USER_ROLE,
+          content = function()
+            return fmt(
+              [[
+Please generate commit message for this changes:
+```diff
+%s
+```
+Additional context: %s
+]],
+              vim.fn.system("git diff --no-ext-diff --staged"),
+              "\n"
+            )
+          end,
+          opts = {
+            contains_code = true,
+          },
+        },
+      },
+    },
   }
 })
