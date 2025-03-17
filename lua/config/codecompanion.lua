@@ -175,5 +175,37 @@ Additional context: %s
         },
       },
     },
+    ["Generate a Merge Request"] = {
+      strategy = "chat",
+      description = "Generate a merge request",
+      opts = {
+        index = 3,
+        is_default = false,
+        is_slash_cmd = true,
+        short_name = "mr",
+        auto_submit = false,
+      },
+      prompts = {
+        {
+          role = constants.USER_ROLE,
+          content = function()
+            return fmt(
+              [[
+Please generate title and body for merge request. Base on this commits:
+```
+%s
+```
+Additional context: %s
+]],
+              vim.fn.system("git log @{u}..@"),
+              "\n"
+            )
+          end,
+          opts = {
+            contains_code = true,
+          },
+        },
+      },
+    },
   }
 })
