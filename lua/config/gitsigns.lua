@@ -1,4 +1,12 @@
-require('gitsigns').setup{
+require('gitsigns').setup {
+  signs = {
+    add          = { text = '⌇' },
+    change       = { text = '⌇' },
+    delete       = { text = '_' },
+    topdelete    = { text = '‾' },
+    changedelete = { text = '~' },
+    untracked    = { text = '┆' },
+  },
   on_attach = function(bufnr)
     local gitsigns = require('gitsigns')
 
