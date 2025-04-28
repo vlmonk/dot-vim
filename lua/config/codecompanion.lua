@@ -74,7 +74,7 @@ require("codecompanion").setup({
       return require("codecompanion.adapters").extend("openai", {
         schema = {
           model = {
-            default = "o3-mini-2025-01-31"
+            default = "o4-mini"
           }
         }
       })
