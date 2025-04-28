@@ -7,7 +7,8 @@ local sources = {
       "less", "yaml", "javascript", "javascriptreact", "graphql", "typescriptreact",
       "html", "css", "vue", "scss", "svelte", "typescript", "handlebars", "jsonc", "json"
     }
-  })
+  }),
+  null_ls.builtins.diagnostics.yamllint
 }
 
 null_ls.setup({ sources = sources })
