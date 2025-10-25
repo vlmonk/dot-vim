@@ -55,31 +55,6 @@ sudo apt-get install -y neovim
 
 2. Follow steps 2-4 from the macOS installation.
 
-### Ubuntu 18.04
-
-Additional steps for Ubuntu 18.04:
-
-1. As root:
-
-```bash
-sudo add-apt-repository ppa:deadsnakes/ppa
-apt install python3.9 python3.9-venv
-```
-
-2. As user:
-
-```bash
-python3.9 -m venv ~/python3.9
-source ~/python3.9/bin/activate
-pip install neovim
-```
-
-3. Add to your shell initialization files (e.g., `.bashrc` or `.zshrc`):
-
-```bash
-source ~/python3.9/bin/activate
-```
-
 
 ## Future Plans
 

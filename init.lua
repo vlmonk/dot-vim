@@ -3,7 +3,6 @@ require("config.lazy")
 require("core.options")
 require("core.autocmds")
 
-require("config.codecompanion")
 require("config.telescope")
 require("config.lsp")
 require("config.gitsigns")

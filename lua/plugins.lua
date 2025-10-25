@@ -104,7 +104,6 @@ return {
 
   -- Miscellaneous
   "michaeljsmith/vim-indent-object",
-  "olimorris/codecompanion.nvim",
 
   --
   {
