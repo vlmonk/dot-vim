@@ -1,5 +1,3 @@
-local lspconfig = require('lspconfig')
-
 -- helper functions
 local function expand_path(path)
   -- Check if the path starts with '~'
@@ -18,30 +16,30 @@ end
 local bundle = expand_path("~/.rbenv/shims/bundle")
 
 -- rust
-lspconfig.rust_analyzer.setup {
+vim.lsp.config('rust_analyzer', {
   settings = {
     ['rust-analyzer'] = {
       checkOnSave = { command = "clippy", },
       -- cargo = { extraEnv = { RUSTUP_TOOLCHAIN = "nightly" } }
     }
   }
-}
+})
 
 -- typescript
 local on_attach_tsserver = function(client)
   client.server_capabilities.documentFormattingProvider = false
 end
 
-lspconfig.ts_ls.setup({
+vim.lsp.config('ts_ls', {
   on_attach = on_attach_tsserver,
 })
 
 -- ruby. rubocop && solargraph
-lspconfig.rubocop.setup({
+vim.lsp.config('rubocop', {
   cmd = { bundle, 'exec', 'rubocop', '--lsp' },
 })
 
-lspconfig.solargraph.setup({
+vim.lsp.config('solargraph', {
   cmd = { bundle, "exec", "solargraph", "stdio" },
 
   settings = {
@@ -53,7 +51,7 @@ lspconfig.solargraph.setup({
   }
 })
 
-lspconfig.ruby_lsp.setup({
+vim.lsp.config('ruby_lsp', {
   init_options = {
     formatter = 'standard',
     linters = { 'standard' },
@@ -61,7 +59,7 @@ lspconfig.ruby_lsp.setup({
 })
 
 -- lua
-lspconfig.lua_ls.setup {
+vim.lsp.config('lua_ls', {
   settings = {
     Lua = {
       runtime = {
@@ -87,9 +85,9 @@ lspconfig.lua_ls.setup {
       },
     },
   },
-}
+})
 
-require('lspconfig').yamlls.setup({
+vim.lsp.config('yamlls', {
   settings = {
     yaml = {
       format = {
@@ -99,27 +97,25 @@ require('lspconfig').yamlls.setup({
   },
 })
 
-vim.fn.sign_define("LspDiagnosticsSignError", {
-  text   = "→",
-  texthl = "LspDiagnosticsSignError",
-  linehl = "",
-  numhl  = "",
+-- Enable all configured LSP servers
+vim.lsp.enable({
+  'rust_analyzer',
+  'ts_ls',
+  'rubocop',
+  'solargraph',
+  'ruby_lsp',
+  'lua_ls',
+  'yamlls',
 })
-vim.fn.sign_define("LspDiagnosticsSignWarning", {
-  text   = "→",
-  texthl = "LspDiagnosticsSignWarning",
-  linehl = "",
-  numhl  = "",
-})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {
-  text   = "→",
-  texthl = "LspDiagnosticsSignInformation",
-  linehl = "",
-  numhl  = "",
-})
-vim.fn.sign_define("LspDiagnosticsSignHint", {
-  text   = "→",
-  texthl = "LspDiagnosticsSignHint",
-  linehl = "",
-  numhl  = "",
+
+-- Diagnostic signs configuration
+vim.diagnostic.config({
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '→',
+      [vim.diagnostic.severity.WARN] = '→',
+      [vim.diagnostic.severity.INFO] = '→',
+      [vim.diagnostic.severity.HINT] = '→',
+    },
+  },
 })
