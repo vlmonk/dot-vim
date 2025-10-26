@@ -90,10 +90,6 @@ vim.keymap.set("n", "<leader>W", function()
 end, { silent = true })
 
 
--- Code Companion
-vim.keymap.set("n", "<leader>ll", "<cmd>CodeCompanionActions<CR>", { silent = true })
-vim.keymap.set("v", "<leader>ll", "<cmd>CodeCompanionActions<CR>", { silent = true })
-
 -- Navigate through quickfix list (next/previous entries)
 vim.keymap.set('n', ']q', '<cmd>cnext<CR>')
 vim.keymap.set('n', '[q', '<cmd>cprev<CR>')
