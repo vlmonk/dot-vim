@@ -101,6 +101,10 @@ return {
   -- Colorschemes
   "sainnhe/sonokai",
   "sainnhe/edge",
+  { "uloco/bluloco.nvim",
+  dependencies = { 'rktjmp/lush.nvim' }
+
+},
 
   -- Miscellaneous
   "michaeljsmith/vim-indent-object",
