@@ -8,7 +8,6 @@ Personal Neovim configuration with curated plugins and settings for improved pro
 - [Installation](#installation)
   - [macOS](#macos)
   - [Ubuntu](#ubuntu)
-  - [Ubuntu 18.04](#ubuntu-1804)
 - [Configuration](#configuration)
 - [Future Plans](#future-plans)
 
