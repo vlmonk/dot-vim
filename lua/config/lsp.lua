@@ -32,6 +32,9 @@ end
 
 vim.lsp.config('ts_ls', {
   on_attach = on_attach_tsserver,
+  root_dir = function(bufnr)
+    return vim.fs.root(bufnr, { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' })
+  end,
 })
 
 -- ruby. rubocop && solargraph
