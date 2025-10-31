@@ -1,7 +1,4 @@
 return {
-  -- LSP configuration
-  "neovim/nvim-lspconfig",
-
   -- Status line
   {
     'nvim-lualine/lualine.nvim',

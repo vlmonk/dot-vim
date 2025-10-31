@@ -17,6 +17,8 @@ local bundle = expand_path("~/.rbenv/shims/bundle")
 
 -- rust
 vim.lsp.config('rust_analyzer', {
+  cmd = { 'rust-analyzer' },
+  filetypes = { 'rust' },
   settings = {
     ['rust-analyzer'] = {
       checkOnSave = { command = "clippy", },
@@ -31,6 +33,8 @@ local on_attach_tsserver = function(client)
 end
 
 vim.lsp.config('ts_ls', {
+  cmd = { 'typescript-language-server', '--stdio' },
+  filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
   on_attach = on_attach_tsserver,
   root_dir = function(bufnr)
     return vim.fs.root(bufnr, { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' })
@@ -40,11 +44,12 @@ vim.lsp.config('ts_ls', {
 -- ruby. rubocop && solargraph
 vim.lsp.config('rubocop', {
   cmd = { bundle, 'exec', 'rubocop', '--lsp' },
+  filetypes = { 'ruby' },
 })
 
 vim.lsp.config('solargraph', {
   cmd = { bundle, "exec", "solargraph", "stdio" },
-
+  filetypes = { 'ruby' },
   settings = {
     solargraph = {
       logLevel = "info",
@@ -55,6 +60,8 @@ vim.lsp.config('solargraph', {
 })
 
 vim.lsp.config('ruby_lsp', {
+  cmd = { 'ruby-lsp' },
+  filetypes = { 'ruby' },
   init_options = {
     formatter = 'standard',
     linters = { 'standard' },
@@ -63,6 +70,8 @@ vim.lsp.config('ruby_lsp', {
 
 -- lua
 vim.lsp.config('lua_ls', {
+  cmd = { 'lua-language-server' },
+  filetypes = { 'lua' },
   settings = {
     Lua = {
       runtime = {
@@ -91,6 +100,8 @@ vim.lsp.config('lua_ls', {
 })
 
 vim.lsp.config('yamlls', {
+  cmd = { 'yaml-language-server', '--stdio' },
+  filetypes = { 'yaml', 'yaml.docker-compose' },
   settings = {
     yaml = {
       format = {
@@ -100,15 +111,46 @@ vim.lsp.config('yamlls', {
   },
 })
 
--- Enable all configured LSP servers
-vim.lsp.enable({
-  'rust_analyzer',
-  'ts_ls',
-  'rubocop',
-  'solargraph',
-  'ruby_lsp',
-  'lua_ls',
-  'yamlls',
+-- Auto-start LSP servers using autocommands
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+  callback = function(args)
+    vim.lsp.start({
+      name = 'ts_ls',
+      cmd = { 'typescript-language-server', '--stdio' },
+      root_dir = vim.fs.root(args.buf, { 'tsconfig.json', 'jsconfig.json', 'package.json', '.git' }),
+    })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'rust',
+  callback = function(args)
+    vim.lsp.start({ name = 'rust_analyzer' })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'ruby',
+  callback = function(args)
+    vim.lsp.start({ name = 'rubocop' })
+    vim.lsp.start({ name = 'solargraph' })
+    vim.lsp.start({ name = 'ruby_lsp' })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'lua',
+  callback = function(args)
+    vim.lsp.start({ name = 'lua_ls' })
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'yaml', 'yaml.docker-compose' },
+  callback = function(args)
+    vim.lsp.start({ name = 'yamlls' })
+  end,
 })
 
 -- Diagnostic signs configuration
