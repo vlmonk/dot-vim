@@ -1,6 +1,5 @@
-vim.opt.background = "light"
-require("bluloco").setup({ style = "light" })
-vim.cmd("colorscheme bluloco-light")
+vim.opt.background = "dark"
+vim.cmd("colorscheme sonokai")
 
 vim.cmd("highlight! link TSPunctBracket Blue")
 vim.cmd("highlight Search guibg=transparent guifg=#fa7dfa")
@@ -9,7 +8,7 @@ vim.cmd("highlight Comment gui=italic")
 vim.cmd("highlight VertSplit guifg=#9e9d9d guibg=none")
 vim.cmd("highlight clear ErrorMsg")
 vim.cmd("highlight ErrorMsg guifg=#8B0000 guibg=transparent")
-vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#f0f0f0")
+vim.cmd("highlight ColorColumn ctermbg=lightgrey guibg=#342F3E")
 vim.cmd("highlight LspDiagnosticsSignError guifg=#DE0000 ctermfg=White")
 vim.cmd("highlight LspDiagnosticsVirtualTextErro guifg=#DE0000 ctermfg=White")
 vim.cmd("highlight LspDiagnosticsSignWarning guifg=#FFAE57 ctermfg=White")
