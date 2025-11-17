@@ -133,9 +133,18 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'ruby',
   callback = function(args)
-    vim.lsp.start({ name = 'rubocop' })
-    vim.lsp.start({ name = 'solargraph' })
-    vim.lsp.start({ name = 'ruby_lsp' })
+    vim.lsp.start({
+      name = 'rubocop',
+      cmd = { bundle, 'exec', 'rubocop', '--lsp' },
+    })
+    vim.lsp.start({
+      name = 'solargraph',
+      cmd = { bundle, "exec", "solargraph", "stdio" },
+    })
+    vim.lsp.start({
+      name = 'ruby_lsp',
+      cmd = { 'ruby-lsp' },
+    })
   end,
 })
 
