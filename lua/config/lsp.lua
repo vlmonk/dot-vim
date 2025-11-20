@@ -173,3 +173,48 @@ vim.diagnostic.config({
     },
   },
 })
+
+-- Custom :LspInfo command (alternative to nvim-lspconfig's LspInfo)
+vim.api.nvim_create_user_command('LspInfo', function()
+  local clients = vim.lsp.get_clients()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local buf_clients = vim.lsp.get_clients({ bufnr = bufnr })
+
+  local lines = {}
+  table.insert(lines, "LSP Client Information")
+  table.insert(lines, "=====================")
+  table.insert(lines, "")
+
+  if #buf_clients == 0 then
+    table.insert(lines, "No LSP clients attached to current buffer")
+  else
+    table.insert(lines, "Clients attached to buffer " .. bufnr .. ":")
+    for _, client in ipairs(buf_clients) do
+      table.insert(lines, "")
+      table.insert(lines, "  Client: " .. client.name .. " (id: " .. client.id .. ")")
+      table.insert(lines, "  Root dir: " .. (client.config.root_dir or "not set"))
+      table.insert(lines, "  Filetypes: " .. vim.inspect(client.config.filetypes or {}))
+      table.insert(lines, "  Command: " .. vim.inspect(client.config.cmd or {}))
+    end
+  end
+
+  table.insert(lines, "")
+  table.insert(lines, "All active LSP clients:")
+  if #clients == 0 then
+    table.insert(lines, "  (none)")
+  else
+    for _, client in ipairs(clients) do
+      table.insert(lines, "  - " .. client.name .. " (id: " .. client.id .. ")")
+    end
+  end
+
+  -- Create a scratch buffer and display the info
+  local info_buf = vim.api.nvim_create_buf(false, true)
+  vim.api.nvim_buf_set_lines(info_buf, 0, -1, false, lines)
+  vim.api.nvim_buf_set_option(info_buf, 'modifiable', false)
+  vim.api.nvim_buf_set_option(info_buf, 'buftype', 'nofile')
+
+  -- Open in a new split
+  vim.cmd('split')
+  vim.api.nvim_win_set_buf(0, info_buf)
+end, {})

@@ -36,6 +36,11 @@ Entry point: `init.lua` loads modules in this order:
 
 Uses modern `vim.lsp.config()` API (Nvim 0.11+) in `lua/config/lsp.lua`.
 
+**IMPORTANT**: This config does NOT use the `nvim-lspconfig` plugin. It uses Neovim's built-in LSP API directly.
+- There is NO `:LspInfo` command (that's from the plugin)
+- Use custom `:LspInfo` command instead (shows active LSP clients)
+- Or use `:lua =vim.lsp.get_clients()` for raw client list
+
 ### Configured Language Servers
 
 - **Rust**: `rust_analyzer` with clippy on save
@@ -62,7 +67,6 @@ Ruby LSPs use bundler via `~/.rbenv/shims/bundle` path. When working with Ruby p
 - **Telescope** - Fuzzy finder for files, grep, LSP symbols, diagnostics
 - **nvim-treesitter** - Syntax highlighting and code structure
 - **blink.cmp** - Completion engine (custom config in `lua/config/blink.lua`)
-- **nvim-lspconfig** - LSP integration
 
 ### Git Integration
 - **vim-fugitive** - Git commands within Vim
