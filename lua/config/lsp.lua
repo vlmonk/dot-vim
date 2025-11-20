@@ -19,6 +19,9 @@ local bundle = expand_path("~/.rbenv/shims/bundle")
 vim.lsp.config('rust_analyzer', {
   cmd = { 'rust-analyzer' },
   filetypes = { 'rust' },
+  root_dir = function(bufnr)
+    return vim.fs.root(bufnr, { 'Cargo.toml', '.git' })
+  end,
   settings = {
     ['rust-analyzer'] = {
       checkOnSave = { command = "clippy", },
@@ -126,7 +129,11 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'rust',
   callback = function(args)
-    vim.lsp.start({ name = 'rust_analyzer' })
+    vim.lsp.start({
+      name = 'rust_analyzer',
+      cmd = { 'rust-analyzer' },
+      root_dir = vim.fs.root(args.buf, { 'Cargo.toml', '.git' }),
+    })
   end,
 })
 
