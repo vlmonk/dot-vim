@@ -3,7 +3,6 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { "arkav/lualine-lsp-progress" },
-    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
   },
 
   -- Vim utilities

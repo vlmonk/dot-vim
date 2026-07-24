@@ -71,49 +71,6 @@ vim.lsp.config('ruby_lsp', {
   },
 })
 
--- lua
-vim.lsp.config('lua_ls', {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  settings = {
-    Lua = {
-      runtime = {
-        version = 'LuaJIT', -- or the Lua version you use
-      },
-      diagnostics = {
-        globals = { 'vim' }, -- Recognize the `vim` global
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-        checkThirdParty = false, -- Optional: Disable automatic third-party library checks
-      },
-      -- Enable the built-in formatter
-      format = {
-        enable = true,
-        defaultConfig = {
-          indent_style = "space",
-          indent_size = "2",
-        },
-      },
-      telemetry = {
-        enable = false,
-      },
-    },
-  },
-})
-
-vim.lsp.config('yamlls', {
-  cmd = { 'yaml-language-server', '--stdio' },
-  filetypes = { 'yaml', 'yaml.docker-compose' },
-  settings = {
-    yaml = {
-      format = {
-        enabled = true
-      },
-    },
-  },
-})
-
 -- Auto-start LSP servers using autocommands
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
@@ -152,20 +109,6 @@ vim.api.nvim_create_autocmd('FileType', {
       name = 'ruby_lsp',
       cmd = { 'ruby-lsp' },
     })
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'lua',
-  callback = function(args)
-    vim.lsp.start({ name = 'lua_ls' })
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = { 'yaml', 'yaml.docker-compose' },
-  callback = function(args)
-    vim.lsp.start({ name = 'yamlls' })
   end,
 })
 

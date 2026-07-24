@@ -134,7 +134,6 @@ Leader key is set to `<Space>`.
 | `<leader>Y` | Workspace diagnostics |
 | `<leader>.` | Next diagnostic |
 | `<leader>,` | Previous diagnostic |
-| `<leader>D` | Show line diagnostics |
 
 ### Git Operations (Fugitive & Diffview)
 

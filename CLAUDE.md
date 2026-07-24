@@ -49,8 +49,6 @@ Uses modern `vim.lsp.config()` API (Nvim 0.11+) in `lua/config/lsp.lua`.
   - `rubocop` via bundler
   - `solargraph` via bundler
   - `ruby_lsp` with standard formatter
-- **Lua**: `lua_ls` with Neovim API globals
-- **YAML**: `yamlls` with formatting enabled
 
 ### Ruby LSP Notes
 
@@ -114,5 +112,4 @@ Ruby LSPs use bundler via `~/.rbenv/shims/bundle` path. When working with Ruby p
 ## Code Style
 
 - 2-space indentation (spaces, not tabs)
-- Lua formatting via lua_ls built-in formatter
 - Line length guides at columns 80 and 120
