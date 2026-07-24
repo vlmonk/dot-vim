@@ -42,9 +42,6 @@ vim.keymap.set("n", "<leader>fc", "<cmd>DiffviewClose<CR>",          { silent = 
 vim.keymap.set("n", "gl", "$%", { silent = true })
 vim.keymap.set("v", "gl", "$%", { silent = true })
 
--- Custom binding for Enhanced Jumps
-vim.keymap.set("n", "<leader>o", "<Plug>EnhancedJumpsRemoteOlder", { silent = true })
-
 -- Yank selected or current line to system clipboard
 vim.keymap.set("v", "<leader>N", '"*y')
 vim.keymap.set("n", "<leader>N", '0"*vy$', { silent = true })

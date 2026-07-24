@@ -1,15 +1,11 @@
 return {
   -- Status line
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { "arkav/lualine-lsp-progress" },
-  },
+  'nvim-lualine/lualine.nvim',
 
   -- Vim utilities
   "tpope/vim-surround",
   "tpope/vim-fugitive",
   "tpope/vim-repeat",
-  "cespare/vim-toml",
   "mbbill/undotree",
   "famiu/bufdelete.nvim",
   "tpope/vim-haml",
@@ -66,7 +62,6 @@ return {
   },
 
   -- Additional languages and utilities
-  "kchmck/vim-coffee-script",
   "nvimtools/none-ls.nvim",
   "nvim-tree/nvim-tree.lua",
   "sindrets/diffview.nvim",
@@ -75,8 +70,8 @@ return {
   -- Test runner
   "vim-test/vim-test",
 
-  -- Comments
-  "tpope/vim-commentary",
+  -- Comments (native gc/gcc since Nvim 0.10; this makes commentstring
+  -- context-aware inside tsx/jsx, see config/commentstring.lua)
   "JoosepAlviste/nvim-ts-context-commentstring",
 
   -- Telescope and dependencies
@@ -88,10 +83,6 @@ return {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "make", -- Runs "make" after cloning the repo
   },
-
-  -- Enhanced jump and common library
-  "inkarkat/vim-ingo-library",
-  "inkarkat/vim-EnhancedJumps",
 
   -- Colorschemes
   "sainnhe/sonokai",

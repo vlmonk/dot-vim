@@ -161,7 +161,6 @@ Leader key is set to `<Space>`.
 | Key | Action |
 |-----|--------|
 | `gl` | Jump to end of block (normal & visual) |
-| `<leader>o` | Enhanced jumps: remote older |
 | `]q` | Next quickfix entry |
 | `[q` | Previous quickfix entry |
 

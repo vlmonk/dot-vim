@@ -23,8 +23,7 @@ require('lualine').setup({
           info = 'ᚨ ', -- Ansuz. Connected with communication and divine messages, ideal for info.
           hint = "ᛃ " -- Jera. With its cyclical, gentle feel, it works well for hints.
         },
-      }, { 'lsp_progress', display_components = { 'lsp_client_name', 'spinner' }, }
-
+      }, 'lsp_status'
     },
     lualine_x = {},
     lualine_y = { 'location' },
