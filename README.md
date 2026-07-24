@@ -14,10 +14,12 @@ Personal Neovim configuration with curated plugins and settings for improved pro
 
 ## Prerequisites
 
+- Neovim 0.11+ (modern LSP configuration API)
 - Git
 - Terminal with Unicode support
 - Node.js and npm
 - Python 3 and pip
+- C compiler (`cc`/`gcc`/`clang`) and `tree-sitter` CLI (`brew install tree-sitter-cli`) — required to build treesitter parsers
 
 ## Installation
 
@@ -54,6 +56,22 @@ sudo apt-get install -y neovim
 ```
 
 2. Follow steps 2-4 from the macOS installation.
+
+## Configuration
+
+### nvim-treesitter
+
+Uses the `main` branch of nvim-treesitter (the rewrite). There is no
+`configs.setup()` — parsers are installed via `require('nvim-treesitter').install()`
+and highlighting is enabled per-buffer from a `FileType` autocmd in
+`lua/config/nvim-treesitter.lua`. Missing parsers for known filetypes are
+installed automatically on first open.
+
+Building parsers requires the `tree-sitter` CLI and a C compiler:
+
+```bash
+brew install tree-sitter-cli
+```
 
 ## Key Bindings
 

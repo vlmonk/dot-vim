@@ -62,10 +62,9 @@ return {
   -- Treesitter and related plugins
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate", -- Runs :TSUpdate after install/update
   },
-  "nvim-treesitter/nvim-treesitter-textobjects",
-  "RRethy/nvim-treesitter-textsubjects",
 
   -- Additional languages and utilities
   "kchmck/vim-coffee-script",
